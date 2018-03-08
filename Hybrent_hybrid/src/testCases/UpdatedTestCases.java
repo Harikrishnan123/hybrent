@@ -49,7 +49,7 @@ public class UpdatedTestCases extends ApplicationKeyword {
 	}
 	
 	@Test(priority=1)
-	public void Tca_Login_001() {
+	public void Tc_001() {
 		System.out.println("CameTo");
 		testStarts("Tc_Login_001", "Verify that system does not allow user to Login with �Invalid Credentials�");
 		openBrowser(URL);
@@ -65,8 +65,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 	}
 	
 
-	@Test(priority=1)
-	public void Tc_Cart_1_2()
+	@Test(priority=2)
+	public void Tc_002()
 	{
 		testStarts("Tc_Cart_1 and Tc_Cart_2()" , "Verify that �Select Facility� popup appears when user clicks on facility name with �Cart for� label."
 				+ " Verify that �selected� button appears as disabled for the facility which is displayed on Shop page.");
@@ -78,8 +78,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 
-	@Test(priority=2)
-	public void Tc_Cart_03()
+	@Test(priority=3)
+	public void Tc_003()
 	{
 		testStarts("Tc_Cart_03" ," Verify that user can search/scan with �Item Name, SKU, MFR� in the Add Item search field..");
 		NavigateUrl(DashBoardURL);
@@ -90,8 +90,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 				
 	}
 
-	@Test(priority=3)
-	public void Tc_Cart_05() throws InterruptedException
+	@Test(priority=4)
+	public void Tc_004() throws InterruptedException
 	{
 		testStarts("Tc_Cart_05" ," Verify that user can change the quantity of item by clicking (+) and (-) button respectively or by entering the value and pressing tick or cancel button..");
 		NavigateUrl(DashBoardURL);
@@ -161,8 +161,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 
-	@Test(priority=4)
-	public void Tc_Cart_06()
+	@Test(priority=5)
+	public void Tc_005()
 	{
 		testStarts("Tc_Cart_06" ,"Verify that user is able to add �Special Instructions� for each vendor.");
 		NavigateUrl(DashBoardURL);
@@ -200,8 +200,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 				
 	}
 
-	@Test(priority=5)
-	public void Tc_Cart_07()
+	@Test(priority=6)
+	public void Tc_006()
 	{
 		testStarts("Tc_Cart_07" ,"Verify that user can manually add PO number by selecting �Use PO#� checkbox.");
 		NavigateUrl(DashBoardURL);
@@ -239,8 +239,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 			
 	}
 
-	@Test(priority=6)
-	public void Tc_Cart_08()
+	@Test(priority=7)
+	public void Tc_007()
 	{
 		testStarts("Tc_Cart_08" ,"Verify that vendor gets removed from cart when user clicks on �Remove Vendor from cart� option in dropdown with vendor name.");
 		NavigateUrl(DashBoardURL);
@@ -265,8 +265,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 
 	}
-	@Test(priority=7)
-	public void Tc_Cart_09()
+	@Test(priority=8)
+	public void Tc_008()
 	{
 		testStarts("Tc_Cart_09" ," �Verify that users gets redirected to �Vendors Account Setup� on clicking � Account Setup. ");
 		NavigateUrl(DashBoardURL);
@@ -289,8 +289,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 				
 	}
 
-	@Test(priority=8)
-	public void Tc_Cart_10()
+	@Test(priority=9)
+	public void Tc_009()
 	{
 		testStarts("Tc_Cart_10" ,"Verify that �Departments� pop up appears when user clicks on Attach  department hyperlink.");
 		NavigateUrl(DashBoardURL);
@@ -314,8 +314,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		waitTime(3);
 			
 	}
-	@Test(priority=9)
-	public void Tc_Cart_12()
+	@Test(priority=10)
+	public void Tc_010()
 	{
 		testStarts("Tc_Cart_12" ,"Verify that �Physicians� pop up appears when user clicks on �Attach Physician� hyperlink.");
 		NavigateUrl(DashBoardURL);
@@ -339,8 +339,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 
 	}
 
-	@Test(priority=10)
-	public void Tc_Cart_11()
+	@Test(priority=11)
+	public void Tc_011()
 	{
 		testStarts("Tc_Cart_11" ,"Verify that Print window appears when user clicks print items.");
 		NavigateUrl(DashBoardURL);
@@ -365,10 +365,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 
 	}
 
-
-
-	@Test(priority=11)
-	public void Tc_Cart_13()
+	@Test(priority=12)
+	public void Tc_012()
 	{
 		testStarts("Tc_Cart_13" ,"Verify that when user clicks on �Clear Current cart�, items added in current facility gets cleared.");
 		NavigateUrl(DashBoardURL);
@@ -393,8 +391,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 
 	}
 
-	@Test(priority=12)
-	public void Tc_Cart_14()
+	@Test(priority=13)
+	public void Tc_013()
 	{
 		testStarts("Tc_Cart_14" ,"Verify that when user clicks on �Clear all Cart�, items added in all facilities gets cleared..");
 		NavigateUrl(DashBoardURL);
@@ -463,13 +461,10 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		}
 
 		clickOn(OR.Shop_SHopfor_cancelButtonPopup);
-				
 	}
-
-
-
-	@Test(priority=13)
-	public void Tc_Cart_15()
+	
+	@Test(priority=14)
+	public void Tc_014()
 	{
 		testStarts("Tc_Cart_15" ,"Verify that show tour pops appear when user clicks on show tour option in dropdown next to refresh button.");
 		//NavigateUrl(DashBoardURL);
@@ -479,7 +474,6 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		{
 			MycartPage.showTourPopUP();
 			verifyElementText(OR.MyCart_showtourtextONPOPUP, "Cart: List of Items");
-
 		}
 		else
 		{
@@ -584,8 +578,10 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		closeBrowser();
 	}
 	
-	@Test(priority=1)
-	public void Tc_SH_01() throws InterruptedException
+	// SHOP Page
+	
+	@Test(priority=15)
+	public void Tc_015() throws InterruptedException
 	{
 		testStarts("Tc_SPO_01", "Verify that user can search shipments by Shipment#, Tracking # and PO# ");
 		Loginpage.OpenBrowserAndLogin();
@@ -609,8 +605,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 
-	@Test(priority=2)
-	public void Tc_SH_02() throws InterruptedException
+	@Test(priority=16)
+	public void Tc_016() throws InterruptedException
 	{
 		testStarts("Tc_SH_02", "Verify that status dropdown appears with(Pending Shipped Partial Received Received) options");
 		NavigateUrl(DashBoardURL);
@@ -649,8 +645,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 						
 	}
 
-	@Test(priority=3)
-	public void Tc_SH_03() throws InterruptedException
+	@Test(priority=17)
+	public void Tc_017() throws InterruptedException
 	{
 		testStarts("Tc_SH_03", "Verify that user gets redirected to shipment details screen on clicking �Shipment #�.");
 		NavigateUrl(DashBoardURL);
@@ -673,8 +669,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 
-	@Test(priority=4)
-	public void Tc_SH_04() throws InterruptedException
+	@Test(priority=18)
+	public void Tc_018() throws InterruptedException
 	{
 		testStarts("Tc_SH_04", "Verify that �Receive� button appears for pending and Partial received shipments.�.");
 		NavigateUrl(DashBoardURL);
@@ -692,8 +688,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		Shipmentpage.receiveTextandCloseButton();
 		closeBrowser();
 	}
-	@Test(priority=1)
-	public void Tc_SPO_01()
+	@Test(priority=19)
+	public void Tc_019()
 	{
 		testStarts("Tc_SPO_01", "Verify that user can search service items on the basis of Item Name, alias, MFR, SKU in the search field.");
 		Loginpage.OpenBrowserAndLogin();
@@ -779,8 +775,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 
-	@Test(priority=2)
-	public void Tc_SPO_02()
+	@Test(priority=20)
+	public void Tc_020()
 	{
 		testStarts("Tc_SPO_02", "Verify that �Add Service� pop up appears when user clicks on Add New Service option. ");
 		NavigateUrl(DashBoardURL);
@@ -793,8 +789,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 
 	}
-	@Test(priority=3)
-	public void Tc_SPO_03()
+	@Test(priority=21)
+	public void Tc_022()
 	{
 		testStarts("Tc_SPO_03", "Verify that Service location dropdown with department and facility appears on the page. ");
 		NavigateUrl(DashBoardURL);
@@ -809,8 +805,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 	
-	@Test(priority=4)
-	public void Tc_SPO_04()
+	@Test(priority=23)
+	public void Tc_023()
 	{
 		testStarts("Tc_SPO_04", "Verify that Service Date field with calendar option appears on page. ");
 		NavigateUrl(DashBoardURL);
@@ -837,8 +833,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 
-	@Test(priority=5)
-	public void Tc_SPO_05() throws InterruptedException
+	@Test(priority=24)
+	public void Tc_024() throws InterruptedException
 	{
 		testStarts("Tc_SPO_05", " Verify that list of service vendor appears in the Vendor dropdown.");
 		NavigateUrl(DashBoardURL);
@@ -855,8 +851,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		closeBrowser();
 	}
 
-	@Test(priority=1)
-	public void Tc_RECDET_01()
+	@Test(priority=25)
+	public void Tc_025()
 	{
 		testStarts("Tc_RECDET_01_02", "Verify that �Notes for PO #� window appears when user clicks on notes icon with count."+"Verify that �Add Note for PO #� pop up appears when user clicks on �Add New Note�");
 		Loginpage.OpenBrowserAndLogin();		
@@ -899,8 +895,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 //		
 //	}
 	
-	@Test(priority=2)
-	public void Tc_RECDET_03_04() throws InterruptedException
+	@Test(priority=26)
+	public void Tc_026() throws InterruptedException
 	{
 		testStarts("Tc_RECDET_03_04()", "Verify that �PO # XXXX11 Documents� pop up appears when clicks on Documents icon with count +"
 				+ "Verify that select file from computer window opens when user clicks on Upload File button.");
@@ -935,8 +931,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 	}	
 	
 	//MAY FAIL DUE TO WAIT FUNCTION
-	@Test(priority=3)
-	public void Tc_RECDET_05() 
+	@Test(priority=27)
+	public void Tc_027() 
 	{
 		testStarts("Tc_RECDET_05()", "Verify that items in PO gets added to cart when user clicks on �Add Items to cart� option");
 		NavigateUrl(DashBoardURL);	
@@ -991,8 +987,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 
-	@Test(priority=4)
-	public void Tc_RECDET_06()
+	@Test(priority=28)
+	public void Tc_028()
 	{
 		testStarts("Tc_RECDET_06()", "Verify that �Print PO� preview window appears when user clicks on Print Po option in action dropdown");
 		NavigateUrl(DashBoardURL);	
@@ -1009,8 +1005,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 	
-	@Test(priority=5)
-	public void Tc_RECDET_07() 
+	@Test(priority=29)
+	public void Tc_029() 
 	{
 		testStarts("Tc_RECDET_07()", "Verify that �Print Window� appears on clicking Print button..");
 		NavigateUrl(DashBoardURL);	
@@ -1025,8 +1021,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 	
 	}
 	
-	@Test(priority=6)
-	public void Tc_RECDET_08() 
+	@Test(priority=30)
+	public void Tc_030() 
 	{
 		testStarts("Tc_RECDET_08()", "Verify that user gets redirected to �INVOICE FOR PO #� page, on clicking �Add Invoice� option.");
 		NavigateUrl(DashBoardURL);	
@@ -1043,8 +1039,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 	//Had to use waitTime instead of dynamic
-	@Test(priority=7)
-	public void Tc_RECDET_09() 
+	@Test(priority=31)
+	public void Tc_031() 
 	{
 		testStarts("Tc__RECDET_9()", "Verify that �INVOICES FOR PO #� page appears when user clicks on All Invoices option.");
 		NavigateUrl(DashBoardURL);	
@@ -1071,8 +1067,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 	
 	}
 	//Had to use waitTime instead of dynamic
-	@Test(priority=8)
-	public void Tc_RECDET_10() {
+	@Test(priority=32)
+	public void Tc_032() {
 		testStarts("Tc_RECDET_10",
 				"Verify that �PO AUDIT LOGS FOR PO #� pop up window appears when user clicks on Po Log option in the dropdown.");
 		NavigateUrl(DashBoardURL);	
@@ -1089,8 +1085,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		waitTime(3);
 	}
 	
-	@Test(priority=9)
-	public void Tc_RECDET_11() {
+	@Test(priority=33)
+	public void Tc_033() {
 		testStarts("Tc_RECDET_11",
 				"Verify that �PO APPROVAL LOGS FOR PO # � pop up appears when user clicks on PO Approval Log option");
 		NavigateUrl(DashBoardURL);	
@@ -1106,8 +1102,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		waitTime(3);
 	}
 	
-	@Test(priority=10)
-	public void Tc_RECDET_12() {
+	@Test(priority=34)
+	public void Tc_034() {
 		testStarts("Tc_RECDET_12",
 				"Verify that �Notes for PO #� window appears when user clicks on notes icon with count.");
 		NavigateUrl(DashBoardURL);	
@@ -1123,8 +1119,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		waitTime(3);
 	}
 	//MAY FAIL DUE TO IF 'Receive_PrintCloseclose' IS NOT FOUND WITHIN TIME
-	@Test(priority=11)
-	public void Tc_RECDET_13() {
+	@Test(priority=35)
+	public void Tc_035() {
 		testStarts("Tc_RECDET_13",
 				"Verify that �Add Note for PO #� pop up appears when user clicks on �Add New Note�.");
 		NavigateUrl(DashBoardURL);	
@@ -1146,8 +1142,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 	}
 	
 	
-	@Test(priority=12)
-	public void Tc_RECDET_14() {
+	@Test(priority=36)
+	public void Tc_036() {
 		testStarts("Tc_RECDET_14",
 				"Verify that notes gets deleted when user clicks on �Delete� button for the added note.");
 		NavigateUrl(DashBoardURL);	
@@ -1186,8 +1182,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 	}
 		
 	
-	@Test(priority=13)
-	public void Tc_RECDET_15_16() throws InterruptedException
+	@Test(priority=37)
+	public void Tc_037() throws InterruptedException
 	{
 		testStarts("Tc_RECDET_15_16()", "Verify that �PO # XXXX11 Documents� pop up appears when clicks on Documents icon with count +"
 				+ "Verify that select file from computer window opens when user clicks on Upload File button.");
@@ -1224,8 +1220,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 	}
 	
 	
-	@Test(priority=14)
-	public void Tc_RECDET_17() {
+	@Test(priority=38)
+	public void Tc_038() {
 		testStarts("Tc_RECDET_17",
 				"Verify that Mark as Receive only option appears.");
 		NavigateUrl(DashBoardURL);	
@@ -1238,8 +1234,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 	
-	@Test(priority=15)
-	public void Tc_RECDET_19() {
+	@Test(priority=39)
+	public void Tc_039() {
 		testStarts("Tc_RECDET_18",
 				"Verify that show tour pops appear when user clicks on show tour option in dropdown next to refresh button.");
 		NavigateUrl(DashBoardURL);	
@@ -1250,14 +1246,11 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		waitForElementToDisplay(OR.Receive_PODetailNotesLinkDrillDown, 10);
 		clickOn(OR.Receive_ShowTour);
 		verifyElementText(OR.Receive_ShowTourText, "Order: PO Details");	
-		//System.out.println(getText(OR.Receive_NextButton));
-		//System.out.println(getText(OR.Receive_EndButton));
-		
-		
+			
 	}
 	
-	@Test(priority=16)
-	public void Tc_RECDET_20() {
+	@Test(priority=40)
+	public void Tc_040() {
 		testStarts("Tc_RECDET_20",
 				"Verify that �Departments� pop up appears when user clicks on Attach department hyperlink.");
 		NavigateUrl(DashBoardURL);	
@@ -1268,8 +1261,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 	
-	@Test(priority=17)
-	public void Tc_RECDET_21() {
+	@Test(priority=41)
+	public void Tc_041() {
 		testStarts("Tc_RECDET_21",
 				"Verify that �Physicians� pop up appears when user clicks on �Attach Physician� hyperlink.");
 		NavigateUrl(DashBoardURL);	
@@ -1280,8 +1273,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 	
-	@Test(priority=18)
-	public void Tc_RECDET_22_23() throws InterruptedException 
+	@Test(priority=42)
+	public void Tc_042() throws InterruptedException 
 	{
 		testStarts("Tc_RECDET_22_23",
 				"Verify that Partial Receive and Complete buttons appear for corresponding PO number whose status is Confirmed/Assigned/Partial Received."
@@ -1298,8 +1291,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		closeBrowser();
 	}
 
-	@Test(priority=1)
-	public void Tc_Procedures_01_02_03()
+	@Test(priority=43)
+	public void Tc_043()
 		{
 		testStarts("Tc_Procedures_01_02_03", "Verify that user is able to add procedure using 'Add Procedure' button.");
 		Loginpage.OpenBrowserAndLogin();	
@@ -1348,8 +1341,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 		}
 	
-	@Test(priority=2)
-	public void Tc_Procedures_04()
+	@Test(priority=44)
+	public void Tc_044()
 		{
 		testStarts("Tc_Procedures_04", "Edit Procedure > Verify that all fields are editable.");
 		NavigateUrl(DashBoardURL);	
@@ -1371,8 +1364,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 		}
 	
-	@Test(priority=3)
-	public void Tc_Procedures_05_06()
+	@Test(priority=45)
+	public void Tc_045()
 		{
 		testStarts("Tc_Procedures_05_06", "Verify that + (expand) button appears on left of procedure name"
 				+ "+ Drill-down > Verify that Physician and NPI number appear in drill-down table.");
@@ -1397,8 +1390,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		}
 	
 	
-	@Test(priority=4)
-	public void Tc_Procedures_07()
+	@Test(priority=46)
+	public void Tc_046()
 		{
 		testStarts("Tc_Procedures_07", "Verify that corresponding procedure gets deleted when user clicks Delete button.");
 		NavigateUrl(DashBoardURL);	
@@ -1433,8 +1426,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		closeBrowser();
 		}
 
-	@Test(priority=1)
-	public void Tc_prefCard_01()
+	@Test(priority=47)
+	public void Tc_047()
 		{
 		testStarts("Tc_prefCard_01" , "Verify that 'Add Preference Card' button appears on page.");
 		Loginpage.OpenBrowserAndLogin();	
@@ -1443,8 +1436,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		verifyElement(OR.prefCard_AddPrefCard);
 		}
 	
-	@Test(priority=2)
-	public void Tc_prefCard_02()
+	@Test(priority=48)
+	public void Tc_048()
 		{
 		testStarts("Tc_prefCard_02" , "Create Preference Card > Verify that Card Name and Physician are mandatory fields.");
 		NavigateUrl(DashBoardURL);	
@@ -1462,8 +1455,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 
-	@Test(priority=3)
-	public void Tc_prefCard_03_04()
+	@Test(priority=49)
+	public void Tc_049()
 		{
 		testStarts("Tc_prefCard_03" , "Create Preference Card > Verify that 'Add Stage' pop-up appears when user click Add Stage button..");
 		NavigateUrl(DashBoardURL);	
@@ -1546,8 +1539,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 //		
 //		}
 	
-	@Test(priority=4)
-	public void Tc_prefCard_06()
+	@Test(priority=50)
+	public void Tc_050()
 		{
 		testStarts("Tc_prefCard_06" , "Create Preference Card > Stage tab > Verify that user is able to search item on basis of Name, alias, SKU and MFR.");
 		NavigateUrl(DashBoardURL);	
@@ -1564,8 +1557,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 				
 		}
 	
-	@Test(priority=5)
-	public void Tc_prefCard_07()
+	@Test(priority=51)
+	public void Tc_051()
 		{
 		testStarts("Tc_prefCard_07" , "Create Preference Card > Stage tab > Verify that item category appears above item name.");
 		NavigateUrl(DashBoardURL);
@@ -1610,8 +1603,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 		}
 	
-	@Test(priority=6)
-	public void Tc_prefCard_08()
+	@Test(priority=52)
+	public void Tc_052()
 		{
 		testStarts("Tc_prefCard_08" , "Create Preference Card > Stage tab > Verify that item category appears above item name.");
 		NavigateUrl(DashBoardURL);
@@ -1637,8 +1630,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 		}
 	
-	@Test(priority=7)
-	public void Tc_prefCard_09()
+	@Test(priority=53)
+	public void Tc_053()
 		{
 		testStarts("Tc_prefCard_09" , "Create Preference Card > Stage tab > Verify that corresponding item gets deleted when user clicks Delete button.");
 		NavigateUrl(DashBoardURL);
@@ -1648,8 +1641,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		verifyElementText(OR.prefCard_NoItemText ," No item in this stage.");
 		
 		}
-	@Test(priority=8)
-	public void Tc_prefCard_010()
+	@Test(priority=54)
+	public void Tc_054()
 		{
 		testStarts("Tc_prefCard_10" , "Create Preference Card > Stage tab > Verify that corresponding stage gets deleted when user clicks Remove Stage button.");
 		NavigateUrl(DashBoardURL);
@@ -1673,8 +1666,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 	
 		}
 	
-	@Test(priority=10)
-	public void Tc_prefCard_12()
+	@Test(priority=55)
+	public void Tc_055()
 		{
 		testStarts("Tc_prefCard_12" , "Create Preference Card > Verify that user can copy stage's from other prefcards using copy stages button. ");
 		NavigateUrl(DashBoardURL);
@@ -1702,8 +1695,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 		}
 	
-	@Test(priority=11)
-	public void Tc_prefCard_14()
+	@Test(priority=56)
+	public void Tc_056()
 		{
 		testStarts("Tc_prefCard_14" , "Verify that corresponding preference card gets deleted when user clicks Delete button if corresponding card has no stages in it.");
 		NavigateUrl(DashBoardURL);
@@ -1733,8 +1726,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 		}
 	
-	@Test(priority=12)
-	public void Tc_prefCard_15()
+	@Test(priority=57)
+	public void Tc_057()
 		{
 		testStarts("Tc_prefCard_15" , "Verify that user can copy any existing prefcard using �Copy Preference Card.� icon.");
 		NavigateUrl(DashBoardURL);
@@ -1746,7 +1739,7 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		}
 
 	@Test
-	public void Tc_Cases_01()
+	public void Tc_058()
 	{
 		testStarts("Tc_Cases_01", "Verify that user gets redirected to case details page on clicking Edit Patient case button.");
 		Loginpage.OpenBrowserAndLogin();			
@@ -1760,7 +1753,7 @@ public class UpdatedTestCases extends ApplicationKeyword {
 	}
 	
 	@Test
-	public void Tc_Cases_02()
+	public void Tc_059()
 	{
 		testStarts("Tc_Cases_02", "Verify that Case preview page open when user clicks on Print.");
 		NavigateUrl(DashBoardURL);			
@@ -1773,8 +1766,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		closeBrowser();
 	}
 
-	@Test(priority=1)
-	public void Tc_Fac_01()
+	@Test
+	public void Tc_060()
 	{
 		testStarts("Tc_Fac_01" , "Verify that user can search facility by name using the search text field. ");
 		Loginpage.OpenBrowserAndLogin();
@@ -1795,8 +1788,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 
-	@Test(priority=2)
-	public void Tc_Fac_02()
+	@Test
+	public void Tc_061()
 	{
 		testStarts("Tc_Fac_02" , "Verify that �Add Facility� pop up opens on clicking Add button.");
 		NavigateUrl(DashBoardURL);
@@ -1809,8 +1802,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 
-	@Test(priority=3)
-	public void Tc_Fac_03()
+	@Test
+	public void Tc_062()
 	{
 		testStarts("Tc_Fac_03" , "Verify that tabs(Facility Details, Shipping Address, Invoice Address) appears on Add/Edit facility pop up.");
 		NavigateUrl(DashBoardURL);
@@ -1845,8 +1838,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 
-	@Test(priority=4)
-	public void Tc_Fac_04()
+	@Test(priority=63)
+	public void Tc_063()
 	{
 		testStarts("Tc_Fac_04" , "Verify that 'Edit Facility' page opens when on clicking Edit button.");
 		NavigateUrl(DashBoardURL);
@@ -1858,8 +1851,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		waitTime(3);
 	}
 
-	@Test(priority=5)
-	public void Tc_Fac_05_Dep_02()
+	@Test(priority=64)
+	public void Tc_064()
 	{
 		testStarts("Tc_Fac_05Dep_02" , "Verify that facility name drill down expand and display all associated departments when user clicks on �-� button.");
 		NavigateUrl(DashBoardURL);		
@@ -1903,15 +1896,13 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		else
 		{
 			testLogFail("Facility is not matched-- Either search is not working properly or this is not user;s default facility");
-		}
-
-		
+		}		
 	}
 
 
 	//Departments
-	@Test(priority=6)
-	public void Tc_Dep_03_04()
+	@Test
+	public void Tc_065()
 	{
 		testStarts("Tc_Dep_03_04" , "Verify that user is able to create new department by clicking Add button."
 				+"Create Department > Verify that all fields are mandatory.");
@@ -1958,8 +1949,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		}
 		
 	}
-	@Test(priority=7)
-	public void Tc_Dep_07()
+	@Test
+	public void Tc_066()
 	{
 		testStarts("Tc_Dep_07" , "Edit Department > Verify that changes get saved, when on clicking Save button.");
 		NavigateUrl(DashBoardURL);					
@@ -1998,8 +1989,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 	//Priority has to be set above 7th test case
-	@Test(priority=8)
-	public void Tc_Dep_06()
+	@Test
+	public void Tc_067()
 	{
 		testStarts("Tc_Dep_06" , "Verify that department gets deleted on clicking Delete button if the same is not used anywhere.");
 		NavigateUrl(DashBoardURL);						
@@ -2036,8 +2027,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 
 	//Manage Physicians
 
-	@Test(priority=9)
-	public void Tc_Phy_01_02_03()
+	@Test
+	public void Tc_068()
 	{
 		testStarts("Tc_Phy_02_03_04" , "Verify that user is able to add new physician using 'Add Physician' button."
 				+"Verify that user can search physician by name using search text field and physician drodown.");
@@ -2093,8 +2084,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 
-	@Test(priority=10)
-	public void Tc_Phy_01()
+	@Test
+	public void Tc_069()
 	{
 		testStarts("Tc_Phy_01" , "Verify that user can search physician by npi number using search text field and physician drodown.");
 		NavigateUrl(DashBoardURL);
@@ -2113,8 +2104,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 				
 	}
 
-	@Test(priority=11)
-	public void Tc_Phy_04()
+	@Test
+	public void Tc_070()
 	{
 		testStarts("Tc_Phy_04" , "Edit Physician > Verify that all fields are editable.");
 		NavigateUrl(DashBoardURL);
@@ -2148,8 +2139,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 	}
 
 
-	@Test(priority=12)
-	public void Tc_Phy_05()
+	@Test
+	public void Tc_071()
 	{
 		testStarts("Tc_Phy_05" , "Verify that corresponding physician gets deleted when user clicks Delete button.");
 		NavigateUrl(DashBoardURL);
@@ -2184,8 +2175,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 	}
 
 	//Manage Approval FLows
-	@Test(priority=13)
-	public void Tc_ManageApprovalFlow_01()
+	@Test
+	public void Tc_072()
 	{
 		testStarts("Tc_ManageApprovalFlow_01" , "Verify that �MANAGE APPROVAL FLOWS� page appears when user clicks on Approval Flow button.");
 		NavigateUrl(DashBoardURL);
@@ -2205,8 +2196,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 
 	//Manufacturers
 
-	@Test(priority=14)
-	public void Tc_Manufacturers_01()
+	@Test
+	public void Tc_073()
 	{
 		testStarts("Tc_Manufacturers_01" , "Verify that Manufacturers page appears when user clicks on manufacturer option.");
 		NavigateUrl(DashBoardURL);
@@ -2215,8 +2206,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 
 	}
-	@Test(priority=15)
-	public void Tc_Manufacturers_02()
+	@Test
+	public void Tc_074()
 	{
 		testStarts("Tc_Manufacturers_02" , "Verify that user can search manufacturer with the name.");
 		NavigateUrl(DashBoardURL);
@@ -2246,8 +2237,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 
 	//GL COde
 
-	@Test(priority=16)
-	public void Tc_GL_Code_01_02()
+	@Test
+	public void Tc_075()
 	{
 		testStarts("Tc_GL_Code_01_02" , "Verify that user can search manufacturer with the name."+"Create GL Code > Verify that 'Code' and 'Name' fields are mandatory.");
 		NavigateUrl(DashBoardURL);
@@ -2291,8 +2282,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 
-	@Test(priority=17)
-	public void Tc_GL_Code_04_05()
+	@Test
+	public void Tc_076()
 	{
 		testStarts("Tc_GL_Code_04_05" , "Update GL Code > Verify that changes get saved on clicking Save button."+"Update GL Code > Verify that changes get saved on clicking Save button.");
 		NavigateUrl(DashBoardURL);
@@ -2334,7 +2325,7 @@ public class UpdatedTestCases extends ApplicationKeyword {
 
 	//Patterns
 	@Test(priority=18)
-	public void Tc_Patterns_01_03()
+	public void Tc_077()
 	{
 		testStarts("Tc_Patterns_01_03" , "Verify that user is able to create new pattern by clicking Add Pattern button."+"Create Pattern > Verify that 'Name'and 'Series template' fields are mandatory.");
 		NavigateUrl(DashBoardURL);
@@ -2377,8 +2368,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		}
 		
 	}
-	@Test(priority=19)
-	public void Tc_Patterns_06()
+	@Test
+	public void Tc_078()
 	{
 		testStarts("Tc_Patterns_06" , "Update Pattern > Verify that changes get saved, on clicking Save button."+"Verify that corresponding next pattern code appears in Sample Pattern Value popup on clicking Generate Unique Number button.");
 		NavigateUrl(DashBoardURL);
@@ -2409,8 +2400,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 
-	@Test(priority=20)
-	public void Tc_Patterns_05()
+	@Test
+	public void Tc_079()
 	{
 		testStarts("Tc_Patterns_05" , "Update Pattern >Verify that changes get saved, on clicking Save button.");
 		NavigateUrl(DashBoardURL);
@@ -2444,8 +2435,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 	
-	@Test(priority=21)
-	public void Tc_Patterns_02()
+	@Test
+	public void Tc_080()
 	{
 		testStarts("Tc_Patterns_02" , "Verify that Pattern gets deleted on clicking Delete button.");
 		NavigateUrl(DashBoardURL);
@@ -2474,8 +2465,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 	closeBrowser();
 	}
 
-	@Test(priority=1)
-	public void Tc_Planner_01() throws InterruptedException
+	@Test
+	public void Tc_081() throws InterruptedException
 	{
 		testStarts("Tc_Planner_01", "Verify that user can add patient using Add Patient option.");
 		Loginpage.OpenBrowserAndLogin();
@@ -2515,8 +2506,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 				
 	}
 	
-	@Test(priority=2)
-	public void Tc_Planner_02()
+	@Test
+	public void Tc_082()
 	{
 		testStarts("Tc_Planner_02", "Verify that case can be created by clicking on the calendar vie.");
 		NavigateUrl(DashBoardURL);
@@ -2525,8 +2516,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		verifyElementText(OR.Planner_createCaseHeading, "Schedule Case -");
 		closeBrowser();
 	}
-	@Test(priority=1)
-	public void Tc_Patients_01_02()
+	@Test
+	public void Tc_083()
 	{
 		testStarts("Tc_Patients_01_02", "Verify that �Select Facility� popup appears when user clicks on facility name with �Cart for� label."
 				+ " Verify that �selected� button appears as disabled for the facility which is displayed on Shop page.");
@@ -2575,8 +2566,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 
-	@Test(priority=2)
-	public void Tc_Patients_03()
+	@Test
+	public void Tc_084()
 	{
 		testStarts("Tc_Patients_03", "Verify that "+" (expand) button appears on left of patient name.");
 	    NavigateUrl(DashBoardURL);		
@@ -2625,8 +2616,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 //		
 //	}
 
-	@Test(priority=3)
-	public void Tc_Patients_05()
+	@Test
+	public void Tc_085()
 	{
 		testStarts("Tc_Patients_07", "Drill-down > Verify that edit case page opens when user clicks Edit button.");
 	NavigateUrl(DashBoardURL);	
@@ -2638,8 +2629,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 
 
 	//May fail in case there is no case attached to first Patient
-	@Test(priority=4)
-	public void Tc_Patients_07()
+	@Test
+	public void Tc_086()
 	{
 		testStarts("Tc_Patients_07", "Drill-down > Verify that case preview opens when user clicks Print case button..");
 	NavigateUrl(DashBoardURL);	
@@ -2651,8 +2642,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 
-	@Test(priority=5)
-	public void Tc_Patients_08_09() throws InterruptedException
+	@Test
+	public void Tc_087() throws InterruptedException
 	{			
 		testStarts("Tc_Patients_08_09", "Verify that user is able to add new patient by clicking 'Add Patient' button.+ "
 				+ "Create Patient > Verify that First Name, Last Name, MRN Number, Account Number, DOB, Facility and Is Self Pay are mandatory fields.");
@@ -2709,8 +2700,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 //		clickOn(OR.Patient_EditPAtientPopUpCancel);
 	}
 
-	@Test(priority=6)
-	public void Tc_Patients_10()
+	@Test
+	public void Tc_088()
 	{			
 		testStarts("Tc_Patients_10", "Edit Patient > Verify that all fields are editable.");
 	NavigateUrl(DashBoardURL);	
@@ -2746,8 +2737,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 	}
 	
 	
-	@Test(priority=7)
-	public void Tc_Patients_11()
+	@Test
+	public void Tc_089()
 	{			
 		testStarts("Tc_Patients_11", "Verify that �Apply Preference Card To� pop up appears when user clicks on Apply Preference Card icon.");
 	NavigateUrl(DashBoardURL);	
@@ -2759,8 +2750,9 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		closeBrowser();	
 		
 	}
-	@Test(priority=1)
-	public static void TC_ORG_01()
+	
+	@Test
+	public static void Tc_090()
 	{	
 		testStarts("TC_ORG_01_02_03_04", "Verify that Organization Details page appears when user clicks on organization option in admin dropdown.");
 		Loginpage.OpenBrowserAndLogin();
@@ -2782,8 +2774,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		closeBrowser();
 	} 
 
-	@Test(priority=1)
-	public void Tc_OP_01_02()
+	@Test
+	public void Tc_091()
 	{
 		testStarts("Tc_OP_01_02", "Verify that user is able to add new operating room using 'Add Operating Room' button.");
 		Loginpage.OpenBrowserAndLogin();			
@@ -2864,7 +2856,7 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		closeBrowser();
 	}
 	@Test
-	public void Tc_INV_01() throws InterruptedException
+	public void Tc_092() throws InterruptedException
 	{
 		testStarts("Tc_INV_01", "Verify that following dropdown filters(Vendor,Status,Search By ,Due Date,Facility,Departments,Ordered By	) appear on page");
 		Loginpage.OpenBrowserAndLogin();	
@@ -2983,8 +2975,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		verifyElementText(OR.Invoice_SelectFirstPONUmFromInvoicePage , PoNum);
 		
 	}
-	@Test(priority=2)
-	public void Tc_INV_09_10() throws InterruptedException
+	@Test
+	public void Tc_093() throws InterruptedException
 	{
 		testStarts("Tc_INV_09 and 10", "Verify that Invoice PDF gets downloaded when user clicks Download PDF button"
 				+ " Verify that Invoice Print preview appears when user clicks Print button.");
@@ -3008,8 +3000,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 	
-	@Test(priority=3)
-	public void Tc_INV_02() throws InterruptedException
+	@Test
+	public void Tc_094() throws InterruptedException
 	{
 		testStarts("Tc_INV_02", "Verify that following dropdown(VendorStatusSearch By Due Date ,Facility, Departments, Ordered By  ) filters appear on page.");
 		NavigateUrl(DashBoardURL);
@@ -3077,8 +3069,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 	   
 	}
 	
-	@Test(priority=4)
-	public void Tc_INV_03() throws InterruptedException
+	@Test
+	public void Tc_095() throws InterruptedException
 	{
 		testStarts("Tc_INV_03", "Edit Invoice > Verify that �Send to accounting� button appears on top right side of page.");
 		NavigateUrl(DashBoardURL);
@@ -3096,8 +3088,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 		
 	}
 	
-	@Test(priority=5)
-	public void Tc_INV_04()
+	@Test
+	public void Tc_096()
 	{
 		testStarts("Tc_INV_04", "Verify that invoice gets deleted on clicking corresponding Delete button.");
 		NavigateUrl(DashBoardURL);
@@ -3129,8 +3121,8 @@ public class UpdatedTestCases extends ApplicationKeyword {
 closeBrowser();		
 	}
 
-	@Test(priority=1)
-	public void Tc_manageInv_01()
+	@Test
+	public void Tc_097()
 	{
 		testStarts("Tc_manageInv_01" , "Verify that user can search items on the basis of Item Name, alias, MFR, SKU ands Crosswalk Id ");
 		Loginpage.OpenBrowserAndLogin();		
@@ -3196,8 +3188,8 @@ closeBrowser();
 	}
 
 
-	@Test(priority=2)
-	public void Tc_manageInv_03()
+	@Test
+	public void Tc_098()
 	{
 		testStarts("Tc_manageInv_03" , "Edit Item > Verify that changes made get saved successfully, on clicking SAVE button");
 		NavigateUrl(DashBoardURL);	
@@ -3251,8 +3243,8 @@ closeBrowser();
 		
 	}
 
-	@Test(priority=3)
-	public void Tc_manageInv_04()
+	@Test
+	public void Tc_099()
 	{
 		testStarts("Tc_manageInv_04" , "Delete > Verify that corresponding item gets deleted from page, on clicking �Delete� button");
 		NavigateUrl(DashBoardURL);	
@@ -3278,8 +3270,8 @@ closeBrowser();
 	}
 
 
-	@Test(priority=4)
-	public void Tc_manageInv_05_06()
+	@Test
+	public void Tc_100()
 	{
 		testStarts("Tc_manageInv_05_06" , "Verify that �Print Preview� button with total number of items to print appear on page, on clicking �Print button� for any item "
 				+ "+Verify that Print popup window opens on clicking Print Preview button.");
@@ -3311,8 +3303,8 @@ closeBrowser();
 		
 	}
 
-	@Test(priority=5)
-	public void Tc_manageInv_07()
+	@Test
+	public void Tc_101()
 	{
 		testStarts("Tc_manageInv_07" , "Verify that Transfer Inventory popup appears on clicking �Transfer� button.");
 		NavigateUrl(DashBoardURL);	
@@ -3324,8 +3316,8 @@ closeBrowser();
 		
 	}
 
-	@Test(priority=6)
-	public void Tc_manageInv_02_09()
+	@Test
+	public void Tc_102()
 	{
 		testStarts("Tc_manageInv_02_09" , "Verify that on selecting any Inventory + and � buttons are appearing +"
 				+ "Verify that  Cycle Count option appears on page");
@@ -3357,8 +3349,8 @@ closeBrowser();
 			closeBrowser();
 	}
 	
-	@Test(priority=1)
-	public void Tc_ItemCat_01_02_03()
+	@Test
+	public void Tc_103()
 	{
 		testStarts("Tc_ItemCat_01_02_03", "Verify that user is able to add New category"
 				+ "+Add/ Edit Category > Verify that 'Save' button appears Active, only if values are entered in mandatory fields + "
@@ -3395,8 +3387,8 @@ closeBrowser();
 	}
 
 
-	@Test(priority=2)
-	public void Tc_ItemCat_04()
+	@Test
+	public void Tc_104()
 	{
 		testStarts("Tc_ItemCat_04", "Verify that Category gets deleted, when user clicks 'Delete' button");
 		NavigateUrl(DashBoardURL);
@@ -3429,8 +3421,8 @@ closeBrowser();
 
 	//Print Barcodes/QR Codes
 
-	@Test(priority=3)
-	public void Tc_PrintBarcode_01_02()
+	@Test
+	public void Tc_105()
 	{
 		testStarts("Tc_PrintBarcode_01_02", "Verify that �Select Facility� popup appears when user clicks on facility name with �PRINT BARCODES/QRCODES FOR� label."
 				+ "Verify that �selected� button appears as disabled for the facility which is displayed on Shop page.");
@@ -3477,8 +3469,8 @@ closeBrowser();
 		
 	}
 
-	@Test(priority=4)
-	public void Tc_PrintBarcode_03()
+	@Test
+	public void Tc_106()
 	{
 		testStarts("Tc_PrintBarcode_03", "Verify that user can search item on basis of �Item Name, alias, SKU, MFR#�.");		
 		NavigateUrl(DashBoardURL);
@@ -3507,8 +3499,8 @@ closeBrowser();
 		
 	}
 
-	@Test(priority=5)
-	public void Tc_PrintBarcode_04()
+	@Test
+	public void Tc_107()
 	{
 		testStarts("Tc_PrintBarcode_04", "Verify that Vendor and inventory dropdown appears on page.");		
 		NavigateUrl(DashBoardURL);
@@ -3531,8 +3523,8 @@ closeBrowser();
 		}
 		
 	}
-	@Test(priority=6)
-	public void Tc_PrintBarcode_06()
+	@Test
+	public void Tc_108()
 	{
 		testStarts("Tc_PrintBarcode_06", "Verify that �Print items Barcode/QRcode� pop up appears with print with options.");		
 		NavigateUrl(DashBoardURL);
@@ -3543,8 +3535,8 @@ closeBrowser();
 		
 
 	}
-	@Test(priority=7)
-	public void Tc_PrintBarcode_07()
+	@Test
+	public void Tc_109()
 	{
 		testStarts("Tc_PrintBarcode_07", "Verify that following options appear('Print Sheet With', 'Generate PDF', 'Print With', 'Print Pages.')");		
 		NavigateUrl(DashBoardURL);
@@ -3558,8 +3550,8 @@ closeBrowser();
 		
 
 	}
-	@Test(priority=8)
-	public void Tc_PrintBarcode_08()
+	@Test
+	public void Tc_110()
 	{
 		testStarts("Tc_PrintBarcode_08", "Verify that user can print items on all pages or can select specific page numbers. ");		
 		NavigateUrl(DashBoardURL);
@@ -3587,8 +3579,8 @@ closeBrowser();
 		}
 		
 	}
-	@Test(priority=9)
-	public void Tc_PrintBarcode_10()
+	@Test
+	public void Tc_111()
 	{
 		testStarts("Tc_PrintBarcode_10", "Verify that user can print items on all pages or can select specific page numbers. ");		
 		NavigateUrl(DashBoardURL);
@@ -3603,8 +3595,8 @@ closeBrowser();
 
 	//PO Special Instructions
 
-	@Test(priority=10)
-	public void Tc_SI_01_02()
+	@Test
+	public void Tc_112()
 	{
 		testStarts("Tc_SI_01_02", "Verify that user can search special instruction using search text field+"
 				+ "Verify that user can add special instructions on clicking Add button.");		
@@ -3631,8 +3623,8 @@ closeBrowser();
 		}	
 
 	}
-	@Test(priority=11)
-	public void Tc_SI_03()
+	@Test
+	public void Tc_113()
 	{
 		testStarts("Tc_SI_03", "Verify that user can edit the special instruction using the Edit button.");		
 		NavigateUrl(DashBoardURL);
@@ -3654,8 +3646,8 @@ closeBrowser();
 			
 	}
 
-	@Test(priority=12)
-	public void Tc_SI_04()
+	@Test
+	public void Tc_114()
 	{
 		testStarts("Tc_SI_04", "Verify that Special instruction gets deleted on clicking Delete button.");		
 		NavigateUrl(DashBoardURL);
@@ -3689,8 +3681,8 @@ closeBrowser();
 	}
 
 	//Invoice Payment Terms
-	@Test(priority=13)
-	public void Tc_PTerms_01_02()
+	@Test
+	public void Tc_115()
 	{
 		testStarts("Tc_PTerms_01_02", "Verify that can add payment term using �Add Payment Term� button."
 				+ "+Verify that user can search payment terms with description, type, no. ,of days and discount/penalty percentage using the search text field.");		
@@ -3747,8 +3739,8 @@ closeBrowser();
 	}
 
 
-	@Test(priority=14)
-	public void Tc_PTerms_03_04()
+	@Test
+	public void Tc_116()
 	{
 		testStarts("Tc_PTerms_03_04", "Verify that user can update the corresponding payment terms using the Edit button."
 				+ "Verify that user can delete the payment term using Delete button. ");		
@@ -3785,8 +3777,8 @@ closeBrowser();
 	}
 
 	//News Part
-	@Test(priority=15)
-	public void Tc_News_01_02()
+	@Test
+	public void Tc_117()
 	{
 		testStarts("Tc_News_01_02", "Verify that user can search news by title using search text field and status dropdown."
 				+ "Verify that User can create news using Add button. ");		
@@ -3807,8 +3799,8 @@ closeBrowser();
 				
 	}
 
-	@Test(priority=16)
-	public void Tc_News_03_04()
+	@Test
+	public void Tc_118()
 	{
 		testStarts("Tc_News_03_04", "Verify that User can set the status as active/inactive using the toggle button."
 				+ "Verify that news can be updated using the edit button.");
@@ -3876,8 +3868,8 @@ closeBrowser();
 		
 
 	}
-	@Test(priority=18)
-	public void Tc_Vendor_02_03()
+	@Test
+	public void Tc_119()
 	{
 		testStarts("Tc_Vendor_02_03", "Edit Vendor > Verify that changes get saved, on clicking Save button."
 				+"Verify that following tabs( Vendor, address, Interface , UOM, Customer support, Sales Representative) appear on Edit vendor pop up.");
@@ -3913,8 +3905,8 @@ closeBrowser();
 	//Price Tier Setup Test CAses
 
 
-	@Test(priority=19)
-	public void Tc_PriceTier_01_02()
+	@Test
+	public void Tc_120()
 	{
 		testStarts("Tc_PriceTier_01_02", "Verify that user can create new price tier using Add button."
 				+"Verify that user can search price tier with name.");
@@ -3942,8 +3934,8 @@ closeBrowser();
 	}	
 
 	
-	@Test(priority=20)
-	public void Tc_PriceTier_03_05()
+	@Test
+	public void Tc_121()
 	{
 		testStarts("Tc_PriceTier_03_05", "Verify that price tier can be updated by Edit button."
 				+"Verify that user can assign price tier for vendor for any facility using the Vendor Price Tier Setup button..");
@@ -3984,8 +3976,8 @@ closeBrowser();
 	}
 
 	
-	@Test(priority=21)
-	public void Tc_PriceTier_04()
+	@Test
+	public void Tc_122()
 	{
 		testStarts("Tc_PriceTier_04", "Verify that user can delete price tier using the delete button.");
 		//NavigateUrl(DashBoardURL);
@@ -4011,8 +4003,8 @@ closeBrowser();
 	}
 
 	//Item Catalog	 	
-	@Test(priority=22)
-	public void Tc_ItemCatalog_01_02()
+	@Test
+	public void Tc_123()
 	{
 		testStarts("Tc_ItemCatalog_01_02", "Verify that user is able to add new item by clicking Add Item button."
 				+"Verify that user can search items on the basis of Item Name, alias, MFR#, SKU crosswalk id.");
@@ -4052,8 +4044,8 @@ closeBrowser();
 		compareExactText(OR.ItemCatalog_firstItemDesc, "Item is searched with AliasName" + alias, "Item is not searched with AliasName" + alias, ItemDescription);	 		
 		
 	}
-	@Test(priority=23)
-	public void Tc_ItemCatalog_03()
+	@Test
+	public void Tc_124()
 	{
 		testStarts("Tc_ItemCatalog_03", "Add Item > Verify that validation message appears for blank mandatory fields or fields with invalid data, on clicking Save button.");
 		NavigateUrl(DashBoardURL);
@@ -4091,8 +4083,8 @@ closeBrowser();
 			 	
 	}
 
-	@Test(priority=24)
-	public void Tc_ItemCatalog_04()
+	@Test
+	public void Tc_125()
 	{
 		testStarts("Tc_ItemCatalog_04", "Verify that user can map items to the facility using Map Facility/Update Price button. ");
 		NavigateUrl(DashBoardURL);
@@ -4104,8 +4096,8 @@ closeBrowser();
 	}
 
 	//Inventory Locations
-	@Test(priority=25)
-	public void Tc_InventoryLoc_01_02()
+	@Test
+	public void Tc_126()
 	{
 		testStarts("Tc_InventoryLoc_01_02", "Add Inventory Location > Verify that all fields are mandatory."
 				+"Verify that user is able to create new inventory by clicking Add Inventory Location button.");
@@ -4144,8 +4136,8 @@ closeBrowser();
 		
 	}
 	//Depends upon Tc_InventoryLoc_01_02()
-	@Test(priority=26)
-	public void Tc_InventoryLoc_04_05()
+	@Test
+	public void Tc_127()
 	{
 		testStarts("Tc_InventoryLoc_01", "Edit Inventory Location >Verify that changes get saved, on clicking Save button."
 				+"Verify that inventory gets deleted on clicking Delete button.");
@@ -4194,8 +4186,8 @@ closeBrowser();
 	}
 
 
-	@Test(groups="Dashboard", priority=1)
-	public void Tc_Dashboard_001() {
+	@Test
+	public void Tc_128() {
 		System.out.println("CameTo Dashboard");
 		testStarts("Tc_Dashboard_001, Tc_Dashboard_003",
 				"Verify that recent notifications appear on clicking Notification (bell) icon button.\n"
@@ -4207,8 +4199,8 @@ closeBrowser();
 		Dashboardpage.NotificationCount();
 	}
 
-	@Test(groups="Dashboard", priority=2)
-	public void Tc_Dashboard_002() {
+	@Test
+	public void Tc_129() {
 		testStarts("Tc_Dashboard_002",
 				"Verify that user gets redirected to �Notification Settings� page, on clicking �Notification Settings� button");
 		NavigateUrl(DashBoardURL);
@@ -4220,8 +4212,8 @@ closeBrowser();
 		
 	}
 
-	@Test(groups="Dashboard", priority=3)
-	public void Tc_Dashboard_004() {
+	@Test
+	public void Tc_130() {
 		testStarts("Tc_Dashboard_004",
 				"Verify that user is redirected to Cart page on clicking Shopping Cart icon button.");
 		NavigateUrl(DashBoardURL);
@@ -4229,8 +4221,8 @@ closeBrowser();
 		MycartPage.verificationMycartPage();
 	}
 
-	@Test(groups="Dashboard", priority=4)
-	public void Tc_Dashboard_005() {
+	@Test
+	public void Tc_131() {
 		testStarts("Tc_Dashboard_005",
 				"Verify that user gets redirected to �Profile� page, on clicking Profile button.");
 		NavigateUrl(DashBoardURL);
@@ -4241,16 +4233,16 @@ closeBrowser();
 		ProfilePage.profileverification();
 	}
 
-	@Test(groups="Dashboard", priority=5)
-	public void Tc_Dashboard_006() {
+	@Test
+	public void Tc_132() {
 		testStarts("Tc_Dashboard_006", "Verify that chat window opens up when user clicks on 'view chat' icon.");
 		NavigateUrl(DashBoardURL);
 		waitForElementToDisplay(OR.Chat, 60);
 		ChatPage.VerifyChatPage();
 	}
 
-	@Test(groups="Dashboard", priority=6)
-	public void Tc_Dashboard_007() {
+	@Test
+	public void Tc_133() {
 		testStarts("Tc_Dashboard_007",
 				"Verify that user gets redirected to user alerts page on clicking  alerts option..");
 		NavigateUrl(DashBoardURL);
@@ -4261,8 +4253,8 @@ closeBrowser();
 		Alertpage.VerifyAlert();
 	}
 
-	@Test(groups="Dashboard", priority=7)
-	public void Tc_Dashboard_008() {
+	@Test
+	public void Tc_134() {
 		testStarts("Tc_Dashboard_008",
 				"Verify that �Pending Survey� pop up appears when user clicks on survey option.");
 		NavigateUrl(DashBoardURL);
@@ -4272,8 +4264,8 @@ closeBrowser();
 		SurveyPage.VerifySurvey();
 	}
 
-	@Test(groups="Dashboard", priority=8)
-	public void Tc_Dashboard_009() {
+	@Test
+	public void Tc_135() {
 		testStarts("Tc_Dashboard_009",
 				"Verify that �Change Password� pop up appears when user clicks on Change Password option.");
 		NavigateUrl(DashBoardURL);
@@ -4283,8 +4275,8 @@ closeBrowser();
 		Changepasswordpage.VerifyChangePassword();
 	}
 
-	@Test(groups="Dashboard", priority=9)
-	public void Tc_Dashboard_010() {
+	@Test
+	public void Tc_136() {
 		testStarts("Tc_Dashboard_010",
 				"Verify that �Select user to login� screen appears when user clicks on switch user option.");
 		NavigateUrl(DashBoardURL);
@@ -4294,16 +4286,16 @@ closeBrowser();
 		SwitchUserPage.VerifySwitchUser();
 	}
 
-	@Test(groups="Dashboard", priority=10)
-	public void Tc_Dashboard_011() {
+	@Test
+	public void Tc_137() {
 		testStarts("Tc_Dashboard_011",
 				"Verify that user gets redirected to corresponding Report on clicking View More Reports button.");
 		NavigateUrl(DashBoardURL);
 		Reportspage.VerifyViewReport();
 	}
 
-	@Test(groups="Dashboard", priority=11)
-	public void Tc_Dashboard_012() {
+	@Test
+	public void Tc_138() {
 		testStarts("Tc_Dashboard_012",
 				"Verify that relevant data appears under Monthly Purchase Order Value, Number of Backorders and Vendor Performance sections");
 		NavigateUrl(DashBoardURL);
@@ -4312,8 +4304,8 @@ closeBrowser();
 		Dashboardpage.Avgperformance();
 	}
 
-	@Test(groups="Dashboard", priority=12)
-	public void Tc_Dashboard_013() {
+	@Test
+	public void Tc_140() {
 		testStarts("Tc_Dashboard_013, Tc_Dashboard_014, Tc_Dashboard_015",
 				"Verify that �Recent Orders� and �News & Events� sections appear on Page.\n"
 						+ "Verify that user gets redirected to corresponding news on clicking any news.\r\n"
@@ -4327,8 +4319,8 @@ closeBrowser();
 		Dashboardpage.News();
 		closeBrowser();
 	}
-	@Test(groups="Order", priority=1)
-	public void Tc_Order_001() {
+	@Test
+	public void Tc_141() {
 		testStarts("Tc_Order_001", "Verify that user can search PO on basis PO#, Sku, Notes or Documents.");
 		Loginpage.OpenBrowserAndLogin();
 		clickOn(OR.Order);
@@ -4341,8 +4333,8 @@ closeBrowser();
 		
 	}
 
-	@Test(groups="Order", priority=2)
-	public void Tc_Order_002() {
+	@Test
+	public void Tc_142() {
 		testStarts("Tc_Order_002",
 				"Verify that following dropdown filters appear on page. Vendor, Status, Type, Facility, Department and Created By .");
 		NavigateUrl(DashBoardURL);
@@ -4351,8 +4343,8 @@ closeBrowser();
 		
 	}
 
-	@Test(groups="Order", priority=3)
-	public void Tc_Order_003() {
+	@Test
+	public void Tc_143() {
 		testStarts("Tc_Order_003", "Verify that sorting works  for PO#, Requested Cost, Created At columns.");
 		NavigateUrl(DashBoardURL);
 		clickOn(OR.Order);
@@ -4392,8 +4384,8 @@ closeBrowser();
 		
 	}
 
-	@Test(groups="Order", priority=5)
-	public void Tc_Order_005() {
+	@Test
+	public void Tc_144() {
 		testStarts("Tc_Order_003, Tc_Order_004, Tc_Order_014, Tc_Order_005, Tc_Order_015, Tc_Order_019",
 				"Verify that 'Notes for PO #' window appears when user clicks on notes icon with count."
 						+ "Verify that 'Add Note for PO #' pop up appears when user clicks on �Add New Note'"
@@ -4419,8 +4411,8 @@ closeBrowser();
 		}
 	}
 
-	@Test(groups="Order", priority=6)
-	public void Tc_Order_006() {
+	@Test
+	public void Tc_145() {
 		testStarts("Tc_Order_006, Tc_Order_017, Tc_Order_020",
 				"Verify that 'PO # XXXX11 Documents' pop up appears when clicks on Documents icon with count. ");
 		NavigateUrl(DashBoardURL);
@@ -4429,8 +4421,8 @@ closeBrowser();
 		OrderPage.viewDocumentForPO();
 	}
 
-	@Test(groups="Order", priority=7)
-	public void Tc_Order_007() {
+	@Test
+	public void Tc_146() {
 		testStarts("Tc_Order_007, Tc_Order_018",
 				"Verify that select file from computer window opens when user clicks on Upload File button.");
 		NavigateUrl(DashBoardURL);
@@ -4442,8 +4434,8 @@ closeBrowser();
 		clickOn(OR.OrderNotes_PO_NotesClose);
 	}
 
-	@Test(groups="Order", priority=8)
-	public void Tc_Order_008() {
+	@Test
+	public void Tc_147() {
 		testStarts("Tc_Order_008",
 				"Verify that 'Print PO' preview window appears when user clicks on Print Po option in action dropdown.");
 		NavigateUrl(DashBoardURL);
@@ -4459,8 +4451,8 @@ closeBrowser();
 		
 	}
 
-	@Test(groups="Order", priority=9)
-	public void Tc_Order_009() {
+	@Test
+	public void Tc_148() {
 		testStarts("Tc_Order_009",
 				"Verify that user gets redirected to 'INVOICE FOR PO #' page, on clicking 'Add Invoice' option.");
 		NavigateUrl(DashBoardURL);
@@ -4496,8 +4488,8 @@ closeBrowser();
 		
 	}
 
-	@Test(groups="Order", priority=10)
-	public void Tc_Order_010() {
+	@Test
+	public void Tc_149() {
 		testStarts("Tc_Order_010",
 				"Verify that 'INVOICES FOR PO #' page appears when user clicks on All Invoices option.");
 		NavigateUrl(DashBoardURL);
@@ -4517,8 +4509,8 @@ closeBrowser();
 		
 	}
 
-	@Test(groups="Order", priority=11)
-	public void Tc_Order_013() {
+	@Test
+	public void Tc_150() {
 		testStarts("Tc_Order_013",
 				"Verify that 'PO AUDIT LOGS FOR PO #' pop up window appears when user clicks on Po Log option in the dropdown.");
 		NavigateUrl(DashBoardURL);
@@ -4534,8 +4526,8 @@ closeBrowser();
 		
 	}
 
-	@Test(groups="Order", priority=12)
-	public void Tc_Order_016() {
+	@Test
+	public void Tc_151() {
 		testStarts("Tc_Order_016",
 				"Verify that notes gets deleted when user clicks on 'Delete' button for the added note.");
 		NavigateUrl(DashBoardURL);
@@ -4552,8 +4544,8 @@ closeBrowser();
 		closeBrowser();
 	}
 
-	@Test(groups="OrderDetails", priority=1)
-	public void Tc_OrderDetails_002() {
+	@Test
+	public void Tc_152() {
 		testStarts("Tc_OrderDetails_001, Tc_OrderDetails_002,Tc_OrderDetails_012, Tc_OrderDetails_014",
 				"Verify that �Add Note for PO #� pop up appears when user clicks on �Add New Note�"
 				+"Verify that notes gets deleted when user clicks on �Delete� button for the added note.");
@@ -4572,8 +4564,8 @@ closeBrowser();
 	}
 	
 	
-	@Test(groups="OrderDetails", priority=2)
-	public void Tc_OrderDetails_003() {
+	@Test
+	public void Tc_153() {
 		testStarts("Tc_OrderDetails_003, Tc_OrderDetails_015",
 				"Verify that �PO # XXXX11 Documents� pop up appears when clicks on Documents icon with count.");
 		NavigateUrl(DashBoardURL);
@@ -4585,8 +4577,8 @@ closeBrowser();
 		clickOn(OR.OrderNotes_PO_NotesClose);
 	}
 
-	@Test(groups="OrderDetails", priority=3)
-	public void Tc_OrderDetails_004() {
+	@Test
+	public void Tc_154() {
 		testStarts("Tc_OrderDetails_004, Tc_OrderDetails_016",
 				"Verify that select file from computer window opens when user clicks on Upload File button.");
 		NavigateUrl(DashBoardURL);
@@ -4603,8 +4595,8 @@ closeBrowser();
 	}
 
 	
-	@Test(groups="OrderDetails", priority=4)
-	public void Tc_OrderDetails_005() {
+	@Test
+	public void Tc_155() {
 		testStarts("Tc_OrderDetails_005","Verify that items in PO gets added to cart when user clicks on �Add Items to cart� option");
 		NavigateUrl(DashBoardURL);
 		clickOn(OR.MyCart);
@@ -4648,8 +4640,8 @@ closeBrowser();
 			}
 	}
 
-	@Test(groups="OrderDetails", priority=5)
-	public void Tc_OrderDetails_006() {
+	@Test
+	public void Tc_156() {
 		testStarts("Tc_OrderDetails_006",
 				"Verify that 'Print PO' preview window appears when user clicks on Print Po option in action dropdown ");
 		NavigateUrl(DashBoardURL);
@@ -4666,8 +4658,8 @@ closeBrowser();
 	}
 	
 	
-	@Test(groups="OrderDetails", priority=6)
-	public void Tc_OrderDetails_007() {
+	@Test
+	public void Tc_157() {
 		testStarts("Tc_OrderDetails_007","Verify that Print popup window opens on clicking Print Items button.");
 		NavigateUrl(DashBoardURL);
 		waitTime(6);
@@ -4693,8 +4685,8 @@ closeBrowser();
 		clickOn(OR.OrderNotes_PO_NotesClose);
 	}
 	
-	@Test(groups="OrderDetails", priority=7)
-	public void Tc_OrderDetails_008() {
+	@Test
+	public void Tc_158() {
 		testStarts("Tc_OrderDetails_008","Verify that �INVOICES FOR PO #� page appears when user clicks on All Invoices option.");
 		NavigateUrl(DashBoardURL);
 		
@@ -4752,8 +4744,8 @@ closeBrowser();
 		getText(OR.Order_PO_first_AllInvoice_Header);
 	}
 	
-	@Test(groups="OrderDetails", priority=8)
-	public void Tc_OrderDetails_009() {
+	@Test
+	public void Tc_159() {
 		testStarts("Tc_OrderDetails_009","Verify that �INVOICES FOR PO #� page appears when user clicks on All Invoices option.");
 		NavigateUrl(DashBoardURL);
 		clickOn(OR.MyCart);
@@ -4840,8 +4832,8 @@ closeBrowser();
 //		
 //	}
 
-	@Test(groups="OrderDetails", priority=9)
-	public void Tc_OrderDetails_010() {
+	@Test
+	public void Tc_160() {
 		testStarts("Tc_OrderDetails_010",
 				"Verify that �PO AUDIT LOGS FOR PO #� pop up window appears when user clicks on Po Log option in the dropdown.");
 		NavigateUrl(DashBoardURL);
@@ -4862,8 +4854,8 @@ closeBrowser();
 		
 	}
 	
-	@Test(groups="OrderDetails", priority=10)
-	public void Tc_OrderDetails_011() {
+	@Test
+	public void Tc_161() {
 		testStarts("Tc_OrderDetails_011",
 				"Verify that �PO APPROVAL LOGS FOR PO # � pop up appears when user clicks on PO Approval Log option");
 		NavigateUrl(DashBoardURL);
@@ -4882,8 +4874,8 @@ closeBrowser();
 		
 	}
 	
-	@Test(groups="OrderDetails", priority=11)
-	public void Tc_OrderDetails_012() {
+	@Test
+	public void Tc_162() {
 		testStarts("Tc_OrderDetails_012",
 				"Verify that �PO APPROVAL LOGS FOR PO # � pop up appears when user clicks on PO Approval Log option");
 		NavigateUrl(DashBoardURL);
@@ -4902,8 +4894,8 @@ closeBrowser();
 		
 	}
 	
-	@Test(groups="OrderDetails", priority=12)
-	public void Tc_OrderDetails_018() {
+	@Test
+	public void Tc_163() {
 		testStarts("Tc_OrderDetails_018","Verify that Delete PO option appears.\r\n");
 		NavigateUrl(DashBoardURL);
 		clickOn(OR.Order);
@@ -4916,8 +4908,8 @@ closeBrowser();
 		
 	}
 	
-	@Test(groups="OrderDetails", priority=13)
-	public void Tc_OrderDetails_019() {
+	@Test
+	public void Tc_164() {
 		testStarts("Tc_OrderDetails_019",
 				"Verify that show tour pops appear when user clicks on show tour option in dropdown next to refresh button.");
 		NavigateUrl(DashBoardURL);
@@ -4938,8 +4930,8 @@ closeBrowser();
 	}
 	
 
-	@Test(groups="OrderDetails", priority=14)
-	public void Tc_OrderDetails_020() {
+	@Test
+	public void Tc_165() {
 		testStarts("Tc_OrderDetails_020","Verify that �Departments� pop up appears when user clicks on Attach  department hyperlink.\r\n");
 		NavigateUrl(DashBoardURL);
 		
@@ -4972,8 +4964,8 @@ closeBrowser();
 		
 	}
 		
-		@Test(groups="OrderDetails", priority=15)
-		public void Tc_OrderDetails_021() {
+		@Test
+		public void Tc_166() {
 			testStarts("Tc_OrderDetails_021","Verify that �Physicians� pop up appears when user clicks on �Attach Physician� hyperlink.");
 			NavigateUrl(DashBoardURL);
 			
@@ -4992,8 +4984,8 @@ closeBrowser();
 			
 		}
 		
-		@Test(groups="OrderDetails", priority=16)
-		public void Tc_OrderDetails_022() {
+		@Test
+		public void Tc_167() {
 			testStarts("Tc_OrderDetails_022","Verify that Order detail screen gets closed when user clicks on Close option.");
 			NavigateUrl(DashBoardURL);
 			
@@ -5012,6 +5004,93 @@ closeBrowser();
 			closeBrowser();
 		}
 
+
+		@Test
+		public void Tc_168() {
+			testStarts("Tc_Template_001, Tc_Template_002,Tc_Template_005, Tc_Template_006, Tc_Template_008","Verify that user is able to add template by clicking Add Template button.");
+			//NavigateUrl(DashBoardURL);
+			Loginpage.OpenBrowserAndLogin();
+			clickOn(OR.Templates);
+			waitTime(5);
+			Template.AddDeleteScheduleTemplate();
+			closeBrowser();
+			}
+		
+		@Test
+		public void Tc_169() {
+			testStarts("Tc_Template_003","Verify that template can be used by every user if �Yes� is selected in toggle button");
+			Loginpage.OpenBrowserAndLogin();
+			clickOn(OR.Templates);
+			waitTime(5);
+			Template.AddTemplate();
+			isElementDisplayed(OR.Template_ShareYes);
+			isElementDisplayed(OR.Template_ShareNo);
+		}
+		
+		@Test
+		public void Tc_170() {
+			testStarts("Tc_Template_004, Tc_Template_013","Verify that only user with edit access of template should be able to edit 'Template'\n"
+					+ "Verify that use template gets closed when user  clicks on Close button.\r\n" + 
+					"");
+			NavigateUrl(DashBoardURL);
+			clickOn(OR.Templates);
+			waitTime(5);
+			Template.AddTemplate();
+			clickOn(OR.Template_SaveBtn);
+			clickOn(OR.Template_CloseBtn);
+			typeIn(OR.Template_Search_Input,Template.CreateTemplateName);
+			clickOn(OR.Template_SearchBtn);
+			waitForElementToDisplay(OR.Template_Edit, 60);
+			waitTime(5);
+			clickOn(OR.Template_Edit);
+			verifyPageTitle("Manage Templates");
+		}
+
+		@Test
+		public void Tc_171() {
+			testStarts("Tc_Template_009","Verify that Template gets deleted on clicking Delete button.\r\n");
+			NavigateUrl(DashBoardURL);
+			clickOn(OR.Templates);
+			waitTime(5);
+			Template.AddTemplate();
+			clickOn(OR.Template_SaveBtn);
+			clickOn(OR.Template_CloseBtn);
+			typeIn(OR.Template_Search_Input,Template.CreateTemplateName);
+			clickOn(OR.Template_SearchBtn);
+			waitTime(5);
+			clickOn(OR.Template_Delete);
+			waitForElement(OR.Template__Deletevalidation, 60);
+			verifyElementText(OR.Template__Deletevalidation, "Are you sure?");
+			verifyElementText(OR.Template__Deletetemplatevalidation, "Are you sure you want to delete this template ?");
+			clickOn(OR.Template_Yes);
+			closeBrowser();
+		}
+		
+		@Test
+		public void Tc_172() {
+			testStarts("Tc_Template_010","Verify that users gets redirected to �Use template� screen on clicking Use icon.");
+			NavigateUrl(DashBoardURL);
+			clickOn(OR.Templates);
+			Template.AddTemplate();
+			Template.AddItemTemplate();
+			clickOn(OR.Template_SaveBtn);
+			clickOn(OR.Template_CloseBtn);
+			typeIn(OR.Template_Search_Input,Template.CreateTemplateName);
+			clickOn(OR.Template_SearchBtn);
+			waitTime(5);
+			clickOn(OR.Template_Use);
+			waitTime(5);
+			clickOn(OR.Template_GeneratePO);
+			verifyElementText(OR.Template_Warning, "Warning");
+			verifyElementText(OR.Template_WarningMsg, "Increase qty. of at least one item to generate the PO.");
+			clickOn(OR.Template_Warningok);
+			waitTime(3);
+			clickOn(OR.Template_Plus);
+			waitForElement(OR.Template_GeneratePO, 60);
+			clickOn(OR.Template_GeneratePO);
+			waitTime(5);
+			verifyPageTitle("My Orders");
+			}
 
 	@AfterTest
 	public void endReport() {
