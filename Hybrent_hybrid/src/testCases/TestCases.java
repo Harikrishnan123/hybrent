@@ -41,8 +41,8 @@ public class TestCases extends ApplicationKeyword {
 
 			extent = new ExtentReports(System.getProperty("user.dir") + "/test-output/STMExtentReport.html", true);
 			// extent.addSystemInfo("Environment","Environment Name")
-			extent.addSystemInfo("User Name", "Harikrishnan");
-			extent.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
+			extent.addSystemInfo("User Name", "Ravneet");
+			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
 
 		} catch (Exception e) {
 			testLogFail("unable to generate the pass report " + e.toString());
@@ -52,7 +52,7 @@ public class TestCases extends ApplicationKeyword {
 	@Test(groups="Login", priority=1)
 	public void Tca_Login_001() {
 		System.out.println("CameTo");
-		testStarts("Tc_Login_001", "Verify that system does not allow user to Login with “Invalid Credentials”");
+		testStarts("Tc_Login_001", "Verify that system does not allow user to Login with ï¿½Invalid Credentialsï¿½");
 		openBrowser(URL);
 		Loginpage.login("dsds", "dsdskjk");
 		waitForElementToDisplay(OR.Login_Error, 60);
@@ -71,7 +71,7 @@ public class TestCases extends ApplicationKeyword {
 	public void Tc_Dashboard_001() {
 		testStarts("Tc_Dashboard_001, Tc_Dashboard_003",
 				"Verify that recent notifications appear on clicking Notification (bell) icon button.\n"
-						+ "Verify that user gets redirected to “My Notifications” page, on clicking “View All” button\"");
+						+ "Verify that user gets redirected to ï¿½My Notificationsï¿½ page, on clicking ï¿½View Allï¿½ button\"");
 		NavigateUrl(DashBoardURL);
 		
 		waitForElementToDisplay(OR.Notification_Bell, 60);
@@ -83,7 +83,7 @@ public class TestCases extends ApplicationKeyword {
 	@Test(groups="Dashboard", priority=2)
 	public void Tc_Dashboard_002() {
 		testStarts("Tc_Dashboard_002",
-				"Verify that user gets redirected to “Notification Settings” page, on clicking “Notification Settings” button");
+				"Verify that user gets redirected to ï¿½Notification Settingsï¿½ page, on clicking ï¿½Notification Settingsï¿½ button");
 		NavigateUrl(DashBoardURL);
 		
 		waitForElementToDisplay(OR.User, 60);
@@ -108,7 +108,7 @@ public class TestCases extends ApplicationKeyword {
 	@Test(groups="Dashboard", priority=4)
 	public void Tc_Dashboard_005() {
 		testStarts("Tc_Dashboard_005",
-				"Verify that user gets redirected to “Profile” page, on clicking Profile button.");
+				"Verify that user gets redirected to ï¿½Profileï¿½ page, on clicking Profile button.");
 		NavigateUrl(DashBoardURL);
 		
 		waitForElementToDisplay(OR.User, 60);
@@ -146,7 +146,7 @@ public class TestCases extends ApplicationKeyword {
 	@Test(groups="Dashboard", priority=7)
 	public void Tc_Dashboard_008() {
 		testStarts("Tc_Dashboard_008",
-				"Verify that “Pending Survey” pop up appears when user clicks on survey option.");
+				"Verify that ï¿½Pending Surveyï¿½ pop up appears when user clicks on survey option.");
 		NavigateUrl(DashBoardURL);
 		
 		waitForElementToDisplay(OR.User, 60);
@@ -159,7 +159,7 @@ public class TestCases extends ApplicationKeyword {
 	@Test(groups="Dashboard", priority=8)
 	public void Tc_Dashboard_009() {
 		testStarts("Tc_Dashboard_009",
-				"Verify that “Change Password” pop up appears when user clicks on Change Password option.");
+				"Verify that ï¿½Change Passwordï¿½ pop up appears when user clicks on Change Password option.");
 		NavigateUrl(DashBoardURL);
 		
 		waitForElementToDisplay(OR.User, 60);
@@ -172,7 +172,7 @@ public class TestCases extends ApplicationKeyword {
 	@Test(groups="Dashboard", priority=9)
 	public void Tc_Dashboard_010() {
 		testStarts("Tc_Dashboard_010",
-				"Verify that “Select user to login” screen appears when user clicks on switch user option.");
+				"Verify that ï¿½Select user to loginï¿½ screen appears when user clicks on switch user option.");
 		NavigateUrl(DashBoardURL);
 		
 		waitForElementToDisplay(OR.User, 60);
@@ -207,9 +207,9 @@ public class TestCases extends ApplicationKeyword {
 	@Test(groups="Dashboard", priority=12)
 	public void Tc_Dashboard_013() {
 		testStarts("Tc_Dashboard_013, Tc_Dashboard_014, Tc_Dashboard_015",
-				"Verify that “Recent Orders” and “News & Events” sections appear on Page.\n"
+				"Verify that ï¿½Recent Ordersï¿½ and ï¿½News & Eventsï¿½ sections appear on Page.\n"
 						+ "Verify that user gets redirected to corresponding news on clicking any news.\r\n"
-						+ "Verify that user gets redirected to corresponding PO details on clicking any PO link under \"“Recent Orders” section,\r\n"
+						+ "Verify that user gets redirected to corresponding PO details on clicking any PO link under \"ï¿½Recent Ordersï¿½ section,\r\n"
 						+ "");
 		NavigateUrl(DashBoardURL);
 		
@@ -277,8 +277,8 @@ public class TestCases extends ApplicationKeyword {
 	@Test(groups="Shop", priority=2)
 	public void Tc_Shop_2_3() {
 		testStarts("Tc_Shop_2 and Tc_Shop_3",
-				"Verify that “Select Facility” pop up appears when user clicks on facility name with “Shopping for” label"
-						+ " Verify that “selected” button appears as disabled for the facility which is displayed on Shop page.");
+				"Verify that ï¿½Select Facilityï¿½ pop up appears when user clicks on facility name with ï¿½Shopping forï¿½ label"
+						+ " Verify that ï¿½selectedï¿½ button appears as disabled for the facility which is displayed on Shop page.");
 		NavigateUrl(DashBoardURL);
 		
 		waitForElementToDisplay(OR.Shop_Menu, 60);
@@ -336,7 +336,7 @@ public class TestCases extends ApplicationKeyword {
 	@Test(groups="Shop", priority=3)
 	public void Tc_Shop_4() throws InterruptedException {
 		testStarts("Tc_Shop_4",
-				"Verify that user can search item on basis of “Item Name, SKU, MFR” and Vendor filter..");
+				"Verify that user can search item on basis of ï¿½Item Name, SKU, MFRï¿½ and Vendor filter..");
 		NavigateUrl(DashBoardURL);
 		
 
@@ -853,8 +853,8 @@ public class TestCases extends ApplicationKeyword {
 	@Test(groups="Cart", priority=1)
 	public void Tc_Cart_1_2() {
 		testStarts("Tc_Cart_1 and Tc_Cart_2",
-				"Verify that “Select Facility” popup appears when user clicks on facility name with “Cart for” label."
-						+ " Verify that “selected” button appears as disabled for the facility which is displayed on Shop page.");
+				"Verify that ï¿½Select Facilityï¿½ popup appears when user clicks on facility name with ï¿½Cart forï¿½ label."
+						+ " Verify that ï¿½selectedï¿½ button appears as disabled for the facility which is displayed on Shop page.");
 		NavigateUrl(DashBoardURL);
 		
 		waitForElementToDisplay(OR.Shop_Menu, 60);
@@ -1057,7 +1057,7 @@ public class TestCases extends ApplicationKeyword {
 	public void Tc_Order_005() {
 		testStarts("Tc_Order_003, Tc_Order_005, Tc_Order_015, Tc_Order_019",
 				"Verify that 'Notes for PO #' window appears when user clicks on notes icon with count."
-						+ "Verify that 'Add Note for PO #' pop up appears when user clicks on “Add New Note'"
+						+ "Verify that 'Add Note for PO #' pop up appears when user clicks on ï¿½Add New Note'"
 						+ "Verify that 'Notes for PO #' window appears when user clicks on notes icon with count.");
 		NavigateUrl(DashBoardURL);
 		
@@ -1219,7 +1219,7 @@ public class TestCases extends ApplicationKeyword {
 	@Test(groups="OrderDetails", priority=1)
 	public void Tc_OrderDetails_001() {
 		testStarts("Tc_OrderDetails_001",
-				"Verify that “Notes for PO #” window appears when user clicks on notes icon with count.");
+				"Verify that ï¿½Notes for PO #ï¿½ window appears when user clicks on notes icon with count.");
 		NavigateUrl(DashBoardURL);
 		
 		clickOn(OR.Order);
@@ -1230,8 +1230,8 @@ public class TestCases extends ApplicationKeyword {
 	@Test(groups="OrderDetails", priority=2)
 	public void Tc_OrderDetails_002() {
 		testStarts("Tc_OrderDetails_002,Tc_OrderDetails_012, Tc_OrderDetails_014",
-				"Verify that “Add Note for PO #” pop up appears when user clicks on “Add New Note”"
-				+"Verify that notes gets deleted when user clicks on “Delete” button for the added note.");
+				"Verify that ï¿½Add Note for PO #ï¿½ pop up appears when user clicks on ï¿½Add New Noteï¿½"
+				+"Verify that notes gets deleted when user clicks on ï¿½Deleteï¿½ button for the added note.");
 		NavigateUrl(DashBoardURL);
 		
 		clickOn(OR.Order);
@@ -1250,7 +1250,7 @@ public class TestCases extends ApplicationKeyword {
 	@Test(groups="OrderDetails", priority=3)
 	public void Tc_OrderDetails_003() {
 		testStarts("Tc_OrderDetails_003, Tc_OrderDetails_015",
-				"Verify that “PO # XXXX11 Documents” pop up appears when clicks on Documents icon with count.");
+				"Verify that ï¿½PO # XXXX11 Documentsï¿½ pop up appears when clicks on Documents icon with count.");
 		NavigateUrl(DashBoardURL);
 		
 		clickOn(OR.Order);
@@ -1277,7 +1277,7 @@ public class TestCases extends ApplicationKeyword {
 	
 	@Test(groups="OrderDetails", priority=5)
 	public void Tc_OrderDetails_005() {
-		testStarts("Tc_OrderDetails_005","Verify that items in PO gets added to cart when user clicks on “Add Items to cart” option");
+		testStarts("Tc_OrderDetails_005","Verify that items in PO gets added to cart when user clicks on ï¿½Add Items to cartï¿½ option");
 		NavigateUrl(DashBoardURL);
 		
 		clickOn(OR.MyCart);
@@ -1340,7 +1340,7 @@ public class TestCases extends ApplicationKeyword {
 	
 	@Test(groups="OrderDetails", priority=6)
 	public void Tc_OrderDetails_009() {
-		testStarts("Tc_OrderDetails_009","Verify that “INVOICES FOR PO #” page appears when user clicks on All Invoices option.");
+		testStarts("Tc_OrderDetails_009","Verify that ï¿½INVOICES FOR PO #ï¿½ page appears when user clicks on All Invoices option.");
 		NavigateUrl(DashBoardURL);
 		
 		clickOn(OR.MyCart);
@@ -1429,7 +1429,7 @@ public class TestCases extends ApplicationKeyword {
 	}
 	@Test(groups="OrderDetails", priority=6)
 	public void Tc_OrderDetails_008() {
-		testStarts("Tc_OrderDetails_008","Verify that “INVOICES FOR PO #” page appears when user clicks on All Invoices option.");
+		testStarts("Tc_OrderDetails_008","Verify that ï¿½INVOICES FOR PO #ï¿½ page appears when user clicks on All Invoices option.");
 		NavigateUrl(DashBoardURL);
 		
 		clickOn(OR.MyCart);
@@ -1515,7 +1515,7 @@ public class TestCases extends ApplicationKeyword {
 	@Test(groups="OrderDetails", priority=11)
 	public void Tc_OrderDetails_010() {
 		testStarts("Tc_OrderDetails_010",
-				"Verify that “PO AUDIT LOGS FOR PO #” pop up window appears when user clicks on Po Log option in the dropdown.");
+				"Verify that ï¿½PO AUDIT LOGS FOR PO #ï¿½ pop up window appears when user clicks on Po Log option in the dropdown.");
 		NavigateUrl(DashBoardURL);
 		
 		clickOn(OR.Order);
@@ -1535,7 +1535,7 @@ public class TestCases extends ApplicationKeyword {
 	@Test(groups="OrderDetails", priority=11)
 	public void Tc_OrderDetails_011() {
 		testStarts("Tc_OrderDetails_011",
-				"Verify that “PO APPROVAL LOGS FOR PO # “ pop up appears when user clicks on PO Approval Log option");
+				"Verify that ï¿½PO APPROVAL LOGS FOR PO # ï¿½ pop up appears when user clicks on PO Approval Log option");
 		NavigateUrl(DashBoardURL);
 		
 		clickOn(OR.Order);
@@ -1554,7 +1554,7 @@ public class TestCases extends ApplicationKeyword {
 	@Test(groups="OrderDetails", priority=11)
 	public void Tc_OrderDetails_012() {
 		testStarts("Tc_OrderDetails_012",
-				"Verify that “PO APPROVAL LOGS FOR PO # “ pop up appears when user clicks on PO Approval Log option");
+				"Verify that ï¿½PO APPROVAL LOGS FOR PO # ï¿½ pop up appears when user clicks on PO Approval Log option");
 		NavigateUrl(DashBoardURL);
 		
 		clickOn(OR.Order);
@@ -1607,7 +1607,7 @@ public class TestCases extends ApplicationKeyword {
 
 	@Test(groups="OrderDetails", priority=4)
 	public void Tc_OrderDetails_020() {
-		testStarts("Tc_OrderDetails_020","Verify that “Departments” pop up appears when user clicks on Attach  department hyperlink.\r\n");
+		testStarts("Tc_OrderDetails_020","Verify that ï¿½Departmentsï¿½ pop up appears when user clicks on Attach  department hyperlink.\r\n");
 		NavigateUrl(DashBoardURL);
 		
 		clickOn(OR.Order);
@@ -1640,7 +1640,7 @@ public class TestCases extends ApplicationKeyword {
 		
 		@Test(groups="OrderDetails", priority=4)
 		public void Tc_OrderDetails_021() {
-			testStarts("Tc_OrderDetails_021","Verify that “Physicians” pop up appears when user clicks on “Attach Physician” hyperlink.");
+			testStarts("Tc_OrderDetails_021","Verify that ï¿½Physiciansï¿½ pop up appears when user clicks on ï¿½Attach Physicianï¿½ hyperlink.");
 			NavigateUrl(DashBoardURL);
 			
 			clickOn(OR.Order);
@@ -1681,7 +1681,7 @@ public class TestCases extends ApplicationKeyword {
 //		@Test(groups="Template", priority=1)
 //		public void Tc_Template_00323() {
 //			testStarts("Tc_Template_001, Tc_Template_004","Verify that user is able to add template by clicking Add Template button."
-//					+"Verify that only user with edit access of template should be able to edit “Template”.\r\n" + 
+//					+"Verify that only user with edit access of template should be able to edit ï¿½Templateï¿½.\r\n" + 
 //					"");
 //			NavigateUrl(DashBoardURL);
 //			
@@ -1695,30 +1695,45 @@ public class TestCases extends ApplicationKeyword {
 		
 		@Test(groups="Template", priority=1)
 		public void Tc_Template_001() {
+			try
+			{
 			testStarts("Tc_Template_001, Tc_Template_002,Tc_Template_005, Tc_Template_006, Tc_Template_008","Verify that user is able to add template by clicking Add Template button.");
+			Loginpage.OpenBrowserAndLogin();
 			NavigateUrl(DashBoardURL);
-			
 			clickOn(OR.Templates);
-			waitTime(10);
+			waitTime(5);
 			Template.AddDeleteScheduleTemplate();
+			}
+			catch(Exception e)
+			{
+				NavigateUrl(DashBoardURL);
+			}
 			
 		}
 		
 		@Test(groups="Template", priority=2)
 		public void Tc_Template_003() {
-			testStarts("Tc_Template_003","Verify that template can be used by every user if “Yes” is selected in toggle button");
+			try
+			{
+			testStarts("Tc_Template_003","Verify that template can be used by every user if ï¿½Yesï¿½ is selected in toggle button");
 			NavigateUrl(DashBoardURL);
-			
 			clickOn(OR.Templates);
 			waitTime(10);
 			Template.AddTemplate();
 			isElementDisplayed(OR.Template_ShareYes);
 			isElementDisplayed(OR.Template_ShareNo);
+			}
+			catch(Exception e)
+			{
+				NavigateUrl(DashBoardURL);
+			}
 			
 		}
 		
 		@Test(groups="Template", priority=3)
 		public void Tc_Template_004() {
+			try
+			{
 			testStarts("Tc_Template_004, Tc_Template_013","Verify that only user with edit access of template should be able to edit 'Template'\n"
 					+ "Verify that use template gets closed when user  clicks on Close button.\r\n" + 
 					"");
@@ -1734,11 +1749,18 @@ public class TestCases extends ApplicationKeyword {
 			waitForElementToDisplay(OR.Template_Edit, 60);
 			clickOn(OR.Template_Edit);
 			verifyPageTitle("Manage Templates");
-			
+			}
+
+			catch(Exception e)
+			{
+				NavigateUrl(DashBoardURL);
+			}
 		}
 
 		@Test(groups="Template", priority=4)
 		public void Tc_Template_009() {
+			try
+			{
 			testStarts("Tc_Template_009","Verify that Template gets deleted on clicking Delete button.\r\n");
 			NavigateUrl(DashBoardURL);
 			
@@ -1755,12 +1777,17 @@ public class TestCases extends ApplicationKeyword {
 			verifyElementText(OR.Template__Deletevalidation, "Are you sure?");
 			verifyElementText(OR.Template__Deletetemplatevalidation, "Are you sure you want to delete this template ?");
 			clickOn(OR.Template_Yes);
+			}
+			catch(Exception e)
+			{
+				NavigateUrl(DashBoardURL);
+			}
 			
 		}
 		
 		@Test(groups="Template", priority=4)
 		public void Tc_Template_010() {
-			testStarts("Tc_Template_010","Verify that users gets redirected to “Use template” screen on clicking Use icon.");
+			testStarts("Tc_Template_010","Verify that users gets redirected to ï¿½Use templateï¿½ screen on clicking Use icon.");
 			NavigateUrl(DashBoardURL);
 			
 			clickOn(OR.Templates);
@@ -1829,7 +1856,7 @@ public class TestCases extends ApplicationKeyword {
 			typeIn(OR.preferenceCard_InputAddStage,"Test001");
 			clickOn(OR.preferenceCard_BtnAddStage);
 			clickOn(OR.preferenceCard_Reorder);
-			dropDown();
+			//dropDown();
 			
 		}
 		
@@ -1864,7 +1891,7 @@ public class TestCases extends ApplicationKeyword {
 			typeIn(OR.preferenceCard_SearchItem,"Test002");
 			clickOn(OR.preferenceCard_AddItem);
 			clickOn(OR.preferenceCard_Reorder);
-			dropDown();
+			//dropDown();
 			
 		}
 		

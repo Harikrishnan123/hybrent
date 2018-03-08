@@ -23,8 +23,8 @@ public class ManageInventory extends ApplicationKeyword{
 
 			extent = new ExtentReports(OutputDirectory+"/ManageInventory.html", true);
 			// extent.addSystemInfo("Environment","Environment Name")
-			extent.addSystemInfo("User Name", "Harikrishnan");
-			extent.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
+			extent.addSystemInfo("User Name", "Ravneet");
+			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
 		
 		} catch (Exception e) {
 			testLogFail("unable to generate the pass report " + e.toString());
@@ -95,7 +95,6 @@ public class ManageInventory extends ApplicationKeyword{
 		{
 			testLogFail("Item is not searched with " + alias);			
 		}
-		
 	}
 
 
@@ -103,11 +102,13 @@ public class ManageInventory extends ApplicationKeyword{
 	public void Tc_manageInv_03()
 	{
 		testStarts("Tc_manageInv_03" , "Edit Item > Verify that changes made get saved successfully, on clicking SAVE button");
-		NavigateUrl(DashBoardURL);		
+		NavigateUrl(DashBoardURL);	
+		//Loginpage.OpenBrowserAndLogin();		
 		ManageInventoryPOpage.PageLinkAndWait("inventory", OR.manageInv_pageLink);
 		String itemDesc=getProperty("ItemDesc");
 		typeIn(OR.manageInv_searchTextBox, itemDesc);
 		clickOn(OR.manageInv_searchButton);
+		waitTime(4);
 		waitForElementToDisplay(OR.manageInv_wait2, 20);
 		String ItemName=getText(OR.manageInv_firstItemDesc);
 		if(ItemName.equalsIgnoreCase(itemDesc))
@@ -116,6 +117,7 @@ public class ManageInventory extends ApplicationKeyword{
 			waitForElementToDisplay(OR.manageInv_EditIemHeaderText, 20);
 			clickOn(OR.manageInv_VendorsTab);
 			String temp=getDropDownText(OR.manageInv_EditStockStatus, 1);	
+			clearEditBox(OR.manageInv_EditItem_GPoContractPrice);
 			typeIn(OR.manageInv_EditItem_GPoContractPrice, "60");
 			clickOn(OR.manageInv_EditItem_SaveButton);
 			clearEditBox(OR.manageInv_searchTextBox);
@@ -155,7 +157,8 @@ public class ManageInventory extends ApplicationKeyword{
 	public void Tc_manageInv_04()
 	{
 		testStarts("Tc_manageInv_04" , "Delete > Verify that corresponding item gets deleted from page, on clicking �Delete� button");
-		NavigateUrl(DashBoardURL);		
+		NavigateUrl(DashBoardURL);	
+	   //Loginpage.OpenBrowserAndLogin();	
 		ManageInventoryPOpage.PageLinkAndWait("inventory", OR.manageInv_pageLink);
 		String itemDesc=getProperty("ItemDesc");
 		typeIn(OR.manageInv_searchTextBox, itemDesc);
@@ -172,6 +175,7 @@ public class ManageInventory extends ApplicationKeyword{
 		{
 			testLogFail("Search is not working properly");
 		}
+		clickOn(OR.manageInv_cancelPopUP);
 		
 	}
 
@@ -181,7 +185,7 @@ public class ManageInventory extends ApplicationKeyword{
 	{
 		testStarts("Tc_manageInv_05_06" , "Verify that �Print Preview� button with total number of items to print appear on page, on clicking �Print button� for any item "
 				+ "+Verify that Print popup window opens on clicking Print Preview button.");
-		NavigateUrl(DashBoardURL);		
+		NavigateUrl(DashBoardURL);
 		ManageInventoryPOpage.PageLinkAndWait("inventory", OR.manageInv_pageLink);
 		String itemDesc=getProperty("ItemDesc");
 		typeIn(OR.manageInv_searchTextBox, itemDesc);
@@ -205,6 +209,7 @@ public class ManageInventory extends ApplicationKeyword{
 				}								
 			}
 		}
+		clickOn(OR.manage_PrintCloseclose);
 		
 	}
 
@@ -212,10 +217,12 @@ public class ManageInventory extends ApplicationKeyword{
 	public void Tc_manageInv_07()
 	{
 		testStarts("Tc_manageInv_07" , "Verify that Transfer Inventory popup appears on clicking �Transfer� button.");
-		NavigateUrl(DashBoardURL);		
+		NavigateUrl(DashBoardURL);	
 		ManageInventoryPOpage.PageLinkAndWait("inventory", OR.manageInv_pageLink);
 		clickOn(OR.manageInv_TransferIcon);
 		verifyElementText(OR.manageInv_TransferPopUpText, "Transfer Inventory");
+		waitTime(2);
+		clickOn(OR.manage_PrintCloseclose);
 		
 	}
 
@@ -224,7 +231,7 @@ public class ManageInventory extends ApplicationKeyword{
 	{
 		testStarts("Tc_manageInv_02_09" , "Verify that on selecting any Inventory + and � buttons are appearing +"
 				+ "Verify that  Cycle Count option appears on page");
-		NavigateUrl(DashBoardURL);		
+		NavigateUrl(DashBoardURL);	
 		ManageInventoryPOpage.PageLinkAndWait("inventory", OR.manageInv_pageLink);    
 		selectFromDropdown(OR.manageInv_InventoryDropDown, 1);
 		clickOn(OR.manageInv_searchButton);

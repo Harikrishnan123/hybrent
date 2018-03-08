@@ -126,7 +126,7 @@ public class MycartPage extends ApplicationKeyword{
 	{	
 	
 	clickOn(OR.Shop_SHopfor_ShopfaclitySelect);
-	waitForElementToDisplay(OR.Shop_SHopfor_Shopfaclity, 60);
+	waitForElementToDisplay(OR.Shop_SHopfor_Shopfaclity, 5);
 	verifyElementText(OR.Shop_SHopfor_Shopfaclity, "Select Facility");
 	waitForElementToDisplay(OR.Shop_countoffacilities, 60);
 	int one = driver.findElements(By.xpath("//*[@style='border-right: none;vertical-align: middle;']")).size();

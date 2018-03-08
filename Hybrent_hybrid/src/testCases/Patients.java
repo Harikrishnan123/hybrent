@@ -26,8 +26,8 @@ public class Patients extends ApplicationKeyword
 
 			extent = new ExtentReports(OutputDirectory+"/Patients.html", true);
 			// extent.addSystemInfo("Environment","Environment Name")
-			extent.addSystemInfo("User Name", "Harikrishnan");
-			extent.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
+			extent.addSystemInfo("User Name", "Ravneet");
+			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
 		
 		} catch (Exception e) {
 			testLogFail("unable to generate the pass report " + e.toString());
@@ -88,7 +88,7 @@ public class Patients extends ApplicationKeyword
 	public void Tc_Patients_03()
 	{
 		testStarts("Tc_Patients_03", "Verify that "+" (expand) button appears on left of patient name.");
-	NavigateUrl(DashBoardURL);		
+	    NavigateUrl(DashBoardURL);		
 		PrefcardPageObject.patientsPageLinkandwait();	
 		String s=getText(OR.Patient_plusIcon);
 		if(s.equals("+"))
@@ -142,10 +142,11 @@ public class Patients extends ApplicationKeyword
 		PrefcardPageObject.patientsPageLinkandwait();
 		clickOn(OR.Patient_EditPAtient);
 		verifyElementText(OR.Patient_EditPAtientPopUp, "Edit Patient ");
-		
+		clickOn(OR.Patient_EditPAtientPopUpCancel);
 	}
 
 
+	//May fail in case there is no case attached to first Patient
 	@Test(priority=4)
 	public void Tc_Patients_07()
 	{
@@ -155,6 +156,7 @@ public class Patients extends ApplicationKeyword
 		clickOn(OR.Patient_plusIcon);
 		clickOn(OR.Patient_PrintIcon);
 		verifyElementText(OR.Patient_previewpopup, "Download case");
+		clickOn(OR.Patient_ClosePreview);
 		
 	}
 
@@ -213,7 +215,7 @@ public class Patients extends ApplicationKeyword
 		{
 			testLogFail("New Patient is not added");
 		}									
-		
+//		clickOn(OR.Patient_EditPAtientPopUpCancel);
 	}
 
 	@Test(priority=6)
@@ -248,7 +250,7 @@ public class Patients extends ApplicationKeyword
 				testLogFail("Value of " + xpath + " is not null.");
 			}
 		}
-
+		clickOn(OR.Patient_EditPAtientPopUpCancel);
 		
 	}
 	

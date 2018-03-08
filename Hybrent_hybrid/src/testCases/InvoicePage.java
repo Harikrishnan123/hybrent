@@ -25,9 +25,9 @@ public class InvoicePage extends ApplicationKeyword
 
 			extent = new ExtentReports(OutputDirectory+"/Invoice.html", true);
 			// extent.addSystemInfo("Environment","Environment Name")
-			extent.addSystemInfo("User Name", "Harikrishnan");
-			extent.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
-		
+			extent.addSystemInfo("User Name", "Ravneet");
+			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
+			
 		} catch (Exception e) {
 			testLogFail("unable to generate the pass report " + e.toString());
 		}
@@ -156,7 +156,7 @@ public class InvoicePage extends ApplicationKeyword
 	@Test(priority=2)
 	public void Tc_INV_09_10() throws InterruptedException
 	{
-		testStarts("Tc_SPO_09 and 10", "Verify that Invoice PDF gets downloaded when user clicks Download PDF button"
+		testStarts("Tc_INV_09 and 10", "Verify that Invoice PDF gets downloaded when user clicks Download PDF button"
 				+ " Verify that Invoice Print preview appears when user clicks Print button.");
 		NavigateUrl(DashBoardURL);
 		Invoicespage.typeAndSearchInvoice();
@@ -170,13 +170,18 @@ public class InvoicePage extends ApplicationKeyword
 		{
 			testLogPass("Print Preview window opens");			
 		}
+		else
+		{
+			testLogFail("Print Preview window doesnot opens");
+		}
+		clickOn(OR.Invoice_PrintPReviewclose);
 		
 	}
 	
 	@Test(priority=3)
 	public void Tc_INV_02() throws InterruptedException
 	{
-		testStarts("Tc_SPO_02", "Verify that following dropdown(VendorStatusSearch By Due Date ,Facility, Departments, Ordered By  ) filters appear on page.");
+		testStarts("Tc_INV_02", "Verify that following dropdown(VendorStatusSearch By Due Date ,Facility, Departments, Ordered By  ) filters appear on page.");
 		NavigateUrl(DashBoardURL);
 		clickOn(OR.Request_InvoicePageLink);		
 		//Vendor DropDpwn		

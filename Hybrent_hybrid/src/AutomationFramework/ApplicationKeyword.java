@@ -1,43 +1,31 @@
 package AutomationFramework;
 
-import java.io.File;
+import java.util.List;
+import java.util.Properties;
 import java.util.Random;
-import org.testng.annotations.BeforeTest;
-import com.relevantcodes.extentreports.ExtentReports;
-import java.sql.Timestamp;
-import java.time.Instant;
+
 
 public class ApplicationKeyword extends Generickeywords 
 {
-//	@BeforeTest
-//	public void startReport(){
-//		try
-//		{
-//		     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-//		     long Time =timestamp.getTime();
-//		 	extent = new ExtentReports(System.getProperty("user.dir") + "/test-output/STMExtentReport.html", true);
-//			// extent.addSystemInfo("Environment","Environment Name")
-//			extent.addSystemInfo("User Name", "Harikrishnan");
-//			extent.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
-//		}
-//		catch(Exception e)
-//		{
-//			testLogFail("unable to generate the pass report "+e.toString());   
-//		}
-//	}	
-
-	public static void dropDown()
-	{
-		try
-		{	 
-			sscreen.dragDrop("D:\\Testing-Tools\\sikuli\\Test001.png", "D:\\Testing-Tools\\sikuli\\Test002.png");
-		}
-		catch(Exception e)
-		{
-			testLogFail("Drag and Drop function  "+e.toString());
-		}
-	}
-	
+	public static String facility_Name;
+	public static String vendor_Name;	
+	public static String firstCategory;
+	public static String ItemDescription ;
+	public static String ItemMfrNumber;
+	public static String ItemTestID ;
+	public static String SkuName;
+	public static String aliasName;
+	public static List<String> depNames_FacPage= null ;
+	public static String defFac=getProperty("userdefaultFac");
+	public static String npiNum=getProperty("NPI_FOr_Physician");
+	public static Properties prop;
+	public static String ItemCatName;
+	public static String SI;
+	public static String PT;
+	public static String Days;
+	public static String Percentage;
+	public static String NewsTitle;
+	public static String NewsDesc;
 	private static final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	
 	public static String randomAlphaNumeric(int count) 

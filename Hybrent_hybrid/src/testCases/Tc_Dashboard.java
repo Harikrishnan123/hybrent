@@ -36,8 +36,8 @@ public class Tc_Dashboard  extends ApplicationKeyword
 
 			extent = new ExtentReports(OutputDirectory+"/DashBoard.html", true);
 			// extent.addSystemInfo("Environment","Environment Name")
-			extent.addSystemInfo("User Name", "Harikrishnan");
-			extent.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
+			extent.addSystemInfo("User Name", "Ravneet");
+			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
 		
 		} catch (Exception e) {
 			testLogFail("unable to generate the pass report " + e.toString());
@@ -49,7 +49,7 @@ public class Tc_Dashboard  extends ApplicationKeyword
 		System.out.println("CameTo Dashboard");
 		testStarts("Tc_Dashboard_001, Tc_Dashboard_003",
 				"Verify that recent notifications appear on clicking Notification (bell) icon button.\n"
-						+ "Verify that user gets redirected to “My Notifications” page, on clicking “View All” button\"");
+						+ "Verify that user gets redirected to ï¿½My Notificationsï¿½ page, on clicking ï¿½View Allï¿½ button\"");
 		openBrowser(URL);
 		Loginpage.login(UserName, Password);
 		waitForElementToDisplay(OR.Notification_Bell, 60);
@@ -60,7 +60,7 @@ public class Tc_Dashboard  extends ApplicationKeyword
 	@Test(groups="Dashboard", priority=2)
 	public void Tc_Dashboard_002() {
 		testStarts("Tc_Dashboard_002",
-				"Verify that user gets redirected to “Notification Settings” page, on clicking “Notification Settings” button");
+				"Verify that user gets redirected to ï¿½Notification Settingsï¿½ page, on clicking ï¿½Notification Settingsï¿½ button");
 		NavigateUrl(DashBoardURL);
 		waitForElementToDisplay(OR.User, 60);
 		clickOn(OR.User);
@@ -82,7 +82,7 @@ public class Tc_Dashboard  extends ApplicationKeyword
 	@Test(groups="Dashboard", priority=4)
 	public void Tc_Dashboard_005() {
 		testStarts("Tc_Dashboard_005",
-				"Verify that user gets redirected to “Profile” page, on clicking Profile button.");
+				"Verify that user gets redirected to ï¿½Profileï¿½ page, on clicking Profile button.");
 		NavigateUrl(DashBoardURL);
 		waitForElementToDisplay(OR.User, 60);
 		clickOn(OR.User);
@@ -114,7 +114,7 @@ public class Tc_Dashboard  extends ApplicationKeyword
 	@Test(groups="Dashboard", priority=7)
 	public void Tc_Dashboard_008() {
 		testStarts("Tc_Dashboard_008",
-				"Verify that “Pending Survey” pop up appears when user clicks on survey option.");
+				"Verify that ï¿½Pending Surveyï¿½ pop up appears when user clicks on survey option.");
 		NavigateUrl(DashBoardURL);
 		waitForElementToDisplay(OR.User, 60);
 		clickOn(OR.User);
@@ -125,7 +125,7 @@ public class Tc_Dashboard  extends ApplicationKeyword
 	@Test(groups="Dashboard", priority=8)
 	public void Tc_Dashboard_009() {
 		testStarts("Tc_Dashboard_009",
-				"Verify that “Change Password” pop up appears when user clicks on Change Password option.");
+				"Verify that ï¿½Change Passwordï¿½ pop up appears when user clicks on Change Password option.");
 		NavigateUrl(DashBoardURL);
 		waitForElementToDisplay(OR.User, 60);
 		clickOn(OR.User);
@@ -136,7 +136,7 @@ public class Tc_Dashboard  extends ApplicationKeyword
 	@Test(groups="Dashboard", priority=9)
 	public void Tc_Dashboard_010() {
 		testStarts("Tc_Dashboard_010",
-				"Verify that “Select user to login” screen appears when user clicks on switch user option.");
+				"Verify that ï¿½Select user to loginï¿½ screen appears when user clicks on switch user option.");
 		NavigateUrl(DashBoardURL);
 		waitForElementToDisplay(OR.User, 60);
 		clickOn(OR.User);
@@ -165,9 +165,9 @@ public class Tc_Dashboard  extends ApplicationKeyword
 	@Test(groups="Dashboard", priority=12)
 	public void Tc_Dashboard_013() {
 		testStarts("Tc_Dashboard_013, Tc_Dashboard_014, Tc_Dashboard_015",
-				"Verify that “Recent Orders” and “News & Events” sections appear on Page.\n"
+				"Verify that ï¿½Recent Ordersï¿½ and ï¿½News & Eventsï¿½ sections appear on Page.\n"
 						+ "Verify that user gets redirected to corresponding news on clicking any news.\r\n"
-						+ "Verify that user gets redirected to corresponding PO details on clicking any PO link under \"“Recent Orders” section,\r\n"
+						+ "Verify that user gets redirected to corresponding PO details on clicking any PO link under \"ï¿½Recent Ordersï¿½ section,\r\n"
 						+ "");
 		NavigateUrl(DashBoardURL);
 		Dashboardpage.PartialReviews();

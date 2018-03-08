@@ -22,8 +22,8 @@ public class Users extends ApplicationKeyword{
 
 			extent = new ExtentReports(OutputDirectory+"/Users.html", true);
 			// extent.addSystemInfo("Environment","Environment Name")
-			extent.addSystemInfo("User Name", "Harikrishnan");
-			extent.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
+			extent.addSystemInfo("User Name", "Ravneet");
+			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
 		
 		} catch (Exception e) {
 			testLogFail("unable to generate the pass report " + e.toString());
@@ -124,6 +124,7 @@ public class Users extends ApplicationKeyword{
 		waitForElementToDisplay(OR.Users_AddUserPopupText, 10);
 		verifyElementText(OR.Users_AddUserPopupText, "Add User");
 		Organisation_settingspage.verifyTabs();	
+		clickOn(OR.Users_AddUserPopupClose);
 			
 	}
 
@@ -137,7 +138,7 @@ public class Users extends ApplicationKeyword{
 		waitForElementToDisplay(OR.Users_EditUserPopupText, 10);
 		verifyElementText(OR.Users_EditUserPopupText, "Edit User");
 		Organisation_settingspage.verifyTabs();
-			
+		clickOn(OR.Users_AddUserPopupClose);
 	}
 
 	@Test(priority=4)

@@ -43,7 +43,7 @@ public class OR {
 	public static String Shop_SHopfor_RecentlyOrderedradiobutton="RecentlyOrderedradiobutton#xpath=//*[@id='searchShop']/div[2]";
 	public static String Shop_SHopfor_MostOrderedradiobutton="MostOrderedradiobutton#xpath=//*[@id='searchShop']/div[3]";
 	public static String Shop_SHopfor_FavOrderedradiobutton="FavOrderedradiobutton#xpath=//*[@id='searchShop']/div[4]";
-
+	public static String Shop_selectExactMatch= "selectExactMatch#xpath=//*[@id='matchselect']";
 	public static String Shop_SHopfor_ResultGridTab="ResultGridTab#xpath=//*[@id='ng-view']/div/div[2]/div[3]/grid-layout/div[2]/div/div/div/div/table/thead/tr/th[7]/a";
 
 	public static String Shop_SHopfor_LastorderedText="LastorderedText#xpath=//th[@class='ng-scope text-left']/a";
@@ -51,7 +51,7 @@ public class OR {
 
 
 
-	public static String Shop_SHopfor_favtab="favtab#xpath=//i[@ng-if='isFavorite']";
+	public static String Shop_SHopfor_favtab="favtab#xpath=//*[@ng-if=\"isShowFavorite == 'true'\"]/i";
 	public static String Shop_SHopfor_myInventoryFavTab="myInventoryFavTab#xpath=//i[@ng-if='!isFavorite']";  
 
 	public static String Shop_orgPage="orgPage#xpath=//*[@href='#/admin/organization']";
@@ -214,7 +214,8 @@ public class OR {
 	public static String ItemCatalog_mapwithalltopright ="mapwithalltopright#xpath=//a[text()='Map with all facility']";
 	public static String ItemCatalog_verifytextpopup ="verifytextpopup #xpath= //*[@class='modal-header']/div/span";
 	public static String ItemCatalog_purchaseprice ="purchaseprice#xpath= //input[@ng-model='purchase_price']";
-	public static String ItemCatalog_mapallbutton ="mapallbutton#xpath=//button[@type='submit']";
+	//public static String ItemCatalog_mapallbutton ="mapallbutton#xpath=//button[@type='submit']";
+	public static String ItemCatalog_mapallbutton ="mapallbutton#xpath=//button[@id='btnAdd']";
 	// Add item Map faility
 	public static String ItemCatalog_AddItem_Map_Header = "Map_Header#xpath=//*[@class='headtext']";
 	public static String ItemCatalog_AddItem_Map_SearchFacility_Text = "SearchFacilityText#xpath=//*[text()='Search Facility']";
@@ -223,7 +224,7 @@ public class OR {
 	public static String ItemCatalog_AddItem_Map_PurchagePrice ="PurchagePrice#xpath=//*[@id='purchase-price0']";
 	public static String ItemCatalog_AddItem_Map_GPOPurchagePrice ="GPOPurchagePrice#xpath=//*[@name='gpo_contract_price']";
 	public static String ItemCatalog_AddItem_Map_GPOPurchagePriceSave ="GPOPurchagePriceSave#xpath=(//button[contains(text(),'Save')])[1]";
-	public static String ItemCatalog_AddItem_Map_Closepage ="Close#xpath=//*[@class='modal-header']/div/div/div/button";
+	public static String ItemCatalog_AddItem_Map_Closepage ="Close#xpath=//*[@class=\"headtext\"]//button[@class='close']";
 
 	// Notification
 	public static String Notification_Bell = "Bell#xpath=//*[@id='notification-count']";
@@ -255,6 +256,8 @@ public class OR {
 	public static String MyCart_cartFor_Details = "text_cartFor_Details#xpath=//*[@select-list='shippingLocations']/a";
 	public static String MyCart_searchInCart = "searchInCart#xpath=//*[@id='searchInput']";
 	public static String MyCart_addItemInCart = "addItemInCart#xpath=//button[@id='btnAdd']";
+	public static String MyCart_warningPopup = "warningPopup#xpath=//*[@class='row']";
+	public static String MyCart_continueButton = "continueButton#xpath=//button[text()='Continue']";
 	public static String MyCart_firstItemName = "firstItemName#xpath=//ul[@id='suggestions']/li/div/div[1]/div/span/strong";
 	public static String MyCart_firstItemNamewait = "firstItemNamewait#xpath=//ul[@id='suggestions']";
 	public static String MyCart_firstItemSkuName = "firstItemSkuName#xpath=//*[@id='suggestions']/li[1]/div/div[3]/div[1]/span/small";	
@@ -286,10 +289,12 @@ public class OR {
 
 	public static String MyCart_AddDepartmenthyperLink = "AddDepartmenthyperLink#xpath=//a[@ng-click='selectDepartments(cartItem);']";
 	public static String MyCart_AddDepartmentText = "AddDepartmentText#xpath=(//h4)[1]";
+	public static String MyCart_AddDepartmentPopUPcancel = "_AddDepartmentPopUPcancel #xpath=//*[@class='close']";
 	public static String MyCart_AddPhysicianhyperLink = "AddPhysicianhyperLink#xpath=//a[@ng-click='selectPhysicians(cartItem);']";
 	public static String MyCart_AddPhysicianText = "AddPhysicianText#xpath=(//h4)[1]";
 	public static String MyCart_PrintPO= "PrintPO#xpath=//a[@ng-click='showPopUp()']";
 	public static String MyCart_PrintPOPopUpText= "PrintPOPopUpText#xpath=//*[@class='modal-content ng-scope']/div/div/span";
+	public static String MyCart_PrintCloseclose="PrintPReviewclose#xpath=//*[@class='fa fa-2x fa-times']";
 	public static String MyCart_showTourButton= "showTourButton#xpath=//a[@ng-click='startTour();']";
 	public static String MyCart_showtourtextONPOPUP="showtourtextONPOPUP#xpath=//h3[contains(text(),'Cart: List of Items')]";
 	public static String MyCart_cartIconNumber="cartIconNumber#xpath=//*[@href='#/my-cart']/i/sup";
@@ -344,6 +349,7 @@ public class OR {
 	public static String Request_drillDown = "Request_drillDown#xpath=//*[@class='pagehead']//*[@data-toggle='dropdown']";
 	public static String Request_createNewService = "createNewService#xpath=//*[contains(text(),'Add New Service')]";
 	public static String Request_createNewServicePopUpText = "createNewServicePopUpText#xpath=//div[@class='modal-header']/div/span";
+	public static String Request_cancelPopUP = "cancelPopUP#xpath=//*[@class='fa fa-2x fa-times']";
 	public static String Request_ServiceLocationText="ServiceLocationText#xpath=//label[@for='shippingLocation']";
 	public static String Request_ServiceDateText="ServiceDateText#xpath=//label[@for='txtExpectedDate']";
 	public static String Request_CalenderIcon="CalenderIcon#xpath=//*[@class='input-group-btn']//button[@class='btn btn-default btn-sm']";
@@ -372,7 +378,7 @@ public class OR {
 	public static String Order_PO_Doc_HeaderTxt ="PO_Doc_HeaderTxt#xpath=//*[@class='headtext ng-binding']";
 	public static String Order_PO_Doc_UploadFile ="PO_Doc_UploadFileTxt#xpath=//label[contains(text(),'Upload File')]";
 	public static String Order_PO_Doc_CloseBtn ="PO_Doc_CloseBtn#xpath=//*[text()='Close']";
-	public static String Order_PO_Doc_UploadFiles ="PO_Doc_UploadFile#xpath=//*[@id='pic']";
+	public static String Order_PO_Doc_UploadFiles ="PO_Doc_UploadFile#xpath=//*[@type='file']";
 
 	public static String Order_PO_StatusDropdown_Cancelled ="Cancelled#xpath=//*[text()='Cancelled']";
 	public static String Order_PO_StatusDropdown_On_Hold ="On_Hold#xpath=//*[text()='On-Hold']";
@@ -436,6 +442,7 @@ public class OR {
 	public static String Invoice_DownoadPDF="Invoice_DownoadPDF#xpath=(//*[@class='fa fa-download'])[1]";
 	public static String Invoice_PrintPDF="PrintPDF#xpath=(//*[@ng-click='openPDF()'])[1]";
 	public static String Invoice_PrintPReviewWindow="PrintPReviewWindow#xpath=//*[contains(text(),'Print Invoice')]";
+	public static String Invoice_PrintPReviewclose="PrintPReviewclose#xpath=//*[@class='fa fa-times']";
 	public static String Invoice_vendorDropDownLabels="vendorDropDownLabels#xpath=//*[text()='Vendor:']";
 	public static String Invoice_vendorDropDowns="vendorDropDown#xpath=//*[@name='vendor_name']";
 	public static String Invoice_statusDropDowns="statusDropDown#xpath=//*[@name='status']";
@@ -458,7 +465,7 @@ public class OR {
 
 	//SHIPMENTS
 	public static String Shipment_PageLink="PageLink#xpath=//*[@href='#/orders/shipments']";
-	public static String Shipment_FirstShipmentNum="FirstShipmentNum#xpath=//*[@class='table table-striped']//tbody//td[1]/a";
+	public static String Shipment_FirstShipmentNum="FirstShipmentNum#xpath=//*[@class='table table-striped']//tbody//tr[1]//td[1]/a[1]";
 	public static String Shipment_ShipmentPONum="ShipmentPONum#xpath=//*[@class='table table-striped']//tbody/tr[1]/td[2]";
 	public static String Shipment_TrackingNum="TrackingNum#xpath=//*[@class='table table-striped']//tbody/tr[1]//td/span";
 	public static String Shipment_wait="wait#xpath=//*[@id='ng-view']";
@@ -505,6 +512,7 @@ public class OR {
 	public static String Users_ClosePopup="ClosePopup#xpath=//i[@class='fa fa-2x fa-times']";
 	public static String Users_AddNewUser="AddNewUser#xpath=//button[@ng-click='createUser()']";
 	public static String Users_AddUserPopupText="AddUserPopupText#xpath=//*[@class='modal-content']//span[2]";
+	public static String Users_AddUserPopupClose="AddUserPopupClose#xpath=//*[@class='fa fa-2x fa-times']";
 	public static String Users_EditUserButton="EditUserButton#xpath=//button[@ng-click='editUser(adminUserData.id)']";
 	//public static String Users_EditUserButton="EditUserButton#xpath=//button[text()='Edit']";
 	public static String Users_EditUserPopupText="EditUserPopupText#xpath=//*[@class='modal-content']//span[1]";
@@ -611,6 +619,8 @@ public class OR {
 	public static String Receive_PrintPOLink="PrintPOLink#xpath=(//*[@class='dropdown-menu']//*[@ng-click='openPDF()'])[1]";
 	public static String Receive_PrintPOLinkPoDetail="PrintPOLinkPoDetail#xpath=//*[@ng-click='openPDF()']";
 	public static String Receive_PrintPOText="PrintPOText#xpath=(//*[@class='modal-header']//*[@class='ng-binding'])[1]";
+	public static String Receive_PrintPReviewclose="PrintPReviewclose#xpath=//*[@class='fa fa-times']";
+	public static String Receive_PrintCloseclose="PrintPReviewclose#xpath=//*[@class='fa fa-2x fa-times']";
 	public static String Receive_InvoiceForText="InvoiceForText#xpath=(//*[@class='pagehead'])[1]";
 	public static String Receive_PrintPODetailPage="PrintPODetailPage#xpath=[@class='modal-header']/span";
 	public static String Receive_AllInvoiceLink="AllInvoiceLink#xpath=(//a[text()='All Invoices'])[1]";
@@ -631,7 +641,7 @@ public class OR {
 	public static String Receive_DeleteIcon="DeleteIcon#xpath=(//i[@class='fa fa-trash'])[1]";
 
 	//public static String Receive_NotesDeleteIcon="NotesDeleteIcon#xpath=(//*[@ng-click='deleteNoteFn(note.id, $index)']/i)[1]";
-	public static String Receive_NotesDeleteIcon="NotesDeleteIcon#xpath=(//*[@class='pull-right ng-scope'])[1]//i[@class='fa fa-trash']";
+	public static String Receive_NotesDeleteIcon="NotesDeleteIcon#xpath=(//i[@class='fa fa-trash-o'])[1]";
 	public static String Receive_confirmButton="confirmButton#xpath=//button[@class='confirm']";
 	//public static String Receive_NoNOteavailable="NoNOteavailable#xpath=//*[@class='row']//h4[1]";
 	public static String Receive_NoNOteavailable="NoNOteavailable#xpath=//h4[text()='No note available.']";
@@ -666,7 +676,7 @@ public class OR {
 	public static String Receive_Depatment="Depatment#xpath=(//*[@ng-if='!orderData.is_po_editable || !canModify']/strong)[1]";
 	public static String Receive_Physician="Physician#xpath=(//*[@ng-if='!orderData.is_po_editable || !canModify']/strong)[2]";
 	public static String Receive_OrdersListingPageText="OrdersListingPageText#xpath=//*[@class='pagehead ng-binding']";
-	public static String Receive_ShowTourText="ShowTourText#xpath=//h3[@class='popover-title tour-step-title ng-binding ng-scope'and text()='Order: PO Details']";
+	public static String Receive_ShowTourText="ShowTourText#xpath=//*[@class='popover-inner tour-step-inner']/h3";
 	public static String Receive_selectedFacInDropDown="selectedFacInDropDown#xpath=//*[@id='facility']//span[1]";
 
 	public static String Receive_selectedUserInDropDown="selectedUserInDropDown#xpath=//*[@id='creater']//span[@class='ui-select-match-text pull-left']/span";
@@ -706,6 +716,8 @@ public class OR {
 	public static String Patient_EditPAtient="EditPAtient#xpath=(//*[@class='fa fa-edit'])[1]";
 	public static String Patient_PrintIcon="PrintIcon#xpath=(//*[@class='fa fa-print'])[1]";
 	public static String Patient_EditPAtientPopUp="EditPAtientPopUp#xpath=//*[@class='headtext']/span";
+	public static String Patient_EditPAtientPopUpCancel="EditPAtientPopUpCancels#xpath=//*[@class='fa fa-2x fa-times']";
+	public static String Patient_ClosePreview="ClosePreview#xpath=//*[@class='fa fa-times]";
 	public static String Patient_previewpopup="previewpopup#xpath=//*[@class='modal-header']";
 	public static String Patient_AddPatient="AddPatient#xpath=//button[@class='btn btn-primary pull-right ng-scope']";
 	public static String Patient_SaveButton="SaveButton#xpath=//*[@class='modal-footer']";
@@ -798,6 +810,7 @@ public class OR {
 	public static String prefCard_GlovesSize="GlovesSize#xpath=//*[@id='gloves_size']"; 
 	public static String prefCard_addStage="addStage#xpath=//input[@value='Add Stage']";	 
 	public static String prefCard_addStageText="addStageText#xpath=//*[@class='modal-header']/h4";
+	public static String prefCard_CanelBUtton="CanelBUtton#xpath=//*[@class='modal-footer']//button[text()='Cancel']";
 	public static String prefCard_addStageName="addStageName#xpath=//*[@id='prefCardStage']";
 	public static String prefCard_addStageButton="addStageButton#xpath=//button[@class='btn btn-primary ng-binding']";
 	public static String prefCard_reorderStageButton="reorderStageButton#xpath=//*[@value='Re-order Stage']";
@@ -851,12 +864,14 @@ public class OR {
 	public static String manageInv_EditIemHeaderText= "EditIemHeaderText#xpath=//*[@class='headtext']";
 	public static String manageInv_VendorsTab = "VendorsTab#lnktext=Vendors";
 	public static String manageInv_EditStockStatus= "EditStockStatus#xpath=//*[@name='stock_status']";
-	public static String manageInv_EditItem_SaveButton="EditItem_SaveButton#xpath=//*[text()='Save']";
+	public static String manageInv_EditItem_SaveButton="EditItem_SaveButton#xpath=//button[@type='submit']";
 	public static String manageInv_EditItem_GPoContractPrice="EditItem_GPoContractPrice#xpath=//input[@ng-model='v.facilityItemVendors.gpo_contract_price']";
 	public static String manageInv_DeleteIcon="DeleteIcon#xpath=//i[@class='glyphicon glyphicon-trash text-danger action-button']";
+	public static String manageInv_cancelPopUP="cancelPopUP#xpath=//button[@class='cancel']";
 	public static String manageInv_DeletePoUp="DeletePoUp#xpath=//*[@class='sweet-alert showSweetAlert visible']//p";
 	public static String manageInv_PrintIcon="PrintIcon#xpath=(//*[@class='glyphicon glyphicon-print text-primary action-button'])[1]";
 	public static String manageInv_PrintPreviewButton="PrintPreviewButton#xpath=//*[@ng-click='showPop()']";
+	public static String manage_PrintCloseclose="PrintPReviewclose#xpath=//*[@class='fa fa-2x fa-times']";
 	public static String manageInv_ItemName="ItemName#xpath=//*[@id='populate_items_pdf']//td[1]";
 	public static String manageInv_TransferIcon="TransferIcon#xpath=(//*[@class='glyphicon glyphicon-transfer text-primary'])[1]";
 	public static String manageInv_TransferPopUpText="TransferPopUpText#xpath=//*[@class='modal-header']/h4";
@@ -910,6 +925,7 @@ public class OR {
 	public static String PrintBarcodes_SelectPagesRadioButton="SelectPagesRadioButton#xpath=//*[@id='pages']";
 	public static String PrintBarcodes_PrintButton="PrintButton#xpath=//*[@class='popover-content']//*[@type='button']";
 	public static String PrintBarcodes_PreviewPDFTEXT="PreviewPDFTEXT#xpath=//*[@class='modal-header']";
+	public static String PrintBarcodes_PrintPReviewclose="PrintPReviewclose#xpath=//*[@class='fa fa-times']";
 
 	//SpecialInstructions
 
@@ -1118,7 +1134,7 @@ public class OR {
 	
 	    public static String OrderNotes_PO_First ="PO_NotesFirst#xpath=(//*[@ng-click='openPONote(order)']/i)[1]";
 	    public static String OrderNotes_PO_NotesCount ="NotesCount#xpath=(//*[@ng-click='openPONote(order)']//sup)[1]";
-	    public static String OrderNotes_PO_NotesClose ="Close#xpath=//*[@ng-click='cancel()']";
+	    public static String OrderNotes_PO_NotesClose ="Close#xpath=(//button[@ng-click='cancel()']/i)[1]";
 	    
 	    public static String OrderDoc_PO_First ="PO_DocFirst#xpath=(//*[@ng-click='attachFiles(order)']/i)[1]";
 	    public static String OrderDoc_PO_NotesCount ="DocCount#xpath=(//*[@ng-click='attachFiles(order)']//sup)[1]";
@@ -1172,7 +1188,7 @@ public class OR {
 	    public static String Template__Deletevalidation = "validation#xpath=//*[text()='Are you sure?']";
 	    public static String Template__Deletevalidation1 = "validation#xpath=//*[text()='Are you sure you want to delete this schedule ?']";
 	    public static String Template__Deletetemplatevalidation = "validation#xpath=//*[text()='Are you sure you want to delete this template ?']";
-	    public static String Template_Yes = "Yes#xpath=//button [text()='Yes']";
+	    public static String Template_Yes = "Yes#xpath=//button[text()='Yes']";
 	    public static String Template_Cancel = "Cancel#xpath=//button [text()='Cancel']";
 	    public static String Template_TostSucess = "TostSucess#xpath=//*[@class='toast-title']";
 	    public static String Template_TostMsg = "Tostmsg#xpath=//*[@class='toast-message']";

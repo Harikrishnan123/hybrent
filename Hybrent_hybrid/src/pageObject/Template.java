@@ -1,12 +1,9 @@
 package pageObject;
 
-import javax.servlet.GenericServlet;
-
-
 import org.openqa.selenium.By;
 
-import AutomationFramework.OR;
 import AutomationFramework.ApplicationKeyword;
+import AutomationFramework.OR;
 
 public class Template extends ApplicationKeyword
 {
@@ -15,6 +12,8 @@ public class Template extends ApplicationKeyword
 	
 	public static void AddDeleteScheduleTemplate()
 	{
+		try
+		{
 		waitForElement(OR.Templates_AddBtn, 60);
 		clickOn(OR.Templates_AddBtn);
 		verifyElementText(OR.Templates_AddTemplatetxt, "Add Template");
@@ -30,32 +29,64 @@ public class Template extends ApplicationKeyword
 		//String one = getAttributeValue(OR.Template_Schedule_Every, "selected");
 		waitForElement(OR.Template_Schedule_Savebtn, 60);
 		clickOn(OR.Template_Schedule_Savebtn);
-		waitForElement(OR.Template_Schedule_Deletebtn, 60);
+		waitTime(5);
 		clickOn(OR.Template_Schedule_Deletebtn);
-		waitForElement(OR.Template__Deletevalidation, 60);
 		verifyElementText(OR.Template__Deletevalidation, "Are you sure?");
 		verifyElementText(OR.Template__Deletevalidation1, "Are you sure you want to delete this schedule ?");
 		clickOn(OR.Template_Yes);
-
+		System.out.println("test");
+		waitTime(15);
+		clickOn(OR.Template_Yes);
+		}
+		catch(Exception e)
+		{
+			if(isElementDisplayed(OR.Template_Yes))
+			{
+				clickOn(OR.Template_Yes);
+			}
+			NavigateUrl(DashBoardURL);
+		}
 	}
 	
 	public static void AddTemplate()
 	{
+		try
+		{
 		waitForElement(OR.Templates_AddBtn, 60);
 		clickOn(OR.Templates_AddBtn);
 		verifyElementText(OR.Templates_AddTemplatetxt, "Add Template");
 		verifyElement(OR.Templates_Cancel);
 		typeIn(OR.Templates_Name, CreateTemplateName);
 		clickOn(OR.Templates_CreateTemplate);
+		}
+		catch(Exception e)
+		{
+			if(isElementDisplayed(OR.Template_Yes))
+			{
+				clickOn(OR.Template_Yes);
+			}
+			NavigateUrl(DashBoardURL);
+		}
 	}
 	
 	public static void AddScehdule()
 	{
+		try
+		{
 		clickOn(OR.Template_Schedule);
 		clickOn(OR.Template_AddSchedule);
 		//String one = getAttributeValue(OR.Template_Schedule_Every, "selected");
 		waitForElement(OR.Template_Schedule_Savebtn, 60);
 		clickOn(OR.Template_Schedule_Savebtn);
+		}
+		catch(Exception e)
+		{
+			if(isElementDisplayed(OR.Template_Yes))
+			{
+				clickOn(OR.Template_Yes);
+			}
+			NavigateUrl(DashBoardURL);
+		}
 	}
 	public static void AddItemTemplate()
 	{

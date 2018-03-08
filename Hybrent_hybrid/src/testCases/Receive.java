@@ -29,8 +29,8 @@ public class Receive extends ApplicationKeyword
 
 			extent = new ExtentReports(OutputDirectory+"/Receive.html", true);
 			// extent.addSystemInfo("Environment","Environment Name")
-			extent.addSystemInfo("User Name", "Harikrishnan");
-			extent.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
+			extent.addSystemInfo("User Name", "Ravneet");
+			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
 		
 		} catch (Exception e) {
 			testLogFail("unable to generate the pass report " + e.toString());
@@ -150,34 +150,43 @@ public class Receive extends ApplicationKeyword
 	}
 
 	@Test(priority=3)
-	public void Tc_Receive_05() 
+	public void Tc_Receive_05_06() 
 	{
-		testStarts("Tc_Receive_05()", "Verify that �Notes for PO #� window appears when user clicks on notes icon with count.");
+		testStarts("Tc_Receive_05()", "Verify that �Notes for PO #� window appears when user clicks on notes icon with count."+"Verify that �Add Note for PO #� pop up appears when user clicks on �Add New Note�\"");
 		NavigateUrl(DashBoardURL);	
 		//ReceivePageObject.pageLinkandwait();
 		ReceivePageObject.selectByDefaultFacility();
 		waitForElementToDisplay(OR.Receive_NotesLinkWait, 10);
 		clickOn(OR.Receive_NotesLink);
 		waitForElementToDisplay(OR.Receive_NotesLinkText, 10);
-		verifyElementText(OR.Receive_NotesLinkText, "Notes for PO # ");  
-		
-	}
-	@Test(priority=4)
-	public void Tc_Receive_06() throws InterruptedException 
-	{
-		testStarts("Tc_Receive_06()", "Verify that �Add Note for PO #� pop up appears when user clicks on �Add New Note�");
-		NavigateUrl(DashBoardURL);
-		ReceivePageObject.pageLinkandwait();
-		ReceivePageObject.selectByDefaultFacility();
-		waitForElementToDisplay(OR.Receive_NotesLinkWait, 10);
-		clickOn(OR.Receive_NotesLink);
-		waitForElementToDisplay(OR.Receive_NotesLinkText, 10);
+		verifyElementText(OR.Receive_NotesLinkText, "Notes for PO # ");
 		clickOn(OR.Receive_AddNewNotesLink);
 		waitForElementToDisplay(OR.Receive_NotesLinkText, 10);
 		verifyElementText(OR.Receive_NotesLinkText, "Add Note for PO # ");
+		clickOn(OR.Receive_PrintCloseclose);	
+		waitTime(2);
+		clickOn(OR.Receive_PrintCloseclose);	
+		waitTime(3);
 		
 	}
-	@Test(priority=5)
+//	@Test(priority=4)
+//	public void Tc_Receive_06() throws InterruptedException 
+//	{
+//		testStarts("Tc_Receive_06()", "Verify that �Add Note for PO #� pop up appears when user clicks on �Add New Note�");
+//		NavigateUrl(DashBoardURL);
+//		ReceivePageObject.pageLinkandwait();
+//		ReceivePageObject.selectByDefaultFacility();
+//		waitForElementToDisplay(OR.Receive_NotesLinkWait, 10);
+//		clickOn(OR.Receive_NotesLink);
+//		waitForElementToDisplay(OR.Receive_NotesLinkText, 10);
+//		clickOn(OR.Receive_AddNewNotesLink);
+//		waitForElementToDisplay(OR.Receive_NotesLinkText, 10);
+//		verifyElementText(OR.Receive_NotesLinkText, "Add Note for PO # ");
+//		clickOn(OR.Receive_PrintCloseclose);	
+//		waitTime(1);
+//		
+//	}
+	@Test(priority=4)
 	public void Tc_Receive_07_19() throws InterruptedException 
 	{
 		testStarts("Tc_Receive_07_19()", "Verify that �PO # XXXX11 Documents� pop up appears when clicks on Documents icon with count +"
@@ -205,7 +214,10 @@ public class Receive extends ApplicationKeyword
 		if(s2.trim().equalsIgnoreCase(nameOfFile_Expected))
 		{
 			testLogPass("File is uploaded with the same name as expected");
-			clickOn(OR.Receive_NotesDeleteIcon);
+			WebElement wholeElem=driver.findElement(By.xpath("//*[@class='col-sm-18']"));
+			WebElement trashIcon=wholeElem.findElement(By.xpath("(//a[@class='a-with-icon pull-right ng-scope']/i[@class='fa fa-trash-o'])[1]"));
+			trashIcon.click();
+			//clickOn(OR.Receive_NotesDeleteIcon);
 			waitForElementToDisplay(OR.Receive_confirmButton, 10);
 			clickOn(OR.Receive_confirmButton);
 		}
@@ -218,9 +230,11 @@ public class Receive extends ApplicationKeyword
 //		clickOn(OR.Receive_NotesDeleteIcon);
 //		waitForElementToDisplay(OR.Receive_confirmButton, 10);
 //		clickOn(OR.Receive_confirmButton);
+		clickOn(OR.Receive_PrintCloseclose);
+		waitTime(3);
 		
 	}
-	@Test(priority=6)
+	@Test(priority=5)
 	public void Tc_Receive_09() 
 	{
 		testStarts("Tc_Receive_09()", "Verify that �Print PO� preview window appears when user clicks on Print Po option in action dropdown");
@@ -231,9 +245,11 @@ public class Receive extends ApplicationKeyword
 		clickOn(OR.Receive_PrintPOLink);
 		waitForElementToDisplay(OR.Receive_PrintPOText, 10);		
 		verifyElementText(OR.Receive_PrintPOText, " Print PO");
+		clickOn(OR.Receive_PrintPReviewclose);	
+		waitTime(3);
 		
 	}
-	@Test(priority=7)
+	@Test(priority=6)
 	public void Tc_Receive_10() 
 	{
 		testStarts("Tc_Receive_10()", "Verify that user gets redirected to �INVOICE FOR PO #� page, on clicking �Add Invoice� option.");
@@ -251,15 +267,17 @@ public class Receive extends ApplicationKeyword
 		
 	}
 	
+	//necessary to put waiTime instead of dynamic
 	
-	@Test(priority=8)
+	@Test(priority=7)
 	public void Tc_Receive_11() throws InterruptedException 
 	{
 		testStarts("Tc_Receive_11()", "Verify that �INVOICES FOR PO #� page appears when user clicks on All Invoices option.");
 		NavigateUrl(DashBoardURL);
 		ReceivePageObject.pageLinkandwait();
 		ReceivePageObject.selectByDefaultFacility();
-		waitForElementToDisplay(OR.Receive_DrillDownIcon, 10);
+		//waitForElementToDisplay(OR.Receive_DrillDownIcon, 10);
+		waitTime(6);
 		clickOn(OR.Receive_DrillDownIcon);
 		WebElement element = driver.findElement(By.xpath("(//a[text()='Invoices'])[1]"));
 		Actions action = new Actions(driver);
@@ -283,37 +301,45 @@ public class Receive extends ApplicationKeyword
 	
 	}
 	
-	@Test(priority=9)
+	//necessary to put waiTime instead of dynamic
+	@Test(priority=8)
 	public void Tc_Receive_12() 
 	{
 		testStarts("Tc_Receive_12()", "Verify that �Print Window� appears on clicking Print button..");
 		NavigateUrl(DashBoardURL);
 		ReceivePageObject.pageLinkandwait();
-		waitForElementToDisplay(OR.Receive_DrillDownIcon, 10);
+		//waitForElementToDisplay(OR.Receive_DrillDownIcon, 10);
+		waitTime(6);
 		clickOn(OR.Receive_DrillDownIcon);
 		waitForElementToDisplay(OR.Receive_printPO, 10);
 		clickOn(OR.Receive_printPO);
 		verifyElementText(OR.Receive_printPOText, "Print PO # ");
+		clickOn(OR.Receive_PrintCloseclose);	
+		waitTime(3);
 		
 	
 	}
 	
-	@Test(priority=10)
+	//necessary to put waiTime instead of dynamic
+	@Test(priority=9)
 	public void Tc_Receive_014() {
 		testStarts("Tc_Receive_014",
 				"Verify that �PO AUDIT LOGS FOR PO #� pop up window appears when user clicks on Po Log option in the dropdown.");
 		NavigateUrl(DashBoardURL);
 		ReceivePageObject.pageLinkandwait();
-		waitForElementToDisplay(OR.Receive_DrillDownIcon, 10);
+		//waitForElementToDisplay(OR.Receive_DrillDownIcon, 10);
+		waitTime(6);
 		clickOn(OR.Receive_DrillDownIcon);
 		waitForElementToDisplay(OR.Receive_POLOg, 10);
 		clickOn(OR.Receive_POLOg);	
 		waitForElementToDisplay(OR.Receive_POLOgText,10);
-		verifyElementText(OR.Receive_POLOgText, "PO AUDIT LOGS FOR PO #");		
+		verifyElementText(OR.Receive_POLOgText, "PO AUDIT LOGS FOR PO #");	
+		clickOn(OR.Receive_PrintCloseclose);	
+		waitTime(3);
 				
 	}
 	
-	@Test(priority=11)
+	@Test(priority=10)
 	public void Tc_Receive_017() {
 		testStarts("Tc_Receive_017",
 				"Verify that notes gets deleted when user clicks on 'Delete' button for the added note.");
@@ -325,7 +351,7 @@ public class Receive extends ApplicationKeyword
 		waitForElementToDisplay(OR.Receive_NotesLinkText, 10);
 		clickOn(OR.Receive_AddNewNotesLink);
 		//waitForElementToDisplay(OR.Receive_NotesLinkText, 10);
-		String testNote="TextNote";
+		String testNote="TestNote";
 		typeIn(OR.Receive_AddNewNote, testNote);		
 		clickOn(OR.Receive_AddNewNoteButton);
 		typeIn(OR.Receive_searchBox, testNote);	
@@ -336,12 +362,14 @@ public class Receive extends ApplicationKeyword
 		}		
 		typeIn(OR.Receive_searchBox, testNote);
 		verifyElementText(OR.Receive_NoNOteavailable, "No note available.");
+		clickOn(OR.Receive_PrintCloseclose);	
+		waitTime(3);
 		
 	}
 	
 	
 	
-	@Test(priority=12)
+	@Test(priority=11)
 	public void Tc_Receive_20() 
 	{
 		testStarts("Tc_Receive_20()", "Verify that items in PO gets added to cart when user clicks on �Add Items to cart� option");
@@ -397,21 +425,20 @@ public class Receive extends ApplicationKeyword
 				
 			}
 		}
-		
-		
 	}
 
 
-	@Test(priority=13)
+	@Test(priority=12)
 	public void Tc_Receive_21() 
 	{
 		testStarts("Tc_Receive_10()", "Verify that user gets redirected to PO detail page on clicking PO number.");
 		NavigateUrl(DashBoardURL);
 		ReceivePageObject.pageLinkandwait();
-		String firstPoNum=getText(OR.Receive_firstPONum).toUpperCase();
+		waitForElementToDisplay(OR.Receive_DrillDownIconwait, 10);
+		//String firstPoNum=getText(OR.Receive_firstPONum).toUpperCase();
 		clickOn(OR.Receive_firstPONum);
 		waitForElementToDisplay(OR.Receive_firstPOHeadingText, 10);
-		verifyElementText(OR.Receive_firstPOHeadingText, ("PURCHASE ORDER # "+firstPoNum));		
+		verifyElementText(OR.Receive_firstPOHeadingText, ("PURCHASE ORDER # "));		
 		
 	}
 

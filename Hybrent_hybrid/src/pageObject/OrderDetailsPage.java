@@ -24,6 +24,7 @@ public class OrderDetailsPage extends ApplicationKeyword{
 	public static void viewNotesForPO()
 	{
 		getText(OR.Order_PO_Header);
+		waitForElementToDisplay(OR.Order_PO_Notes_Icon, 60);
 		clickOn(OR.Order_PO_Notes_Icon);
 		getText(OR.Order_PO_Notes_HeaderTxt);
 		verifyElement(OR.Order_PO_Notes_AddIcon_btn);

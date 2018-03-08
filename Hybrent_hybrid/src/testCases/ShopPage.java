@@ -32,8 +32,8 @@ public class ShopPage extends ApplicationKeyword{
 
 			extent = new ExtentReports(OutputDirectory+"/Shop.html", true);
 			// extent.addSystemInfo("Environment","Environment Name")
-			extent.addSystemInfo("User Name", "Harikrishnan");
-			extent.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
+			extent.addSystemInfo("User Name", "Ravneet");
+			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
 		
 		} catch (Exception e) {
 			testLogFail("unable to generate the pass report " + e.toString());
@@ -44,7 +44,7 @@ public class ShopPage extends ApplicationKeyword{
 	public void Tc_Shop_1() throws InterruptedException
 	{
 		testStarts("Tc_Shop_1", "Verify that only ACTIVE items are appearing on page.");
-		Loginpage.OpenBrowserAndLogin();
+		Loginpage.OpenBrowserAndLogin();	
 		verifyPageTitle("Dashboard");
 		JavascriptExecutor je = (JavascriptExecutor) driver;
 		WebElement element = driver.findElement(By.xpath("//a[@href='#/inventory']"));
@@ -60,6 +60,7 @@ public class ShopPage extends ApplicationKeyword{
 		WebElement element2 = driver.findElement(By.xpath("//*[@href='#/shop']"));
 		je.executeScript("arguments[0].scrollIntoView(true);",element2);
 		clickOn(OR.Shop_Menu);
+		selectFromDropdown(OR.Shop_selectExactMatch, "Exact match");
 		waitForElementToDisplay(OR.Shop_searchfield, 60);
 		typeIn(OR.Shop_searchfield, InactiveItemab);
 		waitForElementToDisplay(OR.Shop_ifnoItemfield, 60);
@@ -70,7 +71,7 @@ public class ShopPage extends ApplicationKeyword{
 	@Test(priority=2)
 	public void Tc_Shop_2_3()
 	{
-		testStarts("Tc_Shop_2 and Tc_Shop_3()" , "Verify that �Select Facility� pop up appears when user clicks on facility name with �Shopping for� label"
+		testStarts("Tc_Shop_2 and Tc_Shop_3" , "Verify that �Select Facility� pop up appears when user clicks on facility name with �Shopping for� label"
 				+ " Verify that �selected� button appears as disabled for the facility which is displayed on Shop page.");
 		NavigateUrl(DashBoardURL);
 		String fac=MycartPage.getFac();		
@@ -225,206 +226,12 @@ public class ShopPage extends ApplicationKeyword{
 		
 	}
 	
-	@Test(priority=6)
-	public void Tc_Shop_7()
-	{
-		testStarts("Tc_Shop_7" , "Verify that show tour pops appear when user clicks on show tour option in dropdown next to refresh button.");
-		NavigateUrl(DashBoardURL);
-		waitForElementToDisplay(OR.Shop_Menu, 60);
-		clickOn(OR.Shop_Menu);
-		clickOn(OR.Shop_SHopfor_drilldownicon);
-		//waitForElementToDisplay(OR.Shop_SHopfor_waitdrilldownicon, 60);  
-		clickOn(OR.Shop_SHopfor_showTourText);
-		//Since the xpath is relative to text of the element, we do not need to compare the text again. 
-		//No need for explicit messages because method 'getText' implicitly does messaging on the basis of whether text found or not.
-		getText(OR.Shop_SHopfor_showtourtextONPOPUP);
-		//Since getText would automatically initialize genericKeyword class' static variable webElement, we can use same variable further
-		//Since as per current structure of the page, xpath is not possible for finding out buttons,
-		//because there are so many elements with same structure, so we will find parent of the search elem and then find buttons relative to the parent.
-		WebElement searchParent = Generickeywords.webElement.findElement(By.xpath(".."));
-		List<WebElement> btns = searchParent.findElements(By.tagName("button"));
-		if(btns == null || btns.size() == 0)
-		{
-			testLogFail("No buttons found in tour popup.");
-		}
-		else
-		{
-			String nextBtnText=btns.get(0).getText();
-			if(nextBtnText.contains("Next"))
-			{
-				testLogPass("Successfully Matched the Text 'Next' with button '" + nextBtnText + "'");
-			}
-			else
-			{
-				testLogFail("Could not match Text 'Next' with button '" + nextBtnText + "'");
-			}
-			
-			String endBtnText=btns.get(1).getText();
-			if(endBtnText.contains("End tour"))
-			{
-				testLogPass("Successfully Matched the Text 'End tour' with button '" + endBtnText + "'");
-			}
-			else
-			{
-				testLogFail("Could not match Text 'End tour' with button '" + endBtnText + "'");
-			}					
-			btns.get(1).click();
-			testLogPass("Click on :End tour");
-		}		
-		
-	}  	
-	
-	@Test(priority=7)
-	public void Tc_Shop_08()
-	{
-		testStarts("Tc_Shop_8", "Verify that user can switch between table view and grid view using \"view type\" option in the dropdown.");
-		NavigateUrl(DashBoardURL);	
-		clickOn(OR.Shop_Menu);
-		clickOn(OR.Shop_SHopfor_drilldownicon);
-		mouseOver(OR.Shop_mouseoverviewtype);
-		clickOn(OR.Shop_gridView);
-		waitForElementToDisplay(OR.Shop_SHopfor_drilldownicon, 30);
-		if(isElementPresent(By.xpath("//div[@id='isotopeContainer']")))
-		{
-			testLogPass("Successfully changed to GRID View");
-		}
-		else
-		{
-			testLogFail("View is not changed to GRID view");
-		}
-		clickOn(OR.Shop_SHopfor_drilldownicon);
-		mouseOver(OR.Shop_mouseoverviewtype);
-		clickOn(OR.Shop_tableview);
-
-		waitForElementToDisplay(OR.Shop_SHopfor_drilldownicon, 30);
-		
-		if(!isElementPresent(By.xpath("//div[@id='isotopeContainer']")))
-		{
-			testLogPass("Successfully changed to TABLE View");
-		}
-		else
-		{
-			testLogFail("View is not changed to TABLE view");
-		}
-		
-	}
-	
-	@Test(priority=8)
-	public void Tc_Shop_09()
-	{
-		testStarts("Tc_Shop_9" , "Verify that \"Configure Shop Layout\" pop up appears when user clicks on change current layout.");
-		NavigateUrl(DashBoardURL);
-		clickOn(OR.Shop_Menu);
-		clickOn(OR.Shop_SHopfor_drilldownicon);
-		clickOn(OR.Shop_drilldownCreateLayout);
-		String layout="AAA00"+ApplicationKeyword.randomAlphaNumeric(2);
-		typeIn(OR.Shop_drilldownLayoutNameText, layout);
-		String NameofLayout="Configure Shop Layout "+layout;
-		clickOn(OR.Shop_drilldownCreateLayoutSave);
-		//Configure layout save button
-		clickOn(OR.Shop_drilldownCreateLayoutSave);
-		waitForElementToDisplay(OR.Shop_wait2, 10);
-		waitTime(5);
-		clickOn(OR.Shop_SHopfor_drilldownicon);
-		clickOn(OR.Shop_drilldownChangeLayout);
-		//waitForElementToDisplay(OR.Shop_drilldownChangeLayoutPopup, 30);
-		String actualName=getText(OR.Shop_changeLayoutTextPopUP);
-		if(NameofLayout.equalsIgnoreCase(actualName))
-		{
-			testLogPass("User has opened Change layout Pop up with name "+ actualName);
-			
-		}
-		clickOn(OR.Shop_drilldownChangeLayoutClose);
-		clickOn(OR.Shop_SHopfor_drilldownicon);
-		mouseOver(OR.Shop_drilldownLayouts);
-		//clickOn(OR.Shop_drilldownRemoveLayout);
-		WebElement elem=driver.findElement(By.xpath("//a[contains(text(),'"+layout+"')]/../i"));
-		elem.click();
-		clickOn(OR.Shop_drilldownRemoveLayoutYes);
-		waitForElementToDisplay(OR.Shop_SHopfor_drilldownicon, 30);
-		
-	}
-
-	@Test(priority=9)
-	public void Tc_Shop_10()
-	{
-		testStarts("Tc_Shop_10" , "Verify that \"Layout\" pop up appears when user clicks on on Create new layout or copy current layout option..");
-		NavigateUrl(DashBoardURL);
-		waitForElementToDisplay(OR.Shop_Menu, 60);
-		clickOn(OR.Shop_Menu);
-		clickOn(OR.Shop_SHopfor_drilldownicon);
-		clickOn(OR.Shop_drilldownCreateLayout);	
-		verifyElementText(OR.Shop_SHopfor_Layoutpopup, "Layout");		
-		clickOn(OR.Shop_SHopfor_Layoutpoupclose);
-		clickOn(OR.Shop_SHopfor_drilldownicon);
-		clickOn(OR.Shop_SHopfor_copyLayoutpoup);		
-		verifyElementText(OR.Shop_SHopfor_Layoutpopup, "Layout");
-		clickOn(OR.Shop_SHopfor_Layoutpoupclose);		
-		
-	}
-	
-	@Test(priority=10)
-	public void Tc_Shop_11() {
-		testStarts("Tc_Shop_11", "Verify that Partial and Exact option appears in Match dropdown.");
-		NavigateUrl(DashBoardURL);
-		
-		waitForElementToDisplay(OR.Shop_Menu, 60);
-		verifyPageTitle("Dashboard");
-		clickOn(OR.Shop_Menu);
-		clickOn(OR.Shop_SHopfor_ShopfaclitySelect);
-		pageObject.ShopPage.VerifyShopPage();
-		pageObject.ShopPage.MatchDropdown();
-		
-	}
-
-	@Test( priority=11)
-	public void Tc_Shop_12() {
-		testStarts("Tc_Shop_12", "Verify that user can set favorite/unfavorite item by clicking on star icon.\r\n");
-		NavigateUrl(DashBoardURL);
-		
-		waitForElementToDisplay(OR.Shop_Menu, 60);
-		verifyPageTitle("Dashboard");
-		clickOn(OR.Shop_Menu);
-		waitForElementToDisplay(OR.Shop_SHopfor_favtab, 60);
-		String Fav = getAttributeValue(OR.Shop_SHopfor_favtab, "ng-if");
-		if (Fav.equals("isFavorite")) {
-			testLogPass("item is isFavorite");
-		} else
-
-		if (Fav.equals("!isFavorite")) {
-			testLogPass("item is !isFavorite");
-		}
-		clickOn(OR.Shop_SHopfor_favtab);
-		waitTime(10);
-		String Fav1 = getAttributeValue(OR.Shop_SHopfor_favtab, "ng-if");
-		if (Fav1.equals("!isFavorite")) {
-			testLogPass("item is !isFavorite");
-		} else if (Fav1.equals("isFavorite")) {
-			testLogPass("item is isFavorite");
-		}
-		
-	}
-
-	@Test( priority=12)
-	public void Tc_Shop_15() {
-		testStarts("Tc_Shop_15", "Verify that 'Edit Item' page opens on clicking 'Edit' button.\n");
-		NavigateUrl(DashBoardURL);
-		
-		waitForElementToDisplay(OR.Shop_Menu, 60);
-		verifyPageTitle("Dashboard");
-		clickOn(OR.Shop_Menu);
-		waitForElementToDisplay(OR.Shop_ItemNameDropDown_First, 60);
-		clickOn(OR.Shop_ItemNameDropDown_First);
-		Itempage.FirstItemDropdownEdit();
-		
-	}
 
 	@Test( priority=13)
 	public void Tc_Shop_16() {
 		testStarts("Tc_Shop_16",
 				"Verify that 'Price Change History' popup opens on clicking Price Change History button.");
 		NavigateUrl(DashBoardURL);
-		
 		waitForElementToDisplay(OR.Shop_Menu, 60);
 		verifyPageTitle("Dashboard");
 		clickOn(OR.Shop_Menu);
@@ -470,10 +277,13 @@ public class ShopPage extends ApplicationKeyword{
 		testStarts("Tc_Shop_21",
 				"Verify that user can increase or decrease the quantity of item by clicking (+) and (-) button respectively");
 		NavigateUrl(DashBoardURL);
-		
 		waitForElementToDisplay(OR.Shop_Menu, 60);
 		verifyPageTitle("Dashboard");
 		clickOn(OR.Shop_Menu);
+		String itemDsc=getProperty("ItemDesc");
+		typeIn(OR.Shop_SHopfor_SearchBox,itemDsc);
+		waitForElementToDisplay(OR.Shop_wait, 60);
+		
 		waitForElementToDisplay(OR.Shop_ItemNameDropDown_First, 60);
 		String one = getAttributeValue(OR.Shop_SHopfor_Search_Addtocart_First, "class");
 		if (one.contains("btn btn-default btn-xs ng-hide")) {

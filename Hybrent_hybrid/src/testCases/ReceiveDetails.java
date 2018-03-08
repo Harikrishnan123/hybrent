@@ -28,8 +28,8 @@ public class ReceiveDetails extends ApplicationKeyword
 
 			extent = new ExtentReports(OutputDirectory+"/ReceiveDetails.html", true);
 			// extent.addSystemInfo("Environment","Environment Name")
-			extent.addSystemInfo("User Name", "Harikrishnan");
-			extent.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
+			extent.addSystemInfo("User Name", "Ravneet");
+			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
 		
 		} catch (Exception e) {
 			testLogFail("unable to generate the pass report " + e.toString());
@@ -39,7 +39,7 @@ public class ReceiveDetails extends ApplicationKeyword
 	@Test(priority=1)
 	public void Tc_RECDET_01()
 	{
-		testStarts("Tc_RECDET_01", "Verify that �Notes for PO #� window appears when user clicks on notes icon with count.");
+		testStarts("Tc_RECDET_01_02", "Verify that �Notes for PO #� window appears when user clicks on notes icon with count."+"Verify that �Add Note for PO #� pop up appears when user clicks on �Add New Note�");
 		Loginpage.OpenBrowserAndLogin();		
 		ReceivePageObject.pageLinkandwait();
 		//ReceivePageObject.selectByDefaultFacility();
@@ -49,28 +49,38 @@ public class ReceiveDetails extends ApplicationKeyword
 		clickOn(OR.Receive_NotesLinkPODetail);
 		waitForElementToDisplay(OR.Receive_NotesLinkText, 10);
 		verifyElementText(OR.Receive_NotesLinkText, "Notes for PO # ");
-		
-	}
-	
-	@Test(priority=2)
-	public void Tc_RECDET_02()
-	{
-		testStarts("Tc_RECDET_02", "Verify that �Add Note for PO #� pop up appears when user clicks on �Add New Note�");
-		NavigateUrl(DashBoardURL);	
-		ReceivePageObject.pageLinkandwait();
-		waitForElementToDisplay(OR.Receive_firstPONum, 10);
-		clickOn(OR.Receive_firstPONum);
-		waitForElementToDisplay(OR.Receive_NotesLinkPODetail, 10);
-		clickOn(OR.Receive_NotesLinkPODetail);
-		waitForElementToDisplay(OR.Receive_NotesLinkText, 10);
-		verifyElementText(OR.Receive_NotesLinkText, "Notes for PO # ");
 		clickOn(OR.Receive_AddNewNotesLink);
 		waitForElementToDisplay(OR.Receive_NotesLinkText, 10);
 		verifyElementText(OR.Receive_NotesLinkText, "Add Note for PO # ");
+		clickOn(OR.Receive_PrintCloseclose);
+		waitTime(2);
+		clickOn(OR.Receive_PrintCloseclose);	
+		waitTime(3);
+		
 		
 	}
 	
-	@Test(priority=3)
+//	@Test(priority=2)
+//	public void Tc_RECDET_02()
+//	{
+//		testStarts("Tc_RECDET_02", "Verify that �Add Note for PO #� pop up appears when user clicks on �Add New Note�");
+//		NavigateUrl(DashBoardURL);	
+//		ReceivePageObject.pageLinkandwait();
+//		waitForElementToDisplay(OR.Receive_firstPONum, 10);
+//		clickOn(OR.Receive_firstPONum);
+//		waitForElementToDisplay(OR.Receive_NotesLinkPODetail, 10);
+//		clickOn(OR.Receive_NotesLinkPODetail);
+//		waitForElementToDisplay(OR.Receive_NotesLinkText, 10);
+//		verifyElementText(OR.Receive_NotesLinkText, "Notes for PO # ");
+//		clickOn(OR.Receive_AddNewNotesLink);
+//		waitForElementToDisplay(OR.Receive_NotesLinkText, 10);
+//		verifyElementText(OR.Receive_NotesLinkText, "Add Note for PO # ");
+//		clickOn(OR.Receive_PrintCloseclose);
+//		waitTime(3);
+//		
+//	}
+	
+	@Test(priority=2)
 	public void Tc_RECDET_03_04() throws InterruptedException
 	{
 		testStarts("Tc_RECDET_03_04()", "Verify that �PO # XXXX11 Documents� pop up appears when clicks on Documents icon with count +"
@@ -100,10 +110,13 @@ public class ReceiveDetails extends ApplicationKeyword
 		else
 		{			
 			testLogFail("Name of the image uploaded is not matched");			
-		}			
-		
+		}	
+		clickOn(OR.Receive_PrintCloseclose);		
+		waitTime(3);
 	}	
-	@Test(priority=4)
+	
+	//MAY FAIL DUE TO WAIT FUNCTION
+	@Test(priority=3)
 	public void Tc_RECDET_05() 
 	{
 		testStarts("Tc_RECDET_05()", "Verify that items in PO gets added to cart when user clicks on �Add Items to cart� option");
@@ -159,7 +172,7 @@ public class ReceiveDetails extends ApplicationKeyword
 		
 	}
 
-	@Test(priority=5)
+	@Test(priority=4)
 	public void Tc_RECDET_06()
 	{
 		testStarts("Tc_RECDET_06()", "Verify that �Print PO� preview window appears when user clicks on Print Po option in action dropdown");
@@ -172,10 +185,12 @@ public class ReceiveDetails extends ApplicationKeyword
 		clickOn(OR.Receive_PrintPOLinkPoDetail);
 		waitForElementToDisplay(OR.Receive_PrintPOText, 10);		
 		verifyElementText(OR.Receive_PrintPOText, " Print PO");
+		clickOn(OR.Receive_PrintPReviewclose);
+		waitTime(3);
 		
 	}
 	
-	@Test(priority=6)
+	@Test(priority=5)
 	public void Tc_RECDET_07() 
 	{
 		testStarts("Tc_RECDET_07()", "Verify that �Print Window� appears on clicking Print button..");
@@ -186,11 +201,12 @@ public class ReceiveDetails extends ApplicationKeyword
 		clickOn(OR.Receive_DrillDownPODetailPage);
 		clickOn(OR.Receive_printItemsDetailPage);
 		verifyElementText(OR.Receive_printPOText, "Order Items");
-		
+		clickOn(OR.Receive_PrintCloseclose);
+		waitTime(3);
 	
 	}
 	
-	@Test(priority=8)
+	@Test(priority=6)
 	public void Tc_RECDET_08() 
 	{
 		testStarts("Tc_RECDET_08()", "Verify that user gets redirected to �INVOICE FOR PO #� page, on clicking �Add Invoice� option.");
@@ -207,13 +223,15 @@ public class ReceiveDetails extends ApplicationKeyword
 		verifyElementText(OR.Receive_PODetailInvoiceText, "INVOICE FOR PO #:");
 		
 	}
-	@Test(priority=9)
+	//Had to use waitTime instead of dynamic
+	@Test(priority=7)
 	public void Tc_RECDET_09() 
 	{
 		testStarts("Tc__RECDET_9()", "Verify that �INVOICES FOR PO #� page appears when user clicks on All Invoices option.");
 		NavigateUrl(DashBoardURL);	
 		ReceivePageObject.pageLinkandwait();		
-		waitForElementToDisplay(OR.Receive_firstPONum,10);
+		//waitForElementToDisplay(OR.Receive_firstPONum,10);
+		waitTime(3);
 		clickOn(OR.Receive_firstPONum);		
 		clickOn(OR.Receive_DrillDownPODetailPage);
 		WebElement element = driver.findElement(By.xpath("(//a[text()='Invoices'])[1]"));
@@ -233,24 +251,26 @@ public class ReceiveDetails extends ApplicationKeyword
 		
 	
 	}
-	
-	@Test(priority=10)
+	//Had to use waitTime instead of dynamic
+	@Test(priority=8)
 	public void Tc_RECDET_10() {
 		testStarts("Tc_RECDET_10",
 				"Verify that �PO AUDIT LOGS FOR PO #� pop up window appears when user clicks on Po Log option in the dropdown.");
 		NavigateUrl(DashBoardURL);	
 		ReceivePageObject.pageLinkandwait();		
-		waitForElementToDisplay(OR.Receive_firstPONum,10);
+		//waitForElementToDisplay(OR.Receive_firstPONum,10);
+		waitTime(3);
 		clickOn(OR.Receive_firstPONum);		
 		clickOn(OR.Receive_DrillDownPODetailPage);
 		waitForElementToDisplay(OR.Receive_POLogDetailPage, 10);
 		clickOn(OR.Receive_POLogDetailPage);	
 		waitForElementToDisplay(OR.Receive_POLOgText,10);
 		verifyElementText(OR.Receive_POLOgText, "PO AUDIT LOGS FOR PO #");		
-				
+		clickOn(OR.Receive_PrintCloseclose);
+		waitTime(3);
 	}
 	
-	@Test(priority=11)
+	@Test(priority=9)
 	public void Tc_RECDET_11() {
 		testStarts("Tc_RECDET_11",
 				"Verify that �PO APPROVAL LOGS FOR PO # � pop up appears when user clicks on PO Approval Log option");
@@ -263,10 +283,11 @@ public class ReceiveDetails extends ApplicationKeyword
 		clickOn(OR.Receive_POApprovalLogs);	
 		waitForElementToDisplay(OR.Receive_POApprovalLogsPopUpText,10);
 		verifyElementText(OR.Receive_POApprovalLogsPopUpText, "PO APPROVAL LOGS FOR PO #");		
-				
+		clickOn(OR.Receive_PrintCloseclose);
+		waitTime(3);
 	}
 	
-	@Test(priority=12)
+	@Test(priority=10)
 	public void Tc_RECDET_12() {
 		testStarts("Tc_RECDET_12",
 				"Verify that �Notes for PO #� window appears when user clicks on notes icon with count.");
@@ -279,9 +300,11 @@ public class ReceiveDetails extends ApplicationKeyword
 		clickOn(OR.Receive_PODetailNotesLinkDrillDown);	
 		waitForElementToDisplay(OR.Receive_NotesLinkText, 10);
 		verifyElementText(OR.Receive_NotesLinkText, "Notes for PO # ");	
-				
+		clickOn(OR.Receive_PrintCloseclose);
+		waitTime(3);
 	}
-	@Test(priority=13)
+	//MAY FAIL DUE TO IF 'Receive_PrintCloseclose' IS NOT FOUND WITHIN TIME
+	@Test(priority=11)
 	public void Tc_RECDET_13() {
 		testStarts("Tc_RECDET_13",
 				"Verify that �Add Note for PO #� pop up appears when user clicks on �Add New Note�.");
@@ -297,11 +320,14 @@ public class ReceiveDetails extends ApplicationKeyword
 		clickOn(OR.Receive_AddNewNotesLink);
 		waitForElementToDisplay(OR.Receive_NotesLinkText, 10);
 		verifyElementText(OR.Receive_NotesLinkText, "Add Note for PO # ");		
-				
+		clickOn(OR.Receive_PrintCloseclose);
+		//waitForElementToDisplay(OR.Receive_PrintCloseclose, 10);
+		clickOn(OR.Receive_PrintCloseclose);
+		waitTime(3);
 	}
 	
 	
-	@Test(priority=14)
+	@Test(priority=12)
 	public void Tc_RECDET_14() {
 		testStarts("Tc_RECDET_14",
 				"Verify that notes gets deleted when user clicks on �Delete� button for the added note.");
@@ -317,7 +343,7 @@ public class ReceiveDetails extends ApplicationKeyword
 		clickOn(OR.Receive_AddNewNotesLink);
 		waitForElementToDisplay(OR.Receive_NotesLinkText, 10);
 		verifyElementText(OR.Receive_NotesLinkText, "Add Note for PO # ");
-		String testNote="TextNote";
+		String testNote="TestNote";
 		typeIn(OR.Receive_AddNewNote, testNote);		
 		clickOn(OR.Receive_AddNewNoteButton);
 		typeIn(OR.Receive_searchBox, testNote);
@@ -335,11 +361,13 @@ public class ReceiveDetails extends ApplicationKeyword
 		}
 		typeIn(OR.Receive_searchBox, testNote);
 		verifyElementText(OR.Receive_NoNOteavailable, "No note available.");
+		clickOn(OR.Receive_PrintCloseclose);
+		waitTime(3);
 				
 	}
 		
 	
-	@Test(priority=15)
+	@Test(priority=13)
 	public void Tc_RECDET_15_16() throws InterruptedException
 	{
 		testStarts("Tc_RECDET_15_16()", "Verify that �PO # XXXX11 Documents� pop up appears when clicks on Documents icon with count +"
@@ -355,7 +383,7 @@ public class ReceiveDetails extends ApplicationKeyword
 		verifyElementText(OR.Receive_DocsLinkText, "PO # " +s+ " Documents");		
 		WebElement elem=driver.findElement(By.xpath("//*[@type='file']"));
 		String projectPath = System.getProperty("user.dir");
-		elem.sendKeys(projectPath + "\\assets\\images.jpeg");
+		elem.sendKeys(projectPath + "/assets/images.jpeg");
 		waitTime(5);
 		String nameOfFile_Expected="images.jpeg";
 		String s2=getText(OR.Invoice_UploadDocName).trim();
@@ -371,12 +399,13 @@ public class ReceiveDetails extends ApplicationKeyword
 		else
 		{			
 			testLogFail("Name of the image uploaded is not matched");			
-		}	
-		
+		}
+		clickOn(OR.Receive_PrintCloseclose);
+		waitTime(3);
 	}
 	
 	
-	@Test(priority=16)
+	@Test(priority=14)
 	public void Tc_RECDET_17() {
 		testStarts("Tc_RECDET_17",
 				"Verify that Mark as Receive only option appears.");
@@ -390,7 +419,7 @@ public class ReceiveDetails extends ApplicationKeyword
 		
 	}
 	
-	@Test(priority=17)
+	@Test(priority=15)
 	public void Tc_RECDET_19() {
 		testStarts("Tc_RECDET_18",
 				"Verify that show tour pops appear when user clicks on show tour option in dropdown next to refresh button.");
@@ -405,9 +434,10 @@ public class ReceiveDetails extends ApplicationKeyword
 		//System.out.println(getText(OR.Receive_NextButton));
 		//System.out.println(getText(OR.Receive_EndButton));
 		
+		
 	}
 	
-	@Test(priority=18)
+	@Test(priority=16)
 	public void Tc_RECDET_20() {
 		testStarts("Tc_RECDET_20",
 				"Verify that �Departments� pop up appears when user clicks on Attach department hyperlink.");
@@ -419,7 +449,7 @@ public class ReceiveDetails extends ApplicationKeyword
 		
 	}
 	
-	@Test(priority=19)
+	@Test(priority=17)
 	public void Tc_RECDET_21() {
 		testStarts("Tc_RECDET_21",
 				"Verify that �Physicians� pop up appears when user clicks on �Attach Physician� hyperlink.");
@@ -431,11 +461,11 @@ public class ReceiveDetails extends ApplicationKeyword
 		
 	}
 	
-	@Test(priority=20)
+	@Test(priority=18)
 	public void Tc_RECDET_22_23() throws InterruptedException 
 	{
 		testStarts("Tc_RECDET_22_23",
-				"Verify that Partial Receive and Complete buttons appear for corresponding PO number whose status is Confirmed/Assigned/Partial Received. and "
+				"Verify that Partial Receive and Complete buttons appear for corresponding PO number whose status is Confirmed/Assigned/Partial Received."
 				+ "Verify that Order detail screen gets closed when user clicks on Close option.");
 		NavigateUrl(DashBoardURL);	
 		ReceivePageObject.pageLinkandwait();		

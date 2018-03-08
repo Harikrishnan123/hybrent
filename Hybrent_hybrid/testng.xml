@@ -2,7 +2,27 @@
 <suite name="example suite 1" verbose="1" >
   <test name="Regression suite 1" >
     <classes>
- <class name="testCases.Tc_Dashboard"/>
+	 <class name="testCases.CartPage"/>
+	 <class name="testCases.Shipments"/>
+	 <class name="testCases.RequestService"/>
+	 <class name="testCases.Users"/>
+	 <class name="testCases.ShopPage"/>
+	 <class name="testCases.Tc_Dashboard"/>
+	 <class name="testCases.Tc_Dashboard"/>
+	 <class name="testCases.Tc_Dashboard"/>
+	 <class name="testCases.Tc_Dashboard"/>
+	 <class name="testCases.Tc_Dashboard"/>
+	 <class name="testCases.Tc_Dashboard"/>
+	 <class name="testCases.Tc_Dashboard"/>
+	 <class name="testCases.Tc_Dashboard"/>
+	 <class name="testCases.Tc_Dashboard"/>
+	 <class name="testCases.Tc_Dashboard"/>
+	 <class name="testCases.Tc_Dashboard"/>
+	 <class name="testCases.Tc_Dashboard"/>
+	 <class name="testCases.Tc_Dashboard"/>
+	 <class name="testCases.Tc_Dashboard"/>
+	 <class name="testCases.Tc_Dashboard"/>
+	 <class name="testCases.Tc_Dashboard"/>
     </classes>
  </test>
 </suite>

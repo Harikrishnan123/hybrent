@@ -22,12 +22,6 @@ import AutomationFramework.OR;
 public class AdminPart  extends ApplicationKeyword
 {
 	public static Properties prop;
-	public static String receive_facility_Name;
-	public static String vendor_Name;
-	public static String ItemDescription = "ItemDesTest001";
-	public static String ItemMfrNumber = "ItemMfrNumber001";
-	public static String ItemTestID = "ItemTestID001";
-	public static String SkuName = "sku001";
 	public static String ItemCatName;
 	public static String SI;
 	public static String PT;
@@ -43,8 +37,8 @@ public class AdminPart  extends ApplicationKeyword
 
 			extent = new ExtentReports(OutputDirectory+"/Admin.html", true);
 			// extent.addSystemInfo("Environment","Environment Name")
-			extent.addSystemInfo("User Name", "Harikrishnan");
-			extent.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
+			extent.addSystemInfo("User Name", "Ravneet");
+			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
 		
 		} catch (Exception e) {
 			testLogFail("unable to generate the pass report " + e.toString());
@@ -173,7 +167,6 @@ public class AdminPart  extends ApplicationKeyword
 	}
 
 	@Test(priority=4)
-	//Will work on newly added item only. 
 	public void Tc_PrintBarcode_03()
 	{
 		testStarts("Tc_PrintBarcode_03", "Verify that user can search item on basis of �Item Name, alias, SKU, MFR#�.");		
@@ -232,6 +225,7 @@ public class AdminPart  extends ApplicationKeyword
 	{
 		testStarts("Tc_PrintBarcode_06", "Verify that �Print items Barcode/QRcode� pop up appears with print with options.");		
 		NavigateUrl(DashBoardURL);
+		//Loginpage.OpenBrowserAndLogin();
 		Organisation_settingspage.AdminAndPrintBarcodeLink();
 		clickOn(OR.PrintBarcodes_PrintCodesButton);
 		verifyElementText(OR.PrintBarcodes_PrintCodesPopUp, "Print items Barcode/QRcode");
@@ -292,6 +286,7 @@ public class AdminPart  extends ApplicationKeyword
 		clickOn(OR.PrintBarcodes_PrintButton);
 		waitForElementToDisplay(OR.PrintBarcodes_PreviewPDFTEXT, 50);
 		verifyElementText(OR.PrintBarcodes_PreviewPDFTEXT, "Preview PDF");
+		clickOn(OR.Invoice_PrintPReviewclose);
 		
 	}
 
@@ -322,9 +317,7 @@ public class AdminPart  extends ApplicationKeyword
 		else
 		{
 			testLogFail("SI is not searched from search Box ");
-		}
-
-		
+		}	
 
 	}
 	@Test(priority=11)
@@ -380,9 +373,7 @@ public class AdminPart  extends ApplicationKeyword
 		else
 		{
 			testLogFail("SI is not searched from search Box or new SI is not added ");
-		}
-
-		
+		}		
 
 	}
 
@@ -393,6 +384,7 @@ public class AdminPart  extends ApplicationKeyword
 		testStarts("Tc_PTerms_01_02", "Verify that can add payment term using �Add Payment Term� button."
 				+ "+Verify that user can search payment terms with description, type, no. ,of days and discount/penalty percentage using the search text field.");		
 		NavigateUrl(DashBoardURL);
+		//Loginpage.OpenBrowserAndLogin();
 		Organisation_settingspage.InvoicePayementTermPage();
 		clickOn(OR.Pterms_AddPTermButton);
 		PT = "PT"+ApplicationKeyword.randomAlphaNumeric(4);	 	
@@ -450,6 +442,7 @@ public class AdminPart  extends ApplicationKeyword
 		testStarts("Tc_PTerms_03_04", "Verify that user can update the corresponding payment terms using the Edit button."
 				+ "Verify that user can delete the payment term using Delete button. ");		
 		NavigateUrl(DashBoardURL);
+		//Loginpage.OpenBrowserAndLogin();
 		Organisation_settingspage.InvoicePayementTermPage();
 		String PT=getProperty("PT");
 		typeIn(OR.Pterms_searchTextBox, PT);
@@ -487,6 +480,7 @@ public class AdminPart  extends ApplicationKeyword
 		testStarts("Tc_News_01_02", "Verify that user can search news by title using search text field and status dropdown."
 				+ "Verify that User can create news using Add button. ");		
 		NavigateUrl(DashBoardURL);
+		//Loginpage.OpenBrowserAndLogin();
 		Organisation_settingspage.newsPage();
 		clickOn(OR.News_addNews);
 		NewsTitle = "NewsTitle"+ApplicationKeyword.randomAlphaNumeric(4);	 	
@@ -508,6 +502,7 @@ public class AdminPart  extends ApplicationKeyword
 		testStarts("Tc_News_03_04", "Verify that User can set the status as active/inactive using the toggle button."
 				+ "Verify that news can be updated using the edit button.");
 		NavigateUrl(DashBoardURL);
+		//Loginpage.OpenBrowserAndLogin();
 		Organisation_settingspage.newsPage();
 		String newsAdded=getProperty("NewsTitle");
 		typeIn(OR.News_searchTextBox,newsAdded);
@@ -552,6 +547,7 @@ public class AdminPart  extends ApplicationKeyword
 	{
 		testStarts("Tc_Vendor_01", "Verify that vendor can be searched by name and the status filter.");
 		NavigateUrl(DashBoardURL);
+		//Loginpage.OpenBrowserAndLogin();
 		Organisation_settingspage.vendorsPage();
 		String firstVendor=getText(OR.Vendor_firstItem);
 		typeIn(OR.Vendor_searchTextBox, firstVendor);
@@ -575,6 +571,7 @@ public class AdminPart  extends ApplicationKeyword
 		testStarts("Tc_Vendor_02_03", "Edit Vendor > Verify that changes get saved, on clicking Save button."
 				+"Verify that following tabs( Vendor, address, Interface , UOM, Customer support, Sales Representative) appear on Edit vendor pop up.");
 		NavigateUrl(DashBoardURL);
+		//Loginpage.OpenBrowserAndLogin();
 		Organisation_settingspage.vendorsPage();
 		clickOn(OR.Vendor_EditButton);
 		waitForElementToDisplay(OR.Vendor_waitForTabs, 10);
@@ -633,12 +630,14 @@ public class AdminPart  extends ApplicationKeyword
 		
 	}	
 
+	
 	@Test(priority=20)
 	public void Tc_PriceTier_03_05()
 	{
 		testStarts("Tc_PriceTier_03_05", "Verify that price tier can be updated by Edit button."
 				+"Verify that user can assign price tier for vendor for any facility using the Vendor Price Tier Setup button..");
 		NavigateUrl(DashBoardURL);
+		//Loginpage.OpenBrowserAndLogin();
 		Organisation_settingspage.priceTierPage();
 		String Name=getProperty("PriceTierName");
 		typeIn(OR.priceTier_searchTextBox, Name);
@@ -673,11 +672,13 @@ public class AdminPart  extends ApplicationKeyword
 		
 	}
 
+	
 	@Test(priority=21)
 	public void Tc_PriceTier_04()
 	{
 		testStarts("Tc_PriceTier_04", "Verify that user can delete price tier using the delete button.");
-		NavigateUrl(DashBoardURL);
+		//NavigateUrl(DashBoardURL);
+		Loginpage.OpenBrowserAndLogin();
 		Organisation_settingspage.priceTierPage();
 		String Name=getProperty("PriceTierName");
 		typeIn(OR.priceTier_searchTextBox, Name);
@@ -705,6 +706,7 @@ public class AdminPart  extends ApplicationKeyword
 		testStarts("Tc_ItemCatalog_01_02", "Verify that user is able to add new item by clicking Add Item button."
 				+"Verify that user can search items on the basis of Item Name, alias, MFR#, SKU crosswalk id.");
 		NavigateUrl(DashBoardURL);
+		//Loginpage.OpenBrowserAndLogin();
 		CartPage.addNewItem();
 
 		//With Item Description
@@ -744,6 +746,7 @@ public class AdminPart  extends ApplicationKeyword
 	{
 		testStarts("Tc_ItemCatalog_03", "Add Item > Verify that validation message appears for blank mandatory fields or fields with invalid data, on clicking Save button.");
 		NavigateUrl(DashBoardURL);
+		//Loginpage.OpenBrowserAndLogin();
 		Organisation_settingspage.itemCatalogPage();
 		String ItemDescription=getProperty("ItemDesc");
 		typeIn(OR.ItemCatalog_searchTextBox, ItemDescription );
@@ -782,6 +785,7 @@ public class AdminPart  extends ApplicationKeyword
 	{
 		testStarts("Tc_ItemCatalog_04", "Verify that user can map items to the facility using Map Facility/Update Price button. ");
 		NavigateUrl(DashBoardURL);
+		//Loginpage.OpenBrowserAndLogin();
 		Organisation_settingspage.itemCatalogPage();
 		clickOn(OR.ItemCatalog_MApFac_UpdatePriceButton);
 		verifyElementText(OR.ItemCatalog_headTextEDit_Update, "Map Facility for");
@@ -794,7 +798,8 @@ public class AdminPart  extends ApplicationKeyword
 	{
 		testStarts("Tc_InventoryLoc_01_02", "Add Inventory Location > Verify that all fields are mandatory."
 				+"Verify that user is able to create new inventory by clicking Add Inventory Location button.");
-		NavigateUrl(DashBoardURL);
+		//NavigateUrl(DashBoardURL);
+		Loginpage.OpenBrowserAndLogin();
 		Organisation_settingspage.InvLocationPage();
 		clickOn(OR.InvLoc_AddINvLOc);
 		if(Organisation_settingspage.ifButtonDisabled(OR.InvLoc_InactiveCreateButton))
@@ -833,7 +838,8 @@ public class AdminPart  extends ApplicationKeyword
 	{
 		testStarts("Tc_InventoryLoc_01", "Edit Inventory Location >Verify that changes get saved, on clicking Save button."
 				+"Verify that inventory gets deleted on clicking Delete button.");
-		NavigateUrl(DashBoardURL);
+		//NavigateUrl(DashBoardURL);
+		Loginpage.OpenBrowserAndLogin();
 		Organisation_settingspage.InvLocationPage();	
 		WebElement favLi=Organisation_settingspage.matchFac_Inv();
 		if(favLi!=null)	 		

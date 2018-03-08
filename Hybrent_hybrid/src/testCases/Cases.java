@@ -1,7 +1,13 @@
 package testCases;
 
+import java.io.File;
+
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import com.relevantcodes.extentreports.ExtentReports;
+
 import pageObject.Loginpage;
 import pageObject.PrefcardPageObject;
 import AutomationFramework.ApplicationKeyword;
@@ -9,13 +15,30 @@ import AutomationFramework.OR;
 
 public class Cases extends ApplicationKeyword
 {
-	public static String facility_Name;
-	public static String vendor_Name;
-	public static String ItemDescription = "ItemDesTest001";
-	public static String ItemMfrNumber = "ItemMfrNumber001";
-	public static String ItemTestID = "ItemTestID001";
-	public static String SkuName = "sku001";
+//	public static String facility_Name;
+//	public static String vendor_Name;
+//	public static String ItemDescription = "ItemDesTest001";
+//	public static String ItemMfrNumber = "ItemMfrNumber001";
+//	public static String ItemTestID = "ItemTestID001";
+//	public static String SkuName = "sku001";
 		
+	@BeforeTest
+	public void startReport() {
+
+		try {
+
+			extent = new ExtentReports(OutputDirectory+"/cases.html", true);
+			// extent.addSystemInfo("Environment","Environment Name")
+			extent.addSystemInfo("User Name", "Ravneet");
+			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
+		
+		} catch (Exception e) {
+			testLogFail("unable to generate the pass report " + e.toString());
+		}
+	}
+	
+	
+	
 		@Test
 		public void Tc_Cases_01()
 		{

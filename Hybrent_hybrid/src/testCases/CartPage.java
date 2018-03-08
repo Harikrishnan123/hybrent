@@ -35,8 +35,8 @@ public class CartPage extends ApplicationKeyword{
 
 			extent = new ExtentReports(OutputDirectory+"/Cart.html", true);
 			// extent.addSystemInfo("Environment","Environment Name")
-			extent.addSystemInfo("User Name", "Harikrishnan");
-			extent.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
+			extent.addSystemInfo("User Name", "Ravneet");
+			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
 		
 		} catch (Exception e) {
 			testLogFail("unable to generate the pass report " + e.toString());
@@ -50,6 +50,7 @@ public class CartPage extends ApplicationKeyword{
 				+ " Verify that �selected� button appears as disabled for the facility which is displayed on Shop page.");
 		Loginpage.OpenBrowserAndLogin();		
 		String fac=MycartPage.getFac();		
+		System.out.println(fac);
 		clickOn(OR.MyCart);
 		MycartPage.matchFac(fac);
 		
@@ -60,6 +61,7 @@ public class CartPage extends ApplicationKeyword{
 	{
 		testStarts("Tc_Cart_03" ," Verify that user can search/scan with �Item Name, SKU, MFR� in the Add Item search field..");
 		NavigateUrl(DashBoardURL);
+		//Loginpage.OpenBrowserAndLogin();		
 		addNewItem();
 		clickOn(OR.MyCart);
 		MycartPage.searchItem();
@@ -71,6 +73,7 @@ public class CartPage extends ApplicationKeyword{
 	{
 		testStarts("Tc_Cart_05" ," Verify that user can change the quantity of item by clicking (+) and (-) button respectively or by entering the value and pressing tick or cancel button..");
 		NavigateUrl(DashBoardURL);
+		//Loginpage.OpenBrowserAndLogin();	
 		clickOn(OR.MyCart);		
 		//waitForElementToDisplay(OR.MyCart_drillDown, 10);	
 		MycartPage.checkIfCartIsEmpty();
@@ -79,7 +82,16 @@ public class CartPage extends ApplicationKeyword{
 		//typeIn(OR.MyCart_searchInCart,"ItemDesc");
 		waitForElementToDisplay(OR.MyCart_firstItemNamewait, 15);
 		clickOn(OR.MyCart_addItemInCart);
+		waitTime(2);
+		if(isElementDisplayed(OR.MyCart_warningPopup, 10))
+		{      
+        	clickOn(OR.MyCart_continueButton);     
+        	waitTime(3);
+    		typeIn(OR.MyCart_searchInCart,ItemDescription);
+	    }
+		waitForElementToDisplay(OR.MyCart_plusIcon, 10);
 		String qtyBeforeIncrease=getText(OR.MyCart_qtyOfItemBeforeAfter);
+		System.out.println(qtyBeforeIncrease);
 		clickOn(OR.MyCart_plusIcon);
 		String qtyAfterIncrease=getText(OR.MyCart_qtyOfItemBeforeAfter);	
 		int beforeplus_Items=Integer.parseInt(qtyBeforeIncrease);  
@@ -107,14 +119,16 @@ public class CartPage extends ApplicationKeyword{
 		{
 			testLogFail("Item Qty is not decreased after clicking on + icon");		
 		}
+		waitTime(3);
 		clickOn(OR.MyCart_editItemQty);
+		clearEditBox(OR.MyCart_editItemQtyTextBox);
 		typeIn(OR.MyCart_editItemQtyTextBox, "10");
 		clickOn(OR.MyCart_submitQty);		
 		typeIn(OR.MyCart_searchInCart,ItemDescription);
 		String qtyAftertypedQty=getText(OR.MyCart_qtyOfItemBeforeAfter);
 		int afterQtyTypedIn=Integer.parseInt(qtyAftertypedQty); 
 		Thread.sleep(5000);
-		if(afterQtyTypedIn==110)
+		if(afterQtyTypedIn==10)
 		{
 			testLogPass("Item Qty is changed after entering QTY manually in text box"); 		
 		}
@@ -130,12 +144,19 @@ public class CartPage extends ApplicationKeyword{
 	{
 		testStarts("Tc_Cart_06" ,"Verify that user is able to add �Special Instructions� for each vendor.");
 		NavigateUrl(DashBoardURL);
+		//Loginpage.OpenBrowserAndLogin();
 		clickOn(OR.MyCart);
 		MycartPage.checkIfCartIsEmpty();
 		String ItemDescription=getProperty("ItemDesc");
 		typeIn(OR.MyCart_searchInCart,ItemDescription);
-		//waitForElementToDisplay(OR.MyCart_firstItemName, 15);
 		clickOn(OR.MyCart_addItemInCart);
+		waitTime(2);
+		if(isElementDisplayed(OR.MyCart_warningPopup, 10))
+		{      
+        	clickOn(OR.MyCart_continueButton);     
+        	waitTime(3);
+	    }
+		//waitForElementToDisplay(OR.MyCart_firstItemName, 15);
 		if(isElementDisplayed(OR.MyCart_SiTextBox, 15))
 		{
 			String typeTextManually="SI for Test";
@@ -168,6 +189,12 @@ public class CartPage extends ApplicationKeyword{
 		typeIn(OR.MyCart_searchInCart,ItemDescription);
 		//waitForElementToDisplay(OR.MyCart_firstItemName, 15);
 		clickOn(OR.MyCart_addItemInCart);
+		waitTime(2);
+		if(isElementDisplayed(OR.MyCart_warningPopup, 10))
+		{      
+        	clickOn(OR.MyCart_continueButton);     
+        	waitTime(3);
+	    }
 		if(isElementPresent(By.xpath("//*[@ng-click='test_check(key)']")))
 		{
 			clickOn(OR.MyCart_UsemyPOCheckBox);
@@ -201,6 +228,13 @@ public class CartPage extends ApplicationKeyword{
 		String ItemDescription=getProperty("ItemDesc");
 		typeIn(OR.MyCart_searchInCart,ItemDescription);
 		clickOn(OR.MyCart_addItemInCart);
+		waitTime(2);
+		if(isElementDisplayed(OR.MyCart_warningPopup, 10))
+		{      
+        	clickOn(OR.MyCart_continueButton);     
+        	waitTime(3);
+	    }
+		//clickOn(OR.MyCart_addItemInCart);
 		clickOn(OR.MyCart_drillDownVendor);
 		clickOn(OR.MyCart_removeVendor);
 		clickOn(OR.MyCart_confirmButton);
@@ -219,6 +253,13 @@ public class CartPage extends ApplicationKeyword{
 		String ItemDescription=getProperty("ItemDesc");
 		typeIn(OR.MyCart_searchInCart,ItemDescription);	
 		clickOn(OR.MyCart_addItemInCart);
+		//clickOn(OR.MyCart_addItemInCart);
+		waitTime(2);
+		if(isElementDisplayed(OR.MyCart_warningPopup, 10))
+		{      
+        	clickOn(OR.MyCart_continueButton);     
+        	waitTime(3);
+	    }
 		clickOn(OR.MyCart_drillDownVendor);
 		clickOn(OR.MyCart_accountSetUp); 
 		waitForElementToDisplay(OR.MyCart_vendorAccountSetUp, 10);
@@ -231,14 +272,24 @@ public class CartPage extends ApplicationKeyword{
 	{
 		testStarts("Tc_Cart_10" ,"Verify that �Departments� pop up appears when user clicks on Attach  department hyperlink.");
 		NavigateUrl(DashBoardURL);
+		//Loginpage.OpenBrowserAndLogin();	
 		clickOn(OR.MyCart);
 		MycartPage.checkIfCartIsEmpty();
 		String ItemDescription=getProperty("ItemDesc");
 		typeIn(OR.MyCart_searchInCart,ItemDescription);	
 		clickOn(OR.MyCart_addItemInCart);
+		//clickOn(OR.MyCart_addItemInCart);
+		waitTime(2);
+		if(isElementDisplayed(OR.MyCart_warningPopup, 10))
+		{      
+        	clickOn(OR.MyCart_continueButton);     
+        	waitTime(3);
+	    }
 		clickOn(OR.MyCart_AddDepartmenthyperLink);
 		waitForElementToDisplay(OR.MyCart_AddDepartmentText, 10);
 		verifyElementText(OR.MyCart_AddDepartmentText, "Departments");
+		clickOn(OR.MyCart_AddDepartmentPopUPcancel);
+		waitTime(3);
 			
 	}
 	@Test(priority=9)
@@ -251,10 +302,18 @@ public class CartPage extends ApplicationKeyword{
 		String ItemDescription=getProperty("ItemDesc");
 		typeIn(OR.MyCart_searchInCart,ItemDescription);	
 		clickOn(OR.MyCart_addItemInCart);
+		//clickOn(OR.MyCart_addItemInCart);
+		waitTime(2);
+		if(isElementDisplayed(OR.MyCart_warningPopup, 10))
+		{      
+        	clickOn(OR.MyCart_continueButton);     
+        	waitTime(3);
+	    }
 		clickOn(OR.MyCart_AddPhysicianhyperLink);
 		waitForElementToDisplay(OR.MyCart_AddPhysicianText, 10);
 		verifyElementText(OR.MyCart_AddPhysicianText, "Physicians");
-		
+		clickOn(OR.MyCart_AddDepartmentPopUPcancel);
+		waitTime(3);
 
 	}
 
@@ -268,11 +327,19 @@ public class CartPage extends ApplicationKeyword{
 		String ItemDescription=getProperty("ItemDesc");
 		typeIn(OR.MyCart_searchInCart,ItemDescription);
 		clickOn(OR.MyCart_addItemInCart);
+		//clickOn(OR.MyCart_addItemInCart);
+		waitTime(2);
+		if(isElementDisplayed(OR.MyCart_warningPopup, 10))
+		{      
+        	clickOn(OR.MyCart_continueButton);     
+        	waitTime(3);
+	    }
 		clickOn(OR.MyCart_drillDown);
 		clickOn(OR.MyCart_PrintPO);
 		waitForElementToDisplay(OR.MyCart_PrintPOPopUpText, 10);
 		verifyElementText(OR.MyCart_PrintPOPopUpText, "Order Items SKU");
-		
+		clickOn(OR.MyCart_PrintCloseclose);	
+		waitTime(3);
 
 	}
 
@@ -288,6 +355,12 @@ public class CartPage extends ApplicationKeyword{
 		String ItemDescription=getProperty("ItemDesc");
 		typeIn(OR.MyCart_searchInCart,ItemDescription);
 		clickOn(OR.MyCart_addItemInCart);
+		waitTime(2);
+		if(isElementDisplayed(OR.MyCart_warningPopup, 10))
+		{      
+        	clickOn(OR.MyCart_continueButton);     
+        	waitTime(3);
+	    }
 		clickOn(OR.MyCart_drillDown);
 		clickOn(OR.MyCart_clearCurrentCart);
 		clickOn(OR.MyCart_yesInPopup);
@@ -314,6 +387,12 @@ public class CartPage extends ApplicationKeyword{
 		String ItemDescription=getProperty("ItemDesc");
 		typeIn(OR.MyCart_searchInCart,ItemDescription);
 		clickOn(OR.MyCart_addItemInCart);
+		waitTime(2);
+		if(isElementDisplayed(OR.MyCart_warningPopup, 10))
+		{      
+        	clickOn(OR.MyCart_continueButton);     
+        	waitTime(3);
+	    }
 		waitForElementToDisplay(OR.MyCart_cartIconNumber, 10);
 		String s2=getText(OR.MyCart_cartIconNumber);
 		int qtyInCartAfter=Integer.parseInt(s2);
@@ -371,7 +450,8 @@ public class CartPage extends ApplicationKeyword{
 	public void Tc_Cart_15()
 	{
 		testStarts("Tc_Cart_15" ,"Verify that show tour pops appear when user clicks on show tour option in dropdown next to refresh button.");
-		NavigateUrl(DashBoardURL);
+		//NavigateUrl(DashBoardURL);
+		Loginpage.OpenBrowserAndLogin();	
 		clickOn(OR.MyCart);
 		if(!MycartPage.boolcheckCartIsEmpty())
 		{
@@ -384,6 +464,12 @@ public class CartPage extends ApplicationKeyword{
 			String ItemDescription=getProperty("ItemDesc");
 			typeIn(OR.MyCart_searchInCart,ItemDescription);
 			clickOn(OR.MyCart_addItemInCart);
+			waitTime(2);
+			if(isElementDisplayed(OR.MyCart_warningPopup, 10))
+			{      
+	        	clickOn(OR.MyCart_continueButton);     
+	        	waitTime(3);
+		    }
 			MycartPage.showTourPopUP();		
 		}
 		WebElement searchParent = Generickeywords.webElement.findElement(By.xpath(".."));
@@ -409,16 +495,17 @@ public class CartPage extends ApplicationKeyword{
 			if(endBtnText.contains("End tour"))
 			{
 				testLogPass("Successfully Matched the Text 'End tour' with button '" + endBtnText + "'");
+				btns.get(1).click();
+				testLogPass("Click on :End tour");
 			}
 			else
 			{
 				testLogFail("Could not match Text 'End tour' with button '" + endBtnText + "'");
 			}		
-
-			btns.get(1).click();
-			testLogPass("Click on :End tour");
+			
 		}
-		
+		btns.get(1).click();
+		waitTime(3);
 
 	}
 

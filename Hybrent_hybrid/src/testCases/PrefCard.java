@@ -24,8 +24,8 @@ public class PrefCard extends ApplicationKeyword
 
 			extent = new ExtentReports(OutputDirectory+"/PrefCard.html", true);
 			// extent.addSystemInfo("Environment","Environment Name")
-			extent.addSystemInfo("User Name", "Harikrishnan");
-			extent.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
+			extent.addSystemInfo("User Name", "Ravneet");
+			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
 		
 		} catch (Exception e) {
 			testLogFail("unable to generate the pass report " + e.toString());
@@ -42,8 +42,6 @@ public class PrefCard extends ApplicationKeyword
 		PrefcardPageObject.prefCardPagePageLinkandwait();
 		waitForElementToDisplay(OR.prefCard_AddPrefCard, 10);
 		verifyElement(OR.prefCard_AddPrefCard);
-		
-		
 		}
 	
 	@Test(priority=2)
@@ -66,7 +64,7 @@ public class PrefCard extends ApplicationKeyword
 	}
 
 	@Test(priority=3)
-	public void Tc_prefCard_03()
+	public void Tc_prefCard_03_04()
 		{
 		testStarts("Tc_prefCard_03" , "Create Preference Card > Verify that 'Add Stage' pop-up appears when user click Add Stage button..");
 		NavigateUrl(DashBoardURL);	
@@ -75,18 +73,6 @@ public class PrefCard extends ApplicationKeyword
 		clickOn(OR.prefCard_AddPrefCard);
 		clickOn(OR.prefCard_addStage);
 		verifyElementText(OR.prefCard_addStageText, "Add Stage");
-		
-		}
-	
-	@Test(priority=4)
-	public void Tc_prefCard_04()
-		{
-		testStarts("Tc_prefCard_04" , "Create Preference Card > Add Stage > Verify that Name field is mandatory.");
-		NavigateUrl(DashBoardURL);	
-		PrefcardPageObject.prefCardPagePageLinkandwait();
-		waitForElementToDisplay(OR.prefCard_AddPrefCard, 10);
-		clickOn(OR.prefCard_AddPrefCard);
-		clickOn(OR.prefCard_addStage);
 		if(getAttributeValue(OR.prefCard_addStageName, "required")!=null)
 		{
 		testLogPass("Add Stage Name is mandatory field");
@@ -95,9 +81,30 @@ public class PrefCard extends ApplicationKeyword
 		{
 			testLogFail("Add Stage Name is not a mandatory field");
 		}
-		
-		
+		clickOn(OR.prefCard_CanelBUtton);
+		waitTime(2);	
 		}
+	
+//	@Test(priority=4)
+//	public void Tc_prefCard_04()
+//		{
+//		testStarts("Tc_prefCard_04" , "Create Preference Card > Add Stage > Verify that Name field is mandatory.");
+//		NavigateUrl(DashBoardURL);	
+//		PrefcardPageObject.prefCardPagePageLinkandwait();
+//		waitForElementToDisplay(OR.prefCard_AddPrefCard, 10);
+//		clickOn(OR.prefCard_AddPrefCard);
+//		clickOn(OR.prefCard_addStage);
+//		if(getAttributeValue(OR.prefCard_addStageName, "required")!=null)
+//		{
+//		testLogPass("Add Stage Name is mandatory field");
+//		}
+//		else
+//		{
+//			testLogFail("Add Stage Name is not a mandatory field");
+//		}
+//		
+//		
+//		}
 	
 //	@Test
 //	public void Tc_prefCard_05()
@@ -140,7 +147,7 @@ public class PrefCard extends ApplicationKeyword
 //		
 //		}
 	
-	@Test(priority=5)
+	@Test(priority=4)
 	public void Tc_prefCard_06()
 		{
 		testStarts("Tc_prefCard_06" , "Create Preference Card > Stage tab > Verify that user is able to search item on basis of Name, alias, SKU and MFR.");
@@ -158,7 +165,7 @@ public class PrefCard extends ApplicationKeyword
 				
 		}
 	
-	@Test(priority=6)
+	@Test(priority=5)
 	public void Tc_prefCard_07()
 		{
 		testStarts("Tc_prefCard_07" , "Create Preference Card > Stage tab > Verify that item category appears above item name.");
@@ -204,7 +211,7 @@ public class PrefCard extends ApplicationKeyword
 		
 		}
 	
-	@Test(priority=7)
+	@Test(priority=6)
 	public void Tc_prefCard_08()
 		{
 		testStarts("Tc_prefCard_08" , "Create Preference Card > Stage tab > Verify that item category appears above item name.");
@@ -231,7 +238,7 @@ public class PrefCard extends ApplicationKeyword
 		
 		}
 	
-	@Test(priority=8)
+	@Test(priority=7)
 	public void Tc_prefCard_09()
 		{
 		testStarts("Tc_prefCard_09" , "Create Preference Card > Stage tab > Verify that corresponding item gets deleted when user clicks Delete button.");
@@ -242,7 +249,7 @@ public class PrefCard extends ApplicationKeyword
 		verifyElementText(OR.prefCard_NoItemText ," No item in this stage.");
 		
 		}
-	@Test(priority=9)
+	@Test(priority=8)
 	public void Tc_prefCard_010()
 		{
 		testStarts("Tc_prefCard_10" , "Create Preference Card > Stage tab > Verify that corresponding stage gets deleted when user clicks Remove Stage button.");
@@ -312,6 +319,7 @@ public class PrefCard extends ApplicationKeyword
 		waitForElementToDisplay(OR.prefCard_searchTextBox, 10);
 		typeIn(OR.prefCard_searchTextBox, cardName);
 		waitForElementToDisplay(OR.prefCard_wait, 10);
+		waitTime(3);
 		if(getText(OR.prefCard_firstprefcard).contains(cardName))
 		{
 			clickOn(OR.prefCard_removePrefCard);

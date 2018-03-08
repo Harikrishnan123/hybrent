@@ -94,8 +94,8 @@ public class ManageInventoryPOpage extends ApplicationKeyword
 		waitForElementToDisplay(OR.manageInv_wait, 10);
 		clickOn(OR.manageInv_editItem);
 		clickOn(OR.ItemCatalog_VendorsTab);
-		clearEditBox(OR.ItemCatalog_gpo);
-		typeIn(OR.ItemCatalog_gpo, "30");
+		//clearEditBox(OR.ItemCatalog_gpo);
+		typeIn(OR.ItemCatalog_gpo, "3");
 		clickOn(OR.manageInv_InventoryTab);
 		List<WebElement> checkBoxes=driver.findElements(By.xpath("//*[contains(@id,'tbl_add_vendor')]/tbody[2]//input[@type='checkbox']"));		
 		System.out.println("CHK SIZE----"+checkBoxes.size());
@@ -107,7 +107,9 @@ public class ManageInventoryPOpage extends ApplicationKeyword
 			String s=String.valueOf(i);
 			chk.findElement(By.xpath("../..//input[@ng-model='inventory.qoh']")).clear();
 			chk.findElement(By.xpath("../..//input[@ng-model='inventory.qoh']")).sendKeys(s);
+			waitTime(1);
 		}
 		clickOn(OR.manageInv_SaveButton);
+		waitTime(2);
 	}
 }

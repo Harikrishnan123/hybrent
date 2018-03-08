@@ -29,8 +29,8 @@ public class Facility extends ApplicationKeyword{
 
 			extent = new ExtentReports(OutputDirectory+"/Facility.html", true);
 			// extent.addSystemInfo("Environment","Environment Name")
-			extent.addSystemInfo("User Name", "Harikrishnan");
-			extent.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
+			extent.addSystemInfo("User Name", "Ravneet");
+			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
 		
 		} catch (Exception e) {
 			testLogFail("unable to generate the pass report " + e.toString());
@@ -68,6 +68,8 @@ public class Facility extends ApplicationKeyword{
 		clickOn(OR.Facilty_AddFacilityButton);
 		waitForElementToDisplay(OR.Facilty_AddFacilityText, 10);
 		verifyElementText(OR.Facilty_AddFacilityText, "Add Facility");
+		clickOn(OR.Receive_PrintCloseclose);	
+		waitTime(3);
 		
 	}
 
@@ -102,7 +104,8 @@ public class Facility extends ApplicationKeyword{
 		{
 			testLogFail("Both the Lists Donot have same number of Tabs");
 		}
-
+		clickOn(OR.Receive_PrintCloseclose);	
+		waitTime(3);
 		
 	}
 
@@ -115,7 +118,8 @@ public class Facility extends ApplicationKeyword{
 		clickOn(OR.Facilty_EditFacility);	
 		waitForElementToDisplay(OR.Facilty_EditFacilityText, 10);
 		verifyElementText(OR.Facilty_EditFacilityText, "Edit Facility");
-		
+		clickOn(OR.Receive_PrintCloseclose);	
+		waitTime(3);
 	}
 
 	@Test(priority=5)
@@ -401,7 +405,9 @@ public class Facility extends ApplicationKeyword{
 			{
 				testLogFail("All fields are not editable");	
 			}
-		}		
+		}	
+		clickOn(OR.Receive_PrintCloseclose);	
+		waitTime(3);
 		
 	}
 
@@ -591,7 +597,6 @@ public class Facility extends ApplicationKeyword{
 	}
 
 	//Patterns
-	//Values put are static in nature, can be run only once(Pattern has to b shown on the top, so cannot use random )
 	@Test(priority=18)
 	public void Tc_Patterns_01_03()
 	{

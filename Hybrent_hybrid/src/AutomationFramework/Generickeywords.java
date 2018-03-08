@@ -1,5 +1,4 @@
 package AutomationFramework;
-
 import Utiliites.Common;
 import java.io.File;
 import java.io.FileInputStream;
@@ -35,15 +34,14 @@ import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.sikuli.script.Screen;
+//import org.sikuli.script.Screen;
 import org.testng.Assert;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-
 public class Generickeywords extends Common
 {
-	public static Screen sscreen=new Screen();
+	//public static Screen sscreen=new Screen();
 	public static ExtentReports extent;
 	public static ExtentTest logger;
 	public static WebDriver driver;
@@ -69,10 +67,11 @@ public class Generickeywords extends Common
 	public static Properties prop;
 	public static InputStream input = null;
 	public static String propsFileName =System.getProperty("user.dir")+"/projectconfiguration.properties";
-	public static String OutputDirectory =System.getProperty("user.dir") + "/test-output";
+	public static String OutputDirectory ="";
 	public static  JavascriptExecutor executor;
 	public static WebDriverWait wait ;
 	public static String DashBoardURL = "https://qa4.test.hybrent.com/b/#/dashboard";
+	public static String timeStamp = "";
 	
 	public static void openBrowser(String URL)
 	{
@@ -83,7 +82,7 @@ public class Generickeywords extends Common
 			prefs.put("profile.default_content_setting_values.notifications", 2);
 			ChromeOptions options = new ChromeOptions();
 			options.setExperimentalOption("prefs", prefs);
-			options.addArguments("--headless");
+			//options.addArguments("--headless");
 			driver = new ChromeDriver(options);
 			NavigateUrl(URL);
 			testLogPass("Open the url "+URL);
@@ -103,8 +102,10 @@ public class Generickeywords extends Common
 	{
 		try
 		{
+			Thread.sleep(1000);
 			driver.navigate().to(URL);
-			Thread.sleep(5000);
+			testLogPass("Open the url "+URL);
+			Thread.sleep(4000);
 		}		
 		catch(Exception e)
 		{ 
@@ -739,7 +740,6 @@ public class Generickeywords extends Common
 	{
 
 		try {
-			 wait.until(ExpectedConditions.titleContains(": MyTest"));
 			if (driver.getTitle().contains(partialTitle))
 			{
 
@@ -894,9 +894,9 @@ public class Generickeywords extends Common
 		waitForElementToDisplay(objLocator, elementLoadWaitTime);
 
 		try
-		{	waitforclick(locator);
-			executor.executeScript("arguments[0].click();", webElement);
-			//webElement.click();
+		{	//waitforclick(locator);
+			//executor.executeScript("arguments[0].click();", webElement);
+			webElement.click();
 			//System.out.println("Click on :" + locatorDescription);
 			ApplicationKeyword.testLogPass(  "Click on :" + locatorDescription);
 		}
@@ -1767,9 +1767,10 @@ public class Generickeywords extends Common
 				{
 					if (!webElementStatus)
 					{		
-						new WebDriverWait(driver, 40).until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+						//new WebDriverWait(driver, 40).until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
 						findWebElement(objLocator);
 						webElementStatus = true;
+						checkPageIsReady();
 					}
 					if (webElement.isDisplayed())
 					{
@@ -1826,6 +1827,28 @@ public class Generickeywords extends Common
 		}
 	}
 
+	public static void checkPageIsReady() {
+		try
+		{
+			JavascriptExecutor js = (JavascriptExecutor)driver;
+			//Initially bellow given if condition will check ready state of page.
+			if (js.executeScript("return document.readyState").toString().equals("complete"))
+			{
+				Thread.sleep(500);
+				System.out.println("Page Is loaded.");
+				return; 
+			}
+		}
+		catch (Exception e) {
+
+			testLogFail("unable to execute the menthod checkPageIsReady "+e.toString());
+		}
+
+
+	}
+
+	
+	
 	//Had to create overload because 'checkPageIsReady' is important in some scnearios
 	//Existing method neither waits nor calls this methos
 	//waitForElement method also does not call this method
@@ -1843,6 +1866,7 @@ public class Generickeywords extends Common
 					{
 						findWebElement(objLocator);
 						webElementStatus = true;
+						checkPageIsReady();
 					}
 					if (webElement.isDisplayed())
 					{

@@ -30,8 +30,8 @@ public class RequestService extends ApplicationKeyword{
 
 			extent = new ExtentReports(OutputDirectory+"/RequestService.html", true);
 			// extent.addSystemInfo("Environment","Environment Name")
-			extent.addSystemInfo("User Name", "Harikrishnan");
-			extent.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
+			extent.addSystemInfo("User Name", "Ravneet");
+			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
 		
 		} catch (Exception e) {
 			testLogFail("unable to generate the pass report " + e.toString());
@@ -134,7 +134,8 @@ public class RequestService extends ApplicationKeyword{
 		waitForElementToDisplay(OR.Request_drillDown, 20);
 		clickOn(OR.Request_drillDown);
 		clickOn(OR.Request_createNewService);
-		verifyElementText(OR.Request_createNewServicePopUpText, "Add Service");	
+		verifyElementText(OR.Request_createNewServicePopUpText, "Add Service");
+		clickOn(OR.Request_cancelPopUP);
 		
 
 	}

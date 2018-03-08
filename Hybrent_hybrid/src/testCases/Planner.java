@@ -26,8 +26,8 @@ public class Planner extends ApplicationKeyword
 
 			extent = new ExtentReports(OutputDirectory+"/Planner.html", true);
 			// extent.addSystemInfo("Environment","Environment Name")
-			extent.addSystemInfo("User Name", "Harikrishnan");
-			extent.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
+			extent.addSystemInfo("User Name", "Ravneet");
+			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
 		
 		} catch (Exception e) {
 			testLogFail("unable to generate the pass report " + e.toString());
@@ -83,8 +83,6 @@ public class Planner extends ApplicationKeyword
 		PrefcardPageObject.plannerPageLinkandwait();
 		clickOn(OR.Planner_datatime630);
 		verifyElementText(OR.Planner_createCaseHeading, "Schedule Case -");
-		
-				
 	}
 	
 	@AfterTest

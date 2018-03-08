@@ -26,8 +26,8 @@ public class Shipments  extends ApplicationKeyword
 
 			extent = new ExtentReports(OutputDirectory+"/Shipments.html", true);
 			// extent.addSystemInfo("Environment","Environment Name")
-			extent.addSystemInfo("User Name", "Harikrishnan");
-			extent.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
+			extent.addSystemInfo("User Name", "Ravneet");
+			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
 		
 		} catch (Exception e) {
 			testLogFail("unable to generate the pass report " + e.toString());
@@ -40,10 +40,11 @@ public class Shipments  extends ApplicationKeyword
 		testStarts("Tc_SPO_01", "Verify that user can search shipments by Shipment#, Tracking # and PO# ");
 		Loginpage.OpenBrowserAndLogin();
 		Shipmentpage.InitialSteps();
-		waitForElementToDisplay(OR.Shipment_wait, 10);
+		waitForElementToDisplay(OR.Shipment_wait, 20);
 		String ShipmentNum=getText(OR.Shipment_FirstShipmentNum);	
+		System.out.println(ShipmentNum);
 		String PoNum=getText(OR.Shipment_ShipmentPONum);
-		String TrackingNum=getText(OR.Shipment_TrackingNum);
+		System.out.println(PoNum);
 		typeIn(OR.Shipment_SearchTextBox, ShipmentNum); 
 		Shipmentpage.searchAndWait();			
 		verifyElementText(OR.Shipment_FirstShipmentNum, ShipmentNum);
@@ -52,9 +53,9 @@ public class Shipments  extends ApplicationKeyword
 		Shipmentpage.searchAndWait();
 		verifyElementText(OR.Shipment_ShipmentPONum, PoNum );
 		Shipmentpage.clearAndWait();
-		typeIn(OR.Shipment_SearchTextBox, TrackingNum); 
-		Shipmentpage.searchAndWait();
-		verifyElementText(OR.Shipment_TrackingNum, TrackingNum);
+//		typeIn(OR.Shipment_SearchTextBox, TrackingNum); 
+//		Shipmentpage.searchAndWait();
+//		verifyElementText(OR.Shipment_TrackingNum, TrackingNum);
 		
 	}
 
